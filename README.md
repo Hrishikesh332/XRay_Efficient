@@ -25,6 +25,11 @@ coldstart/
 └── requirements.txt        # Python dependencies
 ```
 
+
+##PPT
+
+[PPT](https://www.canva.com/design/DAG4wT15Gww/54n4fys1t5azDaRYSiynCA/edit?utm_content=DAG4wT15Gww&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
 ## Major Improvement over the EfficientNet B0 model
 
 Applied Differential learning rates - classifier (12x), first conv (2.5x), backbone (0.12x)
