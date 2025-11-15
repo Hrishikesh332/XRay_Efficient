@@ -1,0 +1,8 @@
+=== Job 227 started at Fri Nov 14 17:18:03 UTC 2025 on gpu-workers-0 ===
+=== Running: python train_single_hospital.py --hospital A --epochs 15 --batch-size 32 ===
+Traceback (most recent call last):
+  File "/scratch/team04/227/repo/train_single_hospital.py", line 17, in <module>
+    from coldstart.models import get_model, get_parameters
+ModuleNotFoundError: No module named 'coldstart'
+=== Copying best model ===
+=== Job 227 finished with exit code 1 ===

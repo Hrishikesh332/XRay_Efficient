@@ -1,0 +1,9 @@
+=== Job 1249 started at Sat Nov 15 10:42:12 UTC 2025 on gpu-workers-1 ===
+=== Running: flwr run /home/team04/Sarthi cluster-gpu ===
+Loading project configuration... 
+Project configuration could not be loaded.
+pyproject.toml is invalid:
+- Project configuration could not be loaded. `pyproject.toml` does not exist.
+
+=== Copying best model ===
+=== Job 1249 finished with exit code 0 ===

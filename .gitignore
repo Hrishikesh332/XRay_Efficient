@@ -40,8 +40,8 @@ data/
 *.pickle
 
 # Logs
-logs/
-*.log
+# logs/  # Commented out to allow pushing logs
+# *.log  # Commented out to allow pushing log files
 wandb/
 
 # Flower state

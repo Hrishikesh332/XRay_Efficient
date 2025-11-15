@@ -1,0 +1,1358 @@
+=== Job 414 started at Fri Nov 14 20:28:55 UTC 2025 on gpu-workers-0 ===
+=== Running: flwr run . cluster-gpu ===
+Loading project configuration... 
+Success
+[92mINFO [0m:      Device: AMD Instinct MI300X VF
+[92mINFO [0m:      W&B disabled (credentials not provided). Set WANDB_API_KEY, WANDB_ENTITY, and WANDB_PROJECT to enable.
+Downloading: "https://download.pytorch.org/models/efficientnet_b0_rwightman-7f5810bc.pth" to /tmp/job-414/xdg-cache/torch/hub/checkpoints/efficientnet_b0_rwightman-7f5810bc.pth
+  0%|          | 0.00/20.5M [00:00<?, ?B/s] 20%|██        | 4.12M/20.5M [00:00<00:00, 43.2MB/s] 77%|███████▋  | 15.8M/20.5M [00:00<00:00, 69.7MB/s]100%|██████████| 20.5M/20.5M [00:00<00:00, 61.9MB/s]
+[92mINFO [0m:      Starting HackathonFedAvg strategy:
+[92mINFO [0m:      	├── Number of rounds: 100
+[92mINFO [0m:      	├── ArrayRecord (15.49 MB)
+[92mINFO [0m:      	├── ConfigRecord (train): {'lr': 0.05}
+[92mINFO [0m:      	├── ConfigRecord (evaluate): (empty!)
+[92mINFO [0m:      	├──> Sampling:
+[92mINFO [0m:      	│	├──Fraction: train (1.00) | evaluate ( 1.00)
+[92mINFO [0m:      	│	├──Minimum nodes: train (2) | evaluate (2)
+[92mINFO [0m:      	│	└──Minimum available nodes: 2
+[92mINFO [0m:      	└──> Keys in records:
+[92mINFO [0m:      		├── Weighted by: 'num-examples'
+[92mINFO [0m:      		├── ArrayRecord key: 'arrays'
+[92mINFO [0m:      		└── ConfigRecord key: 'config'
+[92mINFO [0m:      
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 1/100]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+[36m(ClientAppActor pid=1928664)[0m /usr/lib/python3.12/multiprocessing/popen_fork.py:66: DeprecationWarning: This process (pid=1928664) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[36m(ClientAppActor pid=1928664)[0m   self.pid = os.fork()
+[36m(ClientAppActor pid=1928662)[0m /scratch/hackathon-venv/lib/python3.12/site-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.pin_memory() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:46.)
+[36m(ClientAppActor pid=1928662)[0m   return data.pin_memory(device)
+[36m(ClientAppActor pid=1928662)[0m /scratch/hackathon-venv/lib/python3.12/site-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.is_pinned() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:31.)
+[36m(ClientAppActor pid=1928662)[0m   return data.pin_memory(device)
+[91mERROR [0m:     An exception was raised when processing a message by RayBackend
+[91mERROR [0m:     [36mray::ClientAppActor.run()[39m (pid=1928662, ip=10.244.0.128, actor_id=09f6136c9caeecd49ad2410601000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x7ebad4655250>)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/clientapp/client_app.py", line 161, in __call__
+    return self._registered_funcs[full_name](message, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/client_app.py", line 31, in train
+    train_loss = train_fn(
+                 ^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/task.py", line 255, in train
+    outputs = net(x)
+              ^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/task.py", line 83, in forward
+    output = self.model(x)
+             ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 344, in forward
+    return self._forward_impl(x)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 334, in _forward_impl
+    x = self.features(x)
+        ^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 553, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in _conv_forward
+    return F.conv2d(
+           ^^^^^^^^^
+RuntimeError: expected scalar type Double but found Half
+
+The above exception was the direct cause of the following exception:
+
+[36mray::ClientAppActor.run()[39m (pid=1928662, ip=10.244.0.128, actor_id=09f6136c9caeecd49ad2410601000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x7ebad4655250>)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 64, in run
+    raise ClientAppException(str(ex)) from ex
+flwr.clientapp.client_app.ClientAppException: 
+Exception ClientAppException occurred. Message: expected scalar type Double but found Half
+[91mERROR [0m:     Traceback (most recent call last):
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/vce_api.py", line 124, in worker
+    out_mssg, updated_context = backend.process_message(message, context)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 189, in process_message
+    raise ex
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 176, in process_message
+    ) = self.pool.fetch_result_and_return_actor_to_pool(future)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 480, in fetch_result_and_return_actor_to_pool
+    _, out_mssg, updated_context = ray.get(future)
+                                   ^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/worker.py", line 2639, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/worker.py", line 864, in get_objects
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(ClientAppException): [36mray::ClientAppActor.run()[39m (pid=1928662, ip=10.244.0.128, actor_id=09f6136c9caeecd49ad2410601000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x7ebad4655250>)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/clientapp/client_app.py", line 161, in __call__
+    return self._registered_funcs[full_name](message, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/client_app.py", line 31, in train
+    train_loss = train_fn(
+                 ^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/task.py", line 255, in train
+    outputs = net(x)
+              ^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/task.py", line 83, in forward
+    output = self.model(x)
+             ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 344, in forward
+    return self._forward_impl(x)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 334, in _forward_impl
+    x = self.features(x)
+        ^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 553, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in _conv_forward
+    return F.conv2d(
+           ^^^^^^^^^
+RuntimeError: expected scalar type Double but found Half
+
+The above exception was the direct cause of the following exception:
+
+[36mray::ClientAppActor.run()[39m (pid=1928662, ip=10.244.0.128, actor_id=09f6136c9caeecd49ad2410601000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x7ebad4655250>)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 64, in run
+    raise ClientAppException(str(ex)) from ex
+flwr.clientapp.client_app.ClientAppException: 
+Exception ClientAppException occurred. Message: expected scalar type Double but found Half
+
+[36m(ClientAppActor pid=1928664)[0m [W1114 20:29:24.028580366 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[91mERROR [0m:     An exception was raised when processing a message by RayBackend
+[91mERROR [0m:     [36mray::ClientAppActor.run()[39m (pid=1928663, ip=10.244.0.128, actor_id=f219392faca9477a04f0509d01000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x70950d0ff3e0>)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/clientapp/client_app.py", line 161, in __call__
+    return self._registered_funcs[full_name](message, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/client_app.py", line 31, in train
+    train_loss = train_fn(
+                 ^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/task.py", line 255, in train
+    outputs = net(x)
+              ^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/task.py", line 83, in forward
+    output = self.model(x)
+             ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 344, in forward
+    return self._forward_impl(x)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 334, in _forward_impl
+    x = self.features(x)
+        ^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 553, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in _conv_forward
+    return F.conv2d(
+           ^^^^^^^^^
+RuntimeError: expected scalar type Double but found Half
+
+The above exception was the direct cause of the following exception:
+
+[36mray::ClientAppActor.run()[39m (pid=1928663, ip=10.244.0.128, actor_id=f219392faca9477a04f0509d01000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x70950d0ff3e0>)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 64, in run
+    raise ClientAppException(str(ex)) from ex
+flwr.clientapp.client_app.ClientAppException: 
+Exception ClientAppException occurred. Message: expected scalar type Double but found Half
+[91mERROR [0m:     Traceback (most recent call last):
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/vce_api.py", line 124, in worker
+    out_mssg, updated_context = backend.process_message(message, context)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 189, in process_message
+    raise ex
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 176, in process_message
+    ) = self.pool.fetch_result_and_return_actor_to_pool(future)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 480, in fetch_result_and_return_actor_to_pool
+    _, out_mssg, updated_context = ray.get(future)
+                                   ^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/worker.py", line 2639, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/worker.py", line 864, in get_objects
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(ClientAppException): [36mray::ClientAppActor.run()[39m (pid=1928663, ip=10.244.0.128, actor_id=f219392faca9477a04f0509d01000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x70950d0ff3e0>)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/clientapp/client_app.py", line 161, in __call__
+    return self._registered_funcs[full_name](message, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/client_app.py", line 31, in train
+    train_loss = train_fn(
+                 ^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/task.py", line 255, in train
+    outputs = net(x)
+              ^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/task.py", line 83, in forward
+    output = self.model(x)
+             ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 344, in forward
+    return self._forward_impl(x)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 334, in _forward_impl
+    x = self.features(x)
+        ^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 553, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in _conv_forward
+    return F.conv2d(
+           ^^^^^^^^^
+RuntimeError: expected scalar type Double but found Half
+
+The above exception was the direct cause of the following exception:
+
+[36mray::ClientAppActor.run()[39m (pid=1928663, ip=10.244.0.128, actor_id=f219392faca9477a04f0509d01000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x70950d0ff3e0>)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 64, in run
+    raise ClientAppException(str(ex)) from ex
+flwr.clientapp.client_app.ClientAppException: 
+Exception ClientAppException occurred. Message: expected scalar type Double but found Half
+
+[91mERROR [0m:     An exception was raised when processing a message by RayBackend
+[91mERROR [0m:     [36mray::ClientAppActor.run()[39m (pid=1928664, ip=10.244.0.128, actor_id=9a3e956d341bd652acd9f8cf01000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x756b341bc6e0>)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/clientapp/client_app.py", line 161, in __call__
+    return self._registered_funcs[full_name](message, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/client_app.py", line 31, in train
+    train_loss = train_fn(
+                 ^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/task.py", line 255, in train
+    outputs = net(x)
+              ^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/task.py", line 83, in forward
+    output = self.model(x)
+             ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 344, in forward
+    return self._forward_impl(x)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 334, in _forward_impl
+    x = self.features(x)
+        ^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 553, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in _conv_forward
+    return F.conv2d(
+           ^^^^^^^^^
+RuntimeError: expected scalar type Double but found Half
+
+The above exception was the direct cause of the following exception:
+
+[36mray::ClientAppActor.run()[39m (pid=1928664, ip=10.244.0.128, actor_id=9a3e956d341bd652acd9f8cf01000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x756b341bc6e0>)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 64, in run
+    raise ClientAppException(str(ex)) from ex
+flwr.clientapp.client_app.ClientAppException: 
+Exception ClientAppException occurred. Message: expected scalar type Double but found Half
+[91mERROR [0m:     Traceback (most recent call last):
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/vce_api.py", line 124, in worker
+    out_mssg, updated_context = backend.process_message(message, context)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 189, in process_message
+    raise ex
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 176, in process_message
+    ) = self.pool.fetch_result_and_return_actor_to_pool(future)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 480, in fetch_result_and_return_actor_to_pool
+    _, out_mssg, updated_context = ray.get(future)
+                                   ^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/worker.py", line 2639, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/worker.py", line 864, in get_objects
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(ClientAppException): [36mray::ClientAppActor.run()[39m (pid=1928664, ip=10.244.0.128, actor_id=9a3e956d341bd652acd9f8cf01000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x756b341bc6e0>)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/clientapp/client_app.py", line 161, in __call__
+    return self._registered_funcs[full_name](message, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/client_app.py", line 31, in train
+    train_loss = train_fn(
+                 ^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/task.py", line 255, in train
+    outputs = net(x)
+              ^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/task.py", line 83, in forward
+    output = self.model(x)
+             ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 344, in forward
+    return self._forward_impl(x)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 334, in _forward_impl
+    x = self.features(x)
+        ^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 553, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in _conv_forward
+    return F.conv2d(
+           ^^^^^^^^^
+RuntimeError: expected scalar type Double but found Half
+
+The above exception was the direct cause of the following exception:
+
+[36mray::ClientAppActor.run()[39m (pid=1928664, ip=10.244.0.128, actor_id=9a3e956d341bd652acd9f8cf01000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x756b341bc6e0>)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 64, in run
+    raise ClientAppException(str(ex)) from ex
+flwr.clientapp.client_app.ClientAppException: 
+Exception ClientAppException occurred. Message: expected scalar type Double but found Half
+
+[92mINFO [0m:      aggregate_train: Received 0 results and 3 failures
+[92mINFO [0m:      	> Received error in reply from node 6321822730821449291: <class 'ray.exceptions.RayTaskError(ClientAppException)'>:<'[36mray::ClientAppActor.run()[39m (pid=1928662, ip=10.244.0.128, actor_id=09f6136c9caeecd49ad2410601000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x7ebad4655250>)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/clientapp/client_app.py", line 161, in __call__
+    return self._registered_funcs[full_name](message, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/client_app.py", line 31, in train
+    train_loss = train_fn(
+                 ^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/task.py", line 255, in train
+    outputs = net(x)
+              ^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/task.py", line 83, in forward
+    output = self.model(x)
+             ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 344, in forward
+    return self._forward_impl(x)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 334, in _forward_impl
+    x = self.features(x)
+        ^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 553, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in _conv_forward
+    return F.conv2d(
+           ^^^^^^^^^
+RuntimeError: expected scalar type Double but found Half
+
+The above exception was the direct cause of the following exception:
+
+[36mray::ClientAppActor.run()[39m (pid=1928662, ip=10.244.0.128, actor_id=09f6136c9caeecd49ad2410601000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x7ebad4655250>)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 64, in run
+    raise ClientAppException(str(ex)) from ex
+flwr.clientapp.client_app.ClientAppException: 
+Exception ClientAppException occurred. Message: expected scalar type Double but found Half'>
+[92mINFO [0m:      	> Received error in reply from node 3101668918635959570: <class 'ray.exceptions.RayTaskError(ClientAppException)'>:<'[36mray::ClientAppActor.run()[39m (pid=1928663, ip=10.244.0.128, actor_id=f219392faca9477a04f0509d01000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x70950d0ff3e0>)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/clientapp/client_app.py", line 161, in __call__
+    return self._registered_funcs[full_name](message, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/client_app.py", line 31, in train
+    train_loss = train_fn(
+                 ^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/task.py", line 255, in train
+    outputs = net(x)
+              ^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/task.py", line 83, in forward
+    output = self.model(x)
+             ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 344, in forward
+    return self._forward_impl(x)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 334, in _forward_impl
+    x = self.features(x)
+        ^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 553, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in _conv_forward
+    return F.conv2d(
+           ^^^^^^^^^
+RuntimeError: expected scalar type Double but found Half
+
+The above exception was the direct cause of the following exception:
+
+[36mray::ClientAppActor.run()[39m (pid=1928663, ip=10.244.0.128, actor_id=f219392faca9477a04f0509d01000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x70950d0ff3e0>)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 64, in run
+    raise ClientAppException(str(ex)) from ex
+flwr.clientapp.client_app.ClientAppException: 
+Exception ClientAppException occurred. Message: expected scalar type Double but found Half'>
+[92mINFO [0m:      	> Received error in reply from node 4535343384290318755: <class 'ray.exceptions.RayTaskError(ClientAppException)'>:<'[36mray::ClientAppActor.run()[39m (pid=1928664, ip=10.244.0.128, actor_id=9a3e956d341bd652acd9f8cf01000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x756b341bc6e0>)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/clientapp/client_app.py", line 161, in __call__
+    return self._registered_funcs[full_name](message, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/client_app.py", line 31, in train
+    train_loss = train_fn(
+                 ^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/task.py", line 255, in train
+    outputs = net(x)
+              ^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/task.py", line 83, in forward
+    output = self.model(x)
+             ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 344, in forward
+    return self._forward_impl(x)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 334, in _forward_impl
+    x = self.features(x)
+        ^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 553, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in _conv_forward
+    return F.conv2d(
+           ^^^^^^^^^
+RuntimeError: expected scalar type Double but found Half
+
+The above exception was the direct cause of the following exception:
+
+[36mray::ClientAppActor.run()[39m (pid=1928664, ip=10.244.0.128, actor_id=9a3e956d341bd652acd9f8cf01000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x756b341bc6e0>)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 64, in run
+    raise ClientAppException(str(ex)) from ex
+flwr.clientapp.client_app.ClientAppException: 
+Exception ClientAppException occurred. Message: expected scalar type Double but found Half'>
+[92mINFO [0m:      configure_evaluate: Sampled 3 nodes (out of 3)
+[91mERROR [0m:     An exception was raised when processing a message by RayBackend
+[91mERROR [0m:     [36mray::ClientAppActor.run()[39m (pid=1928664, ip=10.244.0.128, actor_id=9a3e956d341bd652acd9f8cf01000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x756b341bc6e0>)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/clientapp/client_app.py", line 161, in __call__
+    return self._registered_funcs[full_name](message, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/client_app.py", line 64, in evaluate
+    eval_loss, tp, tn, fp, fn, probs, labels = test_fn(model, valloader, device)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/task.py", line 361, in test
+    outputs = net(x)
+              ^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/task.py", line 83, in forward
+    output = self.model(x)
+             ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 344, in forward
+    return self._forward_impl(x)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 334, in _forward_impl
+    x = self.features(x)
+        ^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 553, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in _conv_forward
+    return F.conv2d(
+           ^^^^^^^^^
+RuntimeError: expected scalar type Double but found Half
+
+The above exception was the direct cause of the following exception:
+
+[36mray::ClientAppActor.run()[39m (pid=1928664, ip=10.244.0.128, actor_id=9a3e956d341bd652acd9f8cf01000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x756b341bc6e0>)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 64, in run
+    raise ClientAppException(str(ex)) from ex
+flwr.clientapp.client_app.ClientAppException: 
+Exception ClientAppException occurred. Message: expected scalar type Double but found Half
+[91mERROR [0m:     Traceback (most recent call last):
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/vce_api.py", line 124, in worker
+    out_mssg, updated_context = backend.process_message(message, context)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 189, in process_message
+    raise ex
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 176, in process_message
+    ) = self.pool.fetch_result_and_return_actor_to_pool(future)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 480, in fetch_result_and_return_actor_to_pool
+    _, out_mssg, updated_context = ray.get(future)
+                                   ^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/worker.py", line 2639, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/worker.py", line 864, in get_objects
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(ClientAppException): [36mray::ClientAppActor.run()[39m (pid=1928664, ip=10.244.0.128, actor_id=9a3e956d341bd652acd9f8cf01000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x756b341bc6e0>)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/clientapp/client_app.py", line 161, in __call__
+    return self._registered_funcs[full_name](message, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/client_app.py", line 64, in evaluate
+    eval_loss, tp, tn, fp, fn, probs, labels = test_fn(model, valloader, device)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/task.py", line 361, in test
+    outputs = net(x)
+              ^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/task.py", line 83, in forward
+    output = self.model(x)
+             ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 344, in forward
+    return self._forward_impl(x)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 334, in _forward_impl
+    x = self.features(x)
+        ^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 553, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in _conv_forward
+    return F.conv2d(
+           ^^^^^^^^^
+RuntimeError: expected scalar type Double but found Half
+
+The above exception was the direct cause of the following exception:
+
+[36mray::ClientAppActor.run()[39m (pid=1928664, ip=10.244.0.128, actor_id=9a3e956d341bd652acd9f8cf01000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x756b341bc6e0>)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 64, in run
+    raise ClientAppException(str(ex)) from ex
+flwr.clientapp.client_app.ClientAppException: 
+Exception ClientAppException occurred. Message: expected scalar type Double but found Half
+
+[91mERROR [0m:     An exception was raised when processing a message by RayBackend
+[91mERROR [0m:     [36mray::ClientAppActor.run()[39m (pid=1928662, ip=10.244.0.128, actor_id=09f6136c9caeecd49ad2410601000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x7ebad4655250>)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/clientapp/client_app.py", line 161, in __call__
+    return self._registered_funcs[full_name](message, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/client_app.py", line 64, in evaluate
+    eval_loss, tp, tn, fp, fn, probs, labels = test_fn(model, valloader, device)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/task.py", line 361, in test
+    outputs = net(x)
+              ^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/task.py", line 83, in forward
+    output = self.model(x)
+             ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 344, in forward
+    return self._forward_impl(x)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 334, in _forward_impl
+    x = self.features(x)
+        ^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 553, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in _conv_forward
+    return F.conv2d(
+           ^^^^^^^^^
+RuntimeError: expected scalar type Double but found Half
+
+The above exception was the direct cause of the following exception:
+
+[36mray::ClientAppActor.run()[39m (pid=1928662, ip=10.244.0.128, actor_id=09f6136c9caeecd49ad2410601000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x7ebad4655250>)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 64, in run
+    raise ClientAppException(str(ex)) from ex
+flwr.clientapp.client_app.ClientAppException: 
+Exception ClientAppException occurred. Message: expected scalar type Double but found Half
+[91mERROR [0m:     Traceback (most recent call last):
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/vce_api.py", line 124, in worker
+    out_mssg, updated_context = backend.process_message(message, context)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 189, in process_message
+    raise ex
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 176, in process_message
+    ) = self.pool.fetch_result_and_return_actor_to_pool(future)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 480, in fetch_result_and_return_actor_to_pool
+    _, out_mssg, updated_context = ray.get(future)
+                                   ^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/worker.py", line 2639, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/worker.py", line 864, in get_objects
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(ClientAppException): [36mray::ClientAppActor.run()[39m (pid=1928662, ip=10.244.0.128, actor_id=09f6136c9caeecd49ad2410601000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x7ebad4655250>)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/clientapp/client_app.py", line 161, in __call__
+    return self._registered_funcs[full_name](message, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/client_app.py", line 64, in evaluate
+    eval_loss, tp, tn, fp, fn, probs, labels = test_fn(model, valloader, device)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/task.py", line 361, in test
+    outputs = net(x)
+              ^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/task.py", line 83, in forward
+    output = self.model(x)
+             ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 344, in forward
+    return self._forward_impl(x)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 334, in _forward_impl
+    x = self.features(x)
+        ^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 553, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in _conv_forward
+    return F.conv2d(
+           ^^^^^^^^^
+RuntimeError: expected scalar type Double but found Half
+
+The above exception was the direct cause of the following exception:
+
+[36mray::ClientAppActor.run()[39m (pid=1928662, ip=10.244.0.128, actor_id=09f6136c9caeecd49ad2410601000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x7ebad4655250>)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 64, in run
+    raise ClientAppException(str(ex)) from ex
+flwr.clientapp.client_app.ClientAppException: 
+Exception ClientAppException occurred. Message: expected scalar type Double but found Half
+
+[91mERROR [0m:     An exception was raised when processing a message by RayBackend
+[91mERROR [0m:     [36mray::ClientAppActor.run()[39m (pid=1928663, ip=10.244.0.128, actor_id=f219392faca9477a04f0509d01000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x70950d0ff3e0>)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/clientapp/client_app.py", line 161, in __call__
+    return self._registered_funcs[full_name](message, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/client_app.py", line 64, in evaluate
+    eval_loss, tp, tn, fp, fn, probs, labels = test_fn(model, valloader, device)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/task.py", line 361, in test
+    outputs = net(x)
+              ^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/task.py", line 83, in forward
+    output = self.model(x)
+             ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 344, in forward
+    return self._forward_impl(x)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 334, in _forward_impl
+    x = self.features(x)
+        ^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 553, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in _conv_forward
+    return F.conv2d(
+           ^^^^^^^^^
+RuntimeError: expected scalar type Double but found Half
+
+The above exception was the direct cause of the following exception:
+
+[36mray::ClientAppActor.run()[39m (pid=1928663, ip=10.244.0.128, actor_id=f219392faca9477a04f0509d01000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x70950d0ff3e0>)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 64, in run
+    raise ClientAppException(str(ex)) from ex
+flwr.clientapp.client_app.ClientAppException: 
+Exception ClientAppException occurred. Message: expected scalar type Double but found Half
+[91mERROR [0m:     Traceback (most recent call last):
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/vce_api.py", line 124, in worker
+    out_mssg, updated_context = backend.process_message(message, context)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 189, in process_message
+    raise ex
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 176, in process_message
+    ) = self.pool.fetch_result_and_return_actor_to_pool(future)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 480, in fetch_result_and_return_actor_to_pool
+    _, out_mssg, updated_context = ray.get(future)
+                                   ^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/worker.py", line 2639, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/worker.py", line 864, in get_objects
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(ClientAppException): [36mray::ClientAppActor.run()[39m (pid=1928663, ip=10.244.0.128, actor_id=f219392faca9477a04f0509d01000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x70950d0ff3e0>)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/clientapp/client_app.py", line 161, in __call__
+    return self._registered_funcs[full_name](message, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/client_app.py", line 64, in evaluate
+    eval_loss, tp, tn, fp, fn, probs, labels = test_fn(model, valloader, device)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/task.py", line 361, in test
+    outputs = net(x)
+              ^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/task.py", line 83, in forward
+    output = self.model(x)
+             ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 344, in forward
+    return self._forward_impl(x)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torchvision/models/efficientnet.py", line 334, in _forward_impl
+    x = self.features(x)
+        ^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 553, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in _conv_forward
+    return F.conv2d(
+           ^^^^^^^^^
+RuntimeError: expected scalar type Double but found Half
+
+The above exception was the direct cause of the following exception:
+
+[36mray::ClientAppActor.run()[39m (pid=1928663, ip=10.244.0.128, actor_id=f219392faca9477a04f0509d01000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x70950d0ff3e0>)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 64, in run
+    raise ClientAppException(str(ex)) from ex
+flwr.clientapp.client_app.ClientAppException: 
+Exception ClientAppException occurred. Message: expected scalar type Double but found Half
+
+[91mERROR [0m:     ServerApp thread raised an exception: Message content is None. Use <message>.has_content() to check if a message has content.
+[91mERROR [0m:     Traceback (most recent call last):
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/run_simulation.py", line 284, in server_th_with_start_checks
+    updated_context = _run(
+                      ^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/server/run_serverapp.py", line 62, in run
+    server_app(grid=grid, context=context)
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/server/server_app.py", line 176, in __call__
+    self._main(grid, context)
+  File "/scratch/team04/414/repo/cold_start_hackathon/server_app.py", line 67, in main
+    result = strategy.start(
+             ^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/serverapp/strategy/strategy.py", line 254, in start
+    agg_evaluate_metrics = self.aggregate_evaluate(
+                           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/server_app.py", line 95, in aggregate_evaluate
+    agg_metrics = compute_aggregated_metrics(replies)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/util.py", line 40, in compute_aggregated_metrics
+    all_probs = [p for r in replies for p in r.content["metrics"]["probs"]]
+                                             ^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/common/message.py", line 236, in content
+    raise ValueError(
+ValueError: Message content is None. Use <message>.has_content() to check if a message has content.
+
+Exception in thread Thread-1 (server_th_with_start_checks):
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/threading.py", line 1073, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.12/threading.py", line 1010, in run
+    self._target(*self._args, **self._kwargs)
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/run_simulation.py", line 284, in server_th_with_start_checks
+    updated_context = _run(
+                      ^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/server/run_serverapp.py", line 62, in run
+    server_app(grid=grid, context=context)
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/server/server_app.py", line 176, in __call__
+    self._main(grid, context)
+  File "/scratch/team04/414/repo/cold_start_hackathon/server_app.py", line 67, in main
+    result = strategy.start(
+             ^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/serverapp/strategy/strategy.py", line 254, in start
+    agg_evaluate_metrics = self.aggregate_evaluate(
+                           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/server_app.py", line 95, in aggregate_evaluate
+    agg_metrics = compute_aggregated_metrics(replies)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/414/repo/cold_start_hackathon/util.py", line 40, in compute_aggregated_metrics
+    all_probs = [p for r in replies for p in r.content["metrics"]["probs"]]
+                                             ^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/common/message.py", line 236, in content
+    raise ValueError(
+ValueError: Message content is None. Use <message>.has_content() to check if a message has content.
+[36m(ClientAppActor pid=1928662)[0m /usr/lib/python3.12/multiprocessing/popen_fork.py:66: DeprecationWarning: This process (pid=1928662) is multi-threaded, use of fork() may lead to deadlocks in the child.[32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=1928662)[0m   self.pid = os.fork()[32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=1928664)[0m /scratch/hackathon-venv/lib/python3.12/site-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.pin_memory() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:46.)[32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=1928664)[0m   return data.pin_memory(device)[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1928664)[0m /scratch/hackathon-venv/lib/python3.12/site-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.is_pinned() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:31.)[32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=1928663)[0m [W1114 20:29:25.163914772 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=1928663)[0m Training on device: cuda:0
+[36m(ClientAppActor pid=1928663)[0m Loaded /home/team04/xray-data/xray_fl_datasets_preprocessed_128/HospitalA/train
+[36m(ClientAppActor pid=1928664)[0m Training on device: cuda:0[32m [repeated 2x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(ClientAppActor pid=1928664)[0m Loaded /home/team04/xray-data/xray_fl_datasets_preprocessed_128/HospitalA/eval[32m [repeated 5x across cluster][0m
+Traceback (most recent call last):
+  File "/scratch/hackathon-venv/bin/flower-simulation", line 8, in <module>
+    sys.exit(run_simulation_from_cli())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/run_simulation.py", line 156, in run_simulation_from_cli
+    _ = _run_simulation(
+        ^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/run_simulation.py", line 523, in _run_simulation
+    updated_context = _main_loop(*args)
+                      ^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/run_simulation.py", line 421, in _main_loop
+    raise RuntimeError("Exception in ServerApp thread")
+RuntimeError: Exception in ServerApp thread
+Command '['flower-simulation', '--app', '.', '--num-supernodes', '3', '--backend-config', '{"client-resources": {"num-cpus": 2, "num-gpus": 0.33}}']' returned non-zero exit status 1.
+=== Copying best model ===
+=== Job 414 finished with exit code 0 ===

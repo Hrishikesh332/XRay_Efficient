@@ -1,0 +1,9 @@
+=== Job 155 started at Fri Nov 14 15:50:25 UTC 2025 on gpu-workers-0 ===
+=== Running: flwr run ===
+Loading project configuration... 
+Project configuration could not be loaded.
+pyproject.toml is invalid:
+- Project configuration could not be loaded. `pyproject.toml` does not exist.
+
+=== Copying best model ===
+=== Job 155 finished with exit code 0 ===

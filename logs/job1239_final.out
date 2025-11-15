@@ -1,0 +1,300 @@
+=== Job 1239 started at Sat Nov 15 10:35:22 UTC 2025 on gpu-workers-0 ===
+=== Running: flwr run . cluster-gpu ===
+Loading project configuration... 
+Success
+[92mINFO [0m:      Device: AMD Instinct MI300X VF
+[92mINFO [0m:      W&B disabled (credentials not provided). Set WANDB_API_KEY, WANDB_ENTITY, and WANDB_PROJECT to enable.
+Downloading: "https://download.pytorch.org/models/efficientnet_b0_rwightman-7f5810bc.pth" to /tmp/job-1239/xdg-cache/torch/hub/checkpoints/efficientnet_b0_rwightman-7f5810bc.pth
+  0%|          | 0.00/20.5M [00:00<?, ?B/s]100%|██████████| 20.5M/20.5M [00:00<00:00, 395MB/s]
+[92mINFO [0m:      Starting HackathonFedAvg strategy:
+[92mINFO [0m:      	├── Number of rounds: 100
+[92mINFO [0m:      	├── ArrayRecord (15.49 MB)
+[92mINFO [0m:      	├── ConfigRecord (train): {'lr': 0.03}
+[92mINFO [0m:      	├── ConfigRecord (evaluate): (empty!)
+[92mINFO [0m:      	├──> Sampling:
+[92mINFO [0m:      	│	├──Fraction: train (1.00) | evaluate ( 1.00)
+[92mINFO [0m:      	│	├──Minimum nodes: train (2) | evaluate (2)
+[92mINFO [0m:      	│	└──Minimum available nodes: 2
+[92mINFO [0m:      	└──> Keys in records:
+[92mINFO [0m:      		├── Weighted by: 'num-examples'
+[92mINFO [0m:      		├── ArrayRecord key: 'arrays'
+[92mINFO [0m:      		└── ConfigRecord key: 'config'
+[92mINFO [0m:      
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 1/100]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+[36m(ClientAppActor pid=1680582)[0m /usr/lib/python3.12/multiprocessing/popen_fork.py:66: DeprecationWarning: This process (pid=1680582) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[36m(ClientAppActor pid=1680582)[0m   self.pid = os.fork()
+[36m(ClientAppActor pid=1680582)[0m /scratch/hackathon-venv/lib/python3.12/site-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.pin_memory() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:46.)
+[36m(ClientAppActor pid=1680582)[0m   return data.pin_memory(device)
+[36m(ClientAppActor pid=1680582)[0m /scratch/hackathon-venv/lib/python3.12/site-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.is_pinned() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:31.)
+[36m(ClientAppActor pid=1680582)[0m   return data.pin_memory(device)
+[36m(ClientAppActor pid=1680583)[0m /scratch/team04/1239/repo/cold_start_hackathon/task.py:332: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+[36m(ClientAppActor pid=1680583)[0m   scheduler.step()
+[36m(ClientAppActor pid=1680583)[0m /usr/lib/python3.12/multiprocessing/popen_fork.py:66: DeprecationWarning: This process (pid=1680583) is multi-threaded, use of fork() may lead to deadlocks in the child.[32m [repeated 2x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(ClientAppActor pid=1680583)[0m   self.pid = os.fork()[32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=1680581)[0m /scratch/hackathon-venv/lib/python3.12/site-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.pin_memory() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:46.)[32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=1680581)[0m   return data.pin_memory(device)[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1680581)[0m /scratch/hackathon-venv/lib/python3.12/site-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.is_pinned() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:31.)[32m [repeated 2x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 3 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'partition-id': 0.7453931785883467, 'train_loss': 0.44052135849641144}
+[92mINFO [0m:      configure_evaluate: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      METRICS BY HOSPITAL
+[92mINFO [0m:        HospitalC (n=2730):
+[92mINFO [0m:          auroc       : 0.6474
+[92mINFO [0m:          eval_loss   : 0.7642
+[92mINFO [0m:          sensitivity : 0.0000
+[92mINFO [0m:          specificity : 1.0000
+[92mINFO [0m:          precision   : 0.0000
+[92mINFO [0m:          f1          : 0.0000
+[92mINFO [0m:        HospitalB (n=2860):
+[92mINFO [0m:          auroc       : 0.6678
+[92mINFO [0m:          eval_loss   : 0.6672
+[92mINFO [0m:          sensitivity : 0.0000
+[92mINFO [0m:          specificity : 1.0000
+[92mINFO [0m:          precision   : 0.0000
+[92mINFO [0m:          f1          : 0.0000
+[92mINFO [0m:        HospitalA (n=5490):
+[92mINFO [0m:          auroc       : 0.6519
+[92mINFO [0m:          eval_loss   : 0.7316
+[92mINFO [0m:          sensitivity : 0.0000
+[92mINFO [0m:          specificity : 1.0000
+[92mINFO [0m:          precision   : 0.0000
+[92mINFO [0m:          f1          : 0.0000
+[92mINFO [0m:      AGGREGATED METRICS:
+[92mINFO [0m:        auroc       : 0.6584
+[92mINFO [0m:        sensitivity : 0.0000
+[92mINFO [0m:        specificity : 1.0000
+[92mINFO [0m:        precision   : 0.0000
+[92mINFO [0m:        f1          : 0.0000
+[92mINFO [0m:      ✓ New best model! Round 1, AUROC: 0.6584
+[92mINFO [0m:        Model saved to models/job1239_final_round1_auroc6583.pt
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'auroc': 0.6583934960463378, 'sensitivity': 0.0, 'specificity': 1.0, 'precision': 0.0, 'f1': 0.0}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 2/100]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      aggregate_train: Received 3 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'partition-id': 0.7453931785883467, 'train_loss': 0.2082233175612088}
+[92mINFO [0m:      configure_evaluate: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      METRICS BY HOSPITAL
+[92mINFO [0m:        HospitalC (n=2730):
+[92mINFO [0m:          auroc       : 0.6800
+[92mINFO [0m:          eval_loss   : 0.6953
+[92mINFO [0m:          sensitivity : 0.0000
+[92mINFO [0m:          specificity : 1.0000
+[92mINFO [0m:          precision   : 0.0000
+[92mINFO [0m:          f1          : 0.0000
+[92mINFO [0m:        HospitalB (n=2860):
+[92mINFO [0m:          auroc       : 0.7169
+[92mINFO [0m:          eval_loss   : 0.6757
+[92mINFO [0m:          sensitivity : 0.0000
+[92mINFO [0m:          specificity : 1.0000
+[92mINFO [0m:          precision   : 0.0000
+[92mINFO [0m:          f1          : 0.0000
+[92mINFO [0m:        HospitalA (n=5490):
+[92mINFO [0m:          auroc       : 0.7009
+[92mINFO [0m:          eval_loss   : 0.6887
+[92mINFO [0m:          sensitivity : 0.0000
+[92mINFO [0m:          specificity : 1.0000
+[92mINFO [0m:          precision   : 0.0000
+[92mINFO [0m:          f1          : 0.0000
+[92mINFO [0m:      AGGREGATED METRICS:
+[92mINFO [0m:        auroc       : 0.7046
+[92mINFO [0m:        sensitivity : 0.0000
+[92mINFO [0m:        specificity : 1.0000
+[92mINFO [0m:        precision   : 0.0000
+[92mINFO [0m:        f1          : 0.0000
+[92mINFO [0m:      ✓ New best model! Round 2, AUROC: 0.7046
+[92mINFO [0m:        Model saved to models/job1239_final_round2_auroc7046.pt
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'auroc': 0.7046219680106957, 'sensitivity': 0.0, 'specificity': 1.0, 'precision': 0.0, 'f1': 0.0}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 3/100]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      aggregate_train: Received 3 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'partition-id': 0.7453931785883467, 'train_loss': 0.16673767976721499}
+[92mINFO [0m:      configure_evaluate: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      METRICS BY HOSPITAL
+[92mINFO [0m:        HospitalC (n=2730):
+[92mINFO [0m:          auroc       : 0.7038
+[92mINFO [0m:          eval_loss   : 0.6815
+[92mINFO [0m:          sensitivity : 0.6360
+[92mINFO [0m:          specificity : 0.6768
+[92mINFO [0m:          precision   : 0.6792
+[92mINFO [0m:          f1          : 0.6569
+[92mINFO [0m:        HospitalB (n=2860):
+[92mINFO [0m:          auroc       : 0.7555
+[92mINFO [0m:          eval_loss   : 0.6762
+[92mINFO [0m:          sensitivity : 0.5226
+[92mINFO [0m:          specificity : 0.8475
+[92mINFO [0m:          precision   : 0.6762
+[92mINFO [0m:          f1          : 0.5896
+[92mINFO [0m:        HospitalA (n=5490):
+[92mINFO [0m:          auroc       : 0.7396
+[92mINFO [0m:          eval_loss   : 0.6796
+[92mINFO [0m:          sensitivity : 0.7083
+[92mINFO [0m:          specificity : 0.6754
+[92mINFO [0m:          precision   : 0.6601
+[92mINFO [0m:          f1          : 0.6833
+[92mINFO [0m:      AGGREGATED METRICS:
+[92mINFO [0m:        auroc       : 0.7386
+[92mINFO [0m:        sensitivity : 0.6486
+[92mINFO [0m:        specificity : 0.7267
+[92mINFO [0m:        precision   : 0.6679
+[92mINFO [0m:        f1          : 0.6581
+[92mINFO [0m:      ✓ New best model! Round 3, AUROC: 0.7386
+[92mINFO [0m:        Model saved to models/job1239_final_round3_auroc7385.pt
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'auroc': 0.73858161620649, 'sensitivity': 0.6486326972260477, 'specificity': 0.7266966816741705, 'precision': 0.6679497568881686, 'f1': 0.6581495159197525}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 4/100]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      aggregate_train: Received 3 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'partition-id': 0.7453931785883467, 'train_loss': 0.19488064120340232}
+[92mINFO [0m:      configure_evaluate: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      METRICS BY HOSPITAL
+[92mINFO [0m:        HospitalB (n=2860):
+[92mINFO [0m:          auroc       : 0.7652
+[92mINFO [0m:          eval_loss   : 0.6493
+[92mINFO [0m:          sensitivity : 0.6417
+[92mINFO [0m:          specificity : 0.7575
+[92mINFO [0m:          precision   : 0.6172
+[92mINFO [0m:          f1          : 0.6292
+[92mINFO [0m:        HospitalC (n=2730):
+[92mINFO [0m:          auroc       : 0.7144
+[92mINFO [0m:          eval_loss   : 0.6592
+[92mINFO [0m:          sensitivity : 0.7350
+[92mINFO [0m:          specificity : 0.5848
+[92mINFO [0m:          precision   : 0.6557
+[92mINFO [0m:          f1          : 0.6931
+[92mINFO [0m:        HospitalA (n=5490):
+[92mINFO [0m:          auroc       : 0.7455
+[92mINFO [0m:          eval_loss   : 0.6571
+[92mINFO [0m:          sensitivity : 0.7903
+[92mINFO [0m:          specificity : 0.5687
+[92mINFO [0m:          precision   : 0.6198
+[92mINFO [0m:          f1          : 0.6948
+[92mINFO [0m:      AGGREGATED METRICS:
+[92mINFO [0m:        auroc       : 0.7467
+[92mINFO [0m:        sensitivity : 0.7433
+[92mINFO [0m:        specificity : 0.6281
+[92mINFO [0m:        precision   : 0.6288
+[92mINFO [0m:        f1          : 0.6813
+[92mINFO [0m:      ✓ New best model! Round 4, AUROC: 0.7467
+[92mINFO [0m:        Model saved to models/job1239_final_round4_auroc7466.pt
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'auroc': 0.7466600045383043, 'sensitivity': 0.7432618532362778, 'specificity': 0.6281474070368518, 'precision': 0.6288282290279628, 'f1': 0.6812731043188172}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 5/100]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      aggregate_train: Received 3 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'partition-id': 0.7453931785883467, 'train_loss': 0.18648810739669297}
+[92mINFO [0m:      configure_evaluate: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      METRICS BY HOSPITAL
+[92mINFO [0m:        HospitalC (n=2730):
+[92mINFO [0m:          auroc       : 0.7255
+[92mINFO [0m:          eval_loss   : 0.6518
+[92mINFO [0m:          sensitivity : 0.7597
+[92mINFO [0m:          specificity : 0.5802
+[92mINFO [0m:          precision   : 0.6607
+[92mINFO [0m:          f1          : 0.7068
+[92mINFO [0m:        HospitalB (n=2860):
+[92mINFO [0m:          auroc       : 0.7745
+[92mINFO [0m:          eval_loss   : 0.6457
+[92mINFO [0m:          sensitivity : 0.6768
+[92mINFO [0m:          specificity : 0.7406
+[92mINFO [0m:          precision   : 0.6139
+[92mINFO [0m:          f1          : 0.6438
+[92mINFO [0m:        HospitalA (n=5490):
+[92mINFO [0m:          auroc       : 0.7520
+[92mINFO [0m:          eval_loss   : 0.6511
+[92mINFO [0m:          sensitivity : 0.8058
+[92mINFO [0m:          specificity : 0.5628
+[92mINFO [0m:          precision   : 0.6212
+[92mINFO [0m:          f1          : 0.7016
+[92mINFO [0m:      AGGREGATED METRICS:
+[92mINFO [0m:        auroc       : 0.7549
+[92mINFO [0m:        sensitivity : 0.7655
+[92mINFO [0m:        specificity : 0.6193
+[92mINFO [0m:        precision   : 0.6302
+[92mINFO [0m:        f1          : 0.6913
+[92mINFO [0m:      ✓ New best model! Round 5, AUROC: 0.7549
+[92mINFO [0m:        Model saved to models/job1239_final_round5_auroc7548.pt
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'auroc': 0.7548861485631662, 'sensitivity': 0.7654928192012591, 'specificity': 0.6193096548274137, 'precision': 0.63022351797862, 'f1': 0.6913031891267655}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 6/100]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      aggregate_train: Received 3 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'partition-id': 0.7453931785883467, 'train_loss': 0.18370282472516122}
+[92mINFO [0m:      configure_evaluate: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      METRICS BY HOSPITAL
+[92mINFO [0m:        HospitalB (n=2860):
+[92mINFO [0m:          auroc       : 0.7703
+[92mINFO [0m:          eval_loss   : 0.6309
+[92mINFO [0m:          sensitivity : 0.5522
+[92mINFO [0m:          specificity : 0.8447
+[92mINFO [0m:          precision   : 0.6842
+[92mINFO [0m:          f1          : 0.6111
+[92mINFO [0m:        HospitalC (n=2730):
+[92mINFO [0m:          auroc       : 0.7246
+[92mINFO [0m:          eval_loss   : 0.6511
+[92mINFO [0m:          sensitivity : 0.6572
+[92mINFO [0m:          specificity : 0.6951
+[92mINFO [0m:          precision   : 0.6987
+[92mINFO [0m:          f1          : 0.6773
+[92mINFO [0m:        HospitalA (n=5490):
+[92mINFO [0m:          auroc       : 0.7501
+[92mINFO [0m:          eval_loss   : 0.6452
+[92mINFO [0m:          sensitivity : 0.7075
+[92mINFO [0m:          specificity : 0.6833
+[92mINFO [0m:          precision   : 0.6653
+[92mINFO [0m:          f1          : 0.6858
+[92mINFO [0m:      AGGREGATED METRICS:
+[92mINFO [0m:        auroc       : 0.7530
+[92mINFO [0m:        sensitivity : 0.6604
+[92mINFO [0m:        specificity : 0.7337
+[92mINFO [0m:        precision   : 0.6776
+[92mINFO [0m:        f1          : 0.6689
+[92mINFO [0m:        Model not saved (AUROC 0.7530 ≤ best 0.7549)
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'auroc': 0.7530023290876864, 'sensitivity': 0.6604367499508165, 'specificity': 0.7337001834250458, 'precision': 0.6776342349616472, 'f1': 0.6689249775829432}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 7/100]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      aggregate_train: Received 3 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'partition-id': 0.7453931785883467, 'train_loss': 0.17005618203827516}
+[92mINFO [0m:      configure_evaluate: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      METRICS BY HOSPITAL
+[92mINFO [0m:        HospitalC (n=2730):
+[92mINFO [0m:          auroc       : 0.7272
+[92mINFO [0m:          eval_loss   : 0.6489
+[92mINFO [0m:          sensitivity : 0.7901
+[92mINFO [0m:          specificity : 0.5346
+[92mINFO [0m:          precision   : 0.6462
+[92mINFO [0m:          f1          : 0.7110
+[92mINFO [0m:        HospitalB (n=2860):
+[92mINFO [0m:          auroc       : 0.7746
+[92mINFO [0m:          eval_loss   : 0.6443
+[92mINFO [0m:          sensitivity : 0.7248
+[92mINFO [0m:          specificity : 0.6899
+[92mINFO [0m:          precision   : 0.5876
+[92mINFO [0m:          f1          : 0.6490
+[92mINFO [0m:        HospitalA (n=5490):
+[92mINFO [0m:          auroc       : 0.7516
+[92mINFO [0m:          eval_loss   : 0.6506
+[92mINFO [0m:          sensitivity : 0.8418
+[92mINFO [0m:          specificity : 0.5019
+[92mINFO [0m:          precision   : 0.6006
+[92mINFO [0m:          f1          : 0.7010
+[92mINFO [0m:      AGGREGATED METRICS:
+[92mINFO [0m:        auroc       : 0.7554
+[92mINFO [0m:        sensitivity : 0.8025
+[92mINFO [0m:        specificity : 0.5648
+[92mINFO [0m:        precision   : 0.6098
+[92mINFO [0m:        f1          : 0.6930
+[92mINFO [0m:      ✓ New best model! Round 7, AUROC: 0.7554
+[92mINFO [0m:        Model saved to models/job1239_final_round7_auroc7553.pt
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'auroc': 0.7553559060335466, 'sensitivity': 0.8024788510722014, 'specificity': 0.5647823911955978, 'precision': 0.6098071460606966, 'f1': 0.6930003397893306}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 8/100]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+[2025-11-15T10:55:50] error: *** JOB 1239 ON gpu-workers-0 CANCELLED AT 2025-11-15T10:55:50 DUE TO TIME LIMIT ***
+=== Copying best model ===
+  job1239_final_round7_auroc7553.pt
+=== Job 1239 finished with exit code 0 ===

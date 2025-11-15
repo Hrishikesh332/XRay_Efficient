@@ -1,0 +1,9 @@
+=== Job 399 started at Fri Nov 14 20:05:39 UTC 2025 on gpu-workers-1 ===
+=== Running: flwr run . cluster-gpu ===
+Loading project configuration... 
+Project configuration could not be loaded.
+pyproject.toml is invalid:
+- Project configuration could not be loaded. `pyproject.toml` does not exist.
+
+=== Copying best model ===
+=== Job 399 finished with exit code 0 ===

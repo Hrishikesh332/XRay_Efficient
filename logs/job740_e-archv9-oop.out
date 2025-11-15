@@ -1,0 +1,440 @@
+=== Job 740 started at Fri Nov 14 23:19:01 UTC 2025 on gpu-workers-0 ===
+=== Running: flwr run . cluster-gpu ===
+Loading project configuration... 
+Success
+[92mINFO [0m:      Device: AMD Instinct MI300X VF
+[92mINFO [0m:      W&B disabled (credentials not provided). Set WANDB_API_KEY, WANDB_ENTITY, and WANDB_PROJECT to enable.
+Downloading: "https://download.pytorch.org/models/efficientnet_b0_rwightman-7f5810bc.pth" to /tmp/job-740/xdg-cache/torch/hub/checkpoints/efficientnet_b0_rwightman-7f5810bc.pth
+  0%|          | 0.00/20.5M [00:00<?, ?B/s]100%|██████████| 20.5M/20.5M [00:00<00:00, 377MB/s]
+[92mINFO [0m:      Starting HackathonFedAvg strategy:
+[92mINFO [0m:      	├── Number of rounds: 100
+[92mINFO [0m:      	├── ArrayRecord (15.49 MB)
+[92mINFO [0m:      	├── ConfigRecord (train): {'lr': 0.05}
+[92mINFO [0m:      	├── ConfigRecord (evaluate): (empty!)
+[92mINFO [0m:      	├──> Sampling:
+[92mINFO [0m:      	│	├──Fraction: train (1.00) | evaluate ( 1.00)
+[92mINFO [0m:      	│	├──Minimum nodes: train (2) | evaluate (2)
+[92mINFO [0m:      	│	└──Minimum available nodes: 2
+[92mINFO [0m:      	└──> Keys in records:
+[92mINFO [0m:      		├── Weighted by: 'num-examples'
+[92mINFO [0m:      		├── ArrayRecord key: 'arrays'
+[92mINFO [0m:      		└── ConfigRecord key: 'config'
+[92mINFO [0m:      
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 1/100]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+[36m(ClientAppActor pid=2815500)[0m /usr/lib/python3.12/multiprocessing/popen_fork.py:66: DeprecationWarning: This process (pid=2815500) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[36m(ClientAppActor pid=2815500)[0m   self.pid = os.fork()
+[36m(ClientAppActor pid=2815500)[0m /scratch/hackathon-venv/lib/python3.12/site-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.pin_memory() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:46.)
+[36m(ClientAppActor pid=2815500)[0m   return data.pin_memory(device)
+[36m(ClientAppActor pid=2815500)[0m /scratch/hackathon-venv/lib/python3.12/site-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.is_pinned() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:31.)
+[36m(ClientAppActor pid=2815500)[0m   return data.pin_memory(device)
+[36m(ClientAppActor pid=2815500)[0m /scratch/team04/740/repo/cold_start_hackathon/task.py:357: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+[36m(ClientAppActor pid=2815500)[0m   scheduler.step()
+[36m(ClientAppActor pid=2815501)[0m /usr/lib/python3.12/multiprocessing/popen_fork.py:66: DeprecationWarning: This process (pid=2815501) is multi-threaded, use of fork() may lead to deadlocks in the child.[32m [repeated 2x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(ClientAppActor pid=2815501)[0m   self.pid = os.fork()[32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=2815502)[0m /scratch/hackathon-venv/lib/python3.12/site-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.pin_memory() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:46.)[32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=2815502)[0m   return data.pin_memory(device)[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=2815502)[0m /scratch/hackathon-venv/lib/python3.12/site-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.is_pinned() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:31.)[32m [repeated 2x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 3 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'partition-id': 0.7453931785883467, 'train_loss': 0.8177872406087092}
+[92mINFO [0m:      configure_evaluate: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      METRICS BY HOSPITAL
+[92mINFO [0m:        HospitalC (n=2730):
+[92mINFO [0m:          auroc       : 0.5085
+[92mINFO [0m:          eval_loss   : 0.9617
+[92mINFO [0m:          sensitivity : 1.0000
+[92mINFO [0m:          specificity : 0.0000
+[92mINFO [0m:          precision   : 0.5183
+[92mINFO [0m:          f1          : 0.6828
+[92mINFO [0m:        HospitalB (n=2860):
+[92mINFO [0m:          auroc       : 0.5035
+[92mINFO [0m:          eval_loss   : 1.1885
+[92mINFO [0m:          sensitivity : 1.0000
+[92mINFO [0m:          specificity : 0.0000
+[92mINFO [0m:          precision   : 0.3787
+[92mINFO [0m:          f1          : 0.5493
+[92mINFO [0m:        HospitalA (n=5490):
+[92mINFO [0m:          auroc       : 0.5055
+[92mINFO [0m:          eval_loss   : 1.0377
+[92mINFO [0m:          sensitivity : 1.0000
+[92mINFO [0m:          specificity : 0.0000
+[92mINFO [0m:          precision   : 0.4709
+[92mINFO [0m:          f1          : 0.6402
+[92mINFO [0m:      AGGREGATED METRICS:
+[92mINFO [0m:        auroc       : 0.5054
+[92mINFO [0m:        sensitivity : 1.0000
+[92mINFO [0m:        specificity : 0.0000
+[92mINFO [0m:        precision   : 0.4588
+[92mINFO [0m:        f1          : 0.6290
+[92mINFO [0m:      ✓ New best model! Round 1, AUROC: 0.5054
+[92mINFO [0m:        Model saved to models/job740_e-archv9-oop_round1_auroc5054.pt
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'auroc': 0.5054209182104332, 'sensitivity': 1.0, 'specificity': 0.0, 'precision': 0.4587545126353791, 'f1': 0.6289673946668316}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 2/100]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+[36m(ClientAppActor pid=2815501)[0m /scratch/team04/740/repo/cold_start_hackathon/task.py:357: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate[32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=2815501)[0m   scheduler.step()[32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=2815500)[0m /usr/lib/python3.12/multiprocessing/popen_fork.py:66: DeprecationWarning: This process (pid=2815500) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[36m(ClientAppActor pid=2815500)[0m   self.pid = os.fork()
+[36m(ClientAppActor pid=2815502)[0m /usr/lib/python3.12/multiprocessing/popen_fork.py:66: DeprecationWarning: This process (pid=2815502) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[36m(ClientAppActor pid=2815502)[0m   self.pid = os.fork()
+[36m(ClientAppActor pid=2815500)[0m /scratch/hackathon-venv/lib/python3.12/site-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.pin_memory() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:46.)
+[36m(ClientAppActor pid=2815500)[0m   return data.pin_memory(device)
+[36m(ClientAppActor pid=2815500)[0m /scratch/hackathon-venv/lib/python3.12/site-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.is_pinned() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:31.)
+[36m(ClientAppActor pid=2815500)[0m   return data.pin_memory(device)
+[92mINFO [0m:      aggregate_train: Received 3 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'partition-id': 0.7453931785883467, 'train_loss': 0.4298026789076246}
+[92mINFO [0m:      configure_evaluate: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      METRICS BY HOSPITAL
+[92mINFO [0m:        HospitalC (n=2730):
+[92mINFO [0m:          auroc       : 0.6240
+[92mINFO [0m:          eval_loss   : 0.7744
+[92mINFO [0m:          sensitivity : 0.3251
+[92mINFO [0m:          specificity : 0.8213
+[92mINFO [0m:          precision   : 0.6619
+[92mINFO [0m:          f1          : 0.4360
+[92mINFO [0m:        HospitalB (n=2860):
+[92mINFO [0m:          auroc       : 0.6310
+[92mINFO [0m:          eval_loss   : 0.8999
+[92mINFO [0m:          sensitivity : 0.4238
+[92mINFO [0m:          specificity : 0.7665
+[92mINFO [0m:          precision   : 0.5252
+[92mINFO [0m:          f1          : 0.4691
+[92mINFO [0m:        HospitalA (n=5490):
+[92mINFO [0m:          auroc       : 0.6426
+[92mINFO [0m:          eval_loss   : 0.8164
+[92mINFO [0m:          sensitivity : 0.3574
+[92mINFO [0m:          specificity : 0.8217
+[92mINFO [0m:          precision   : 0.6408
+[92mINFO [0m:          f1          : 0.4589
+[92mINFO [0m:      AGGREGATED METRICS:
+[92mINFO [0m:        auroc       : 0.6387
+[92mINFO [0m:        sensitivity : 0.3626
+[92mINFO [0m:        specificity : 0.8052
+[92mINFO [0m:        precision   : 0.6121
+[92mINFO [0m:        f1          : 0.4554
+[92mINFO [0m:      ✓ New best model! Round 2, AUROC: 0.6387
+[92mINFO [0m:        Model saved to models/job740_e-archv9-oop_round2_auroc6386.pt
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'auroc': 0.6386673072912612, 'sensitivity': 0.36258115286248277, 'specificity': 0.8052359513089878, 'precision': 0.6120890069744271, 'f1': 0.45539906103286387}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 3/100]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+[36m(ClientAppActor pid=2815501)[0m /scratch/team04/740/repo/cold_start_hackathon/task.py:357: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815501)[0m   scheduler.step()[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815502)[0m /usr/lib/python3.12/multiprocessing/popen_fork.py:66: DeprecationWarning: This process (pid=2815502) is multi-threaded, use of fork() may lead to deadlocks in the child.[32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=2815502)[0m   self.pid = os.fork()[32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=2815501)[0m /scratch/hackathon-venv/lib/python3.12/site-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.pin_memory() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:46.)[32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=2815501)[0m   return data.pin_memory(device)[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=2815501)[0m /scratch/hackathon-venv/lib/python3.12/site-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.is_pinned() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:31.)[32m [repeated 2x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 3 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'partition-id': 0.7453931785883467, 'train_loss': 0.4126523506963413}
+[92mINFO [0m:      configure_evaluate: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      METRICS BY HOSPITAL
+[92mINFO [0m:        HospitalC (n=2730):
+[92mINFO [0m:          auroc       : 0.6515
+[92mINFO [0m:          eval_loss   : 0.7571
+[92mINFO [0m:          sensitivity : 0.5244
+[92mINFO [0m:          specificity : 0.6859
+[92mINFO [0m:          precision   : 0.6424
+[92mINFO [0m:          f1          : 0.5774
+[92mINFO [0m:        HospitalB (n=2860):
+[92mINFO [0m:          auroc       : 0.6646
+[92mINFO [0m:          eval_loss   : 0.8694
+[92mINFO [0m:          sensitivity : 0.4127
+[92mINFO [0m:          specificity : 0.8104
+[92mINFO [0m:          precision   : 0.5702
+[92mINFO [0m:          f1          : 0.4788
+[92mINFO [0m:        HospitalA (n=5490):
+[92mINFO [0m:          auroc       : 0.6605
+[92mINFO [0m:          eval_loss   : 0.7947
+[92mINFO [0m:          sensitivity : 0.5346
+[92mINFO [0m:          specificity : 0.6954
+[92mINFO [0m:          precision   : 0.6096
+[92mINFO [0m:          f1          : 0.5697
+[92mINFO [0m:      AGGREGATED METRICS:
+[92mINFO [0m:        auroc       : 0.6646
+[92mINFO [0m:        sensitivity : 0.5058
+[92mINFO [0m:        specificity : 0.7274
+[92mINFO [0m:        precision   : 0.6113
+[92mINFO [0m:        f1          : 0.5536
+[92mINFO [0m:      ✓ New best model! Round 3, AUROC: 0.6646
+[92mINFO [0m:        Model saved to models/job740_e-archv9-oop_round3_auroc6646.pt
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'auroc': 0.6646382244174746, 'sensitivity': 0.5058036592563446, 'specificity': 0.7273636818409205, 'precision': 0.6112696148359487, 'f1': 0.5535579717945958}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 4/100]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+[36m(ClientAppActor pid=2815501)[0m /scratch/team04/740/repo/cold_start_hackathon/task.py:357: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815501)[0m   scheduler.step()[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815500)[0m /usr/lib/python3.12/multiprocessing/popen_fork.py:66: DeprecationWarning: This process (pid=2815500) is multi-threaded, use of fork() may lead to deadlocks in the child.[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815500)[0m   self.pid = os.fork()[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815501)[0m /scratch/hackathon-venv/lib/python3.12/site-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.pin_memory() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:46.)[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815501)[0m   return data.pin_memory(device)[32m [repeated 6x across cluster][0m
+[36m(ClientAppActor pid=2815501)[0m /scratch/hackathon-venv/lib/python3.12/site-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.is_pinned() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:31.)[32m [repeated 3x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 3 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'partition-id': 0.7453931785883467, 'train_loss': 0.3872443806346636}
+[92mINFO [0m:      configure_evaluate: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      METRICS BY HOSPITAL
+[92mINFO [0m:        HospitalC (n=2730):
+[92mINFO [0m:          auroc       : 0.6951
+[92mINFO [0m:          eval_loss   : 1.1418
+[92mINFO [0m:          sensitivity : 1.0000
+[92mINFO [0m:          specificity : 0.0000
+[92mINFO [0m:          precision   : 0.5183
+[92mINFO [0m:          f1          : 0.6828
+[92mINFO [0m:        HospitalB (n=2860):
+[92mINFO [0m:          auroc       : 0.7347
+[92mINFO [0m:          eval_loss   : 1.4363
+[92mINFO [0m:          sensitivity : 1.0000
+[92mINFO [0m:          specificity : 0.0000
+[92mINFO [0m:          precision   : 0.3787
+[92mINFO [0m:          f1          : 0.5493
+[92mINFO [0m:        HospitalA (n=5490):
+[92mINFO [0m:          auroc       : 0.7246
+[92mINFO [0m:          eval_loss   : 1.2417
+[92mINFO [0m:          sensitivity : 1.0000
+[92mINFO [0m:          specificity : 0.0000
+[92mINFO [0m:          precision   : 0.4709
+[92mINFO [0m:          f1          : 0.6402
+[92mINFO [0m:      AGGREGATED METRICS:
+[92mINFO [0m:        auroc       : 0.7247
+[92mINFO [0m:        sensitivity : 1.0000
+[92mINFO [0m:        specificity : 0.0000
+[92mINFO [0m:        precision   : 0.4588
+[92mINFO [0m:        f1          : 0.6290
+[92mINFO [0m:      ✓ New best model! Round 4, AUROC: 0.7247
+[92mINFO [0m:        Model saved to models/job740_e-archv9-oop_round4_auroc7247.pt
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'auroc': 0.7247139374002037, 'sensitivity': 1.0, 'specificity': 0.0, 'precision': 0.4587545126353791, 'f1': 0.6289673946668316}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 5/100]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+[36m(ClientAppActor pid=2815500)[0m /scratch/team04/740/repo/cold_start_hackathon/task.py:357: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815500)[0m   scheduler.step()[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815500)[0m /usr/lib/python3.12/multiprocessing/popen_fork.py:66: DeprecationWarning: This process (pid=2815500) is multi-threaded, use of fork() may lead to deadlocks in the child.[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815500)[0m   self.pid = os.fork()[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815500)[0m /scratch/hackathon-venv/lib/python3.12/site-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.pin_memory() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:46.)[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815500)[0m   return data.pin_memory(device)[32m [repeated 6x across cluster][0m
+[36m(ClientAppActor pid=2815500)[0m /scratch/hackathon-venv/lib/python3.12/site-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.is_pinned() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:31.)[32m [repeated 3x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 3 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'partition-id': 0.7453931785883467, 'train_loss': 0.36734783654040604}
+[92mINFO [0m:      configure_evaluate: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      METRICS BY HOSPITAL
+[92mINFO [0m:        HospitalC (n=2730):
+[92mINFO [0m:          auroc       : 0.7094
+[92mINFO [0m:          eval_loss   : 0.6867
+[92mINFO [0m:          sensitivity : 0.6509
+[92mINFO [0m:          specificity : 0.6662
+[92mINFO [0m:          precision   : 0.6772
+[92mINFO [0m:          f1          : 0.6638
+[92mINFO [0m:        HospitalB (n=2860):
+[92mINFO [0m:          auroc       : 0.7505
+[92mINFO [0m:          eval_loss   : 0.7358
+[92mINFO [0m:          sensitivity : 0.6741
+[92mINFO [0m:          specificity : 0.7119
+[92mINFO [0m:          precision   : 0.5878
+[92mINFO [0m:          f1          : 0.6280
+[92mINFO [0m:        HospitalA (n=5490):
+[92mINFO [0m:          auroc       : 0.7364
+[92mINFO [0m:          eval_loss   : 0.7085
+[92mINFO [0m:          sensitivity : 0.7199
+[92mINFO [0m:          specificity : 0.6558
+[92mINFO [0m:          precision   : 0.6505
+[92mINFO [0m:          f1          : 0.6834
+[92mINFO [0m:      AGGREGATED METRICS:
+[92mINFO [0m:        auroc       : 0.7374
+[92mINFO [0m:        sensitivity : 0.6909
+[92mINFO [0m:        specificity : 0.6747
+[92mINFO [0m:        precision   : 0.6429
+[92mINFO [0m:        f1          : 0.6660
+[92mINFO [0m:      ✓ New best model! Round 5, AUROC: 0.7374
+[92mINFO [0m:        Model saved to models/job740_e-archv9-oop_round5_auroc7373.pt
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'auroc': 0.7373642884134703, 'sensitivity': 0.690930552823136, 'specificity': 0.6746706686676671, 'precision': 0.6428702178290316, 'f1': 0.6660345154560972}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 6/100]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+[36m(ClientAppActor pid=2815500)[0m /scratch/team04/740/repo/cold_start_hackathon/task.py:357: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815500)[0m   scheduler.step()[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815500)[0m /usr/lib/python3.12/multiprocessing/popen_fork.py:66: DeprecationWarning: This process (pid=2815500) is multi-threaded, use of fork() may lead to deadlocks in the child.[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815500)[0m   self.pid = os.fork()[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815500)[0m /scratch/hackathon-venv/lib/python3.12/site-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.pin_memory() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:46.)[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815500)[0m   return data.pin_memory(device)[32m [repeated 6x across cluster][0m
+[36m(ClientAppActor pid=2815500)[0m /scratch/hackathon-venv/lib/python3.12/site-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.is_pinned() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:31.)[32m [repeated 3x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 3 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'partition-id': 0.7453931785883467, 'train_loss': 0.3589180686402449}
+[92mINFO [0m:      configure_evaluate: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      METRICS BY HOSPITAL
+[92mINFO [0m:        HospitalC (n=2730):
+[92mINFO [0m:          auroc       : 0.7127
+[92mINFO [0m:          eval_loss   : 0.8688
+[92mINFO [0m:          sensitivity : 0.9541
+[92mINFO [0m:          specificity : 0.1559
+[92mINFO [0m:          precision   : 0.5488
+[92mINFO [0m:          f1          : 0.6968
+[92mINFO [0m:        HospitalB (n=2860):
+[92mINFO [0m:          auroc       : 0.7578
+[92mINFO [0m:          eval_loss   : 1.0178
+[92mINFO [0m:          sensitivity : 0.9354
+[92mINFO [0m:          specificity : 0.2521
+[92mINFO [0m:          precision   : 0.4325
+[92mINFO [0m:          f1          : 0.5915
+[92mINFO [0m:        HospitalA (n=5490):
+[92mINFO [0m:          auroc       : 0.7417
+[92mINFO [0m:          eval_loss   : 0.9336
+[92mINFO [0m:          sensitivity : 0.9629
+[92mINFO [0m:          specificity : 0.1573
+[92mINFO [0m:          precision   : 0.5042
+[92mINFO [0m:          f1          : 0.6618
+[92mINFO [0m:      AGGREGATED METRICS:
+[92mINFO [0m:        auroc       : 0.7423
+[92mINFO [0m:        sensitivity : 0.9546
+[92mINFO [0m:        specificity : 0.1851
+[92mINFO [0m:        precision   : 0.4982
+[92mINFO [0m:        f1          : 0.6547
+[92mINFO [0m:      ✓ New best model! Round 6, AUROC: 0.7423
+[92mINFO [0m:        Model saved to models/job740_e-archv9-oop_round6_auroc7423.pt
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'auroc': 0.7423093473420428, 'sensitivity': 0.95455439700964, 'specificity': 0.18509254627313657, 'precision': 0.4982031009343875, 'f1': 0.6547024693023884}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 7/100]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+[36m(ClientAppActor pid=2815501)[0m /scratch/team04/740/repo/cold_start_hackathon/task.py:357: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815501)[0m   scheduler.step()[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815500)[0m /usr/lib/python3.12/multiprocessing/popen_fork.py:66: DeprecationWarning: This process (pid=2815500) is multi-threaded, use of fork() may lead to deadlocks in the child.[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815500)[0m   self.pid = os.fork()[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815501)[0m /scratch/hackathon-venv/lib/python3.12/site-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.pin_memory() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:46.)[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815501)[0m   return data.pin_memory(device)[32m [repeated 6x across cluster][0m
+[36m(ClientAppActor pid=2815501)[0m /scratch/hackathon-venv/lib/python3.12/site-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.is_pinned() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:31.)[32m [repeated 3x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 3 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'partition-id': 0.7453931785883467, 'train_loss': 0.38618190871095415}
+[92mINFO [0m:      configure_evaluate: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      METRICS BY HOSPITAL
+[92mINFO [0m:        HospitalC (n=2730):
+[92mINFO [0m:          auroc       : 0.7225
+[92mINFO [0m:          eval_loss   : 0.7270
+[92mINFO [0m:          sensitivity : 0.6594
+[92mINFO [0m:          specificity : 0.6768
+[92mINFO [0m:          precision   : 0.6870
+[92mINFO [0m:          f1          : 0.6729
+[92mINFO [0m:        HospitalB (n=2860):
+[92mINFO [0m:          auroc       : 0.7705
+[92mINFO [0m:          eval_loss   : 0.7985
+[92mINFO [0m:          sensitivity : 0.6953
+[92mINFO [0m:          specificity : 0.7203
+[92mINFO [0m:          precision   : 0.6024
+[92mINFO [0m:          f1          : 0.6455
+[92mINFO [0m:        HospitalA (n=5490):
+[92mINFO [0m:          auroc       : 0.7454
+[92mINFO [0m:          eval_loss   : 0.7663
+[92mINFO [0m:          sensitivity : 0.7056
+[92mINFO [0m:          specificity : 0.6812
+[92mINFO [0m:          precision   : 0.6633
+[92mINFO [0m:          f1          : 0.6838
+[92mINFO [0m:      AGGREGATED METRICS:
+[92mINFO [0m:        auroc       : 0.7494
+[92mINFO [0m:        sensitivity : 0.6905
+[92mINFO [0m:        specificity : 0.6918
+[92mINFO [0m:        precision   : 0.6551
+[92mINFO [0m:        f1          : 0.6723
+[92mINFO [0m:      ✓ New best model! Round 7, AUROC: 0.7494
+[92mINFO [0m:        Model saved to models/job740_e-archv9-oop_round7_auroc7494.pt
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'auroc': 0.7494170883723716, 'sensitivity': 0.690537084398977, 'specificity': 0.6918459229614807, 'precision': 0.6550951847704367, 'f1': 0.672349391820707}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 8/100]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+[36m(ClientAppActor pid=2815501)[0m /scratch/team04/740/repo/cold_start_hackathon/task.py:357: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815501)[0m   scheduler.step()[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815500)[0m /usr/lib/python3.12/multiprocessing/popen_fork.py:66: DeprecationWarning: This process (pid=2815500) is multi-threaded, use of fork() may lead to deadlocks in the child.[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815500)[0m   self.pid = os.fork()[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815500)[0m /scratch/hackathon-venv/lib/python3.12/site-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.pin_memory() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:46.)[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815500)[0m   return data.pin_memory(device)[32m [repeated 6x across cluster][0m
+[36m(ClientAppActor pid=2815500)[0m /scratch/hackathon-venv/lib/python3.12/site-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.is_pinned() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:31.)[32m [repeated 3x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 3 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'partition-id': 0.7453931785883467, 'train_loss': 0.3612152291591061}
+[92mINFO [0m:      configure_evaluate: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      METRICS BY HOSPITAL
+[92mINFO [0m:        HospitalB (n=2860):
+[92mINFO [0m:          auroc       : 0.7736
+[92mINFO [0m:          eval_loss   : 0.6281
+[92mINFO [0m:          sensitivity : 0.7267
+[92mINFO [0m:          specificity : 0.6950
+[92mINFO [0m:          precision   : 0.5922
+[92mINFO [0m:          f1          : 0.6526
+[92mINFO [0m:        HospitalC (n=2730):
+[92mINFO [0m:          auroc       : 0.7255
+[92mINFO [0m:          eval_loss   : 0.6390
+[92mINFO [0m:          sensitivity : 0.6601
+[92mINFO [0m:          specificity : 0.6837
+[92mINFO [0m:          precision   : 0.6919
+[92mINFO [0m:          f1          : 0.6756
+[92mINFO [0m:        HospitalA (n=5490):
+[92mINFO [0m:          auroc       : 0.7471
+[92mINFO [0m:          eval_loss   : 0.6400
+[92mINFO [0m:          sensitivity : 0.7308
+[92mINFO [0m:          specificity : 0.6620
+[92mINFO [0m:          precision   : 0.6580
+[92mINFO [0m:          f1          : 0.6924
+[92mINFO [0m:      AGGREGATED METRICS:
+[92mINFO [0m:        auroc       : 0.7519
+[92mINFO [0m:        sensitivity : 0.7102
+[92mINFO [0m:        specificity : 0.6765
+[92mINFO [0m:        precision   : 0.6505
+[92mINFO [0m:        f1          : 0.6790
+[92mINFO [0m:      ✓ New best model! Round 8, AUROC: 0.7519
+[92mINFO [0m:        Model saved to models/job740_e-archv9-oop_round8_auroc7518.pt
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'auroc': 0.7518649973553895, 'sensitivity': 0.710210505606925, 'specificity': 0.6765049191262298, 'precision': 0.6504504504504505, 'f1': 0.6790181510392175}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 9/100]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+[36m(ClientAppActor pid=2815502)[0m /scratch/team04/740/repo/cold_start_hackathon/task.py:357: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815502)[0m   scheduler.step()[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815500)[0m /usr/lib/python3.12/multiprocessing/popen_fork.py:66: DeprecationWarning: This process (pid=2815500) is multi-threaded, use of fork() may lead to deadlocks in the child.[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815500)[0m   self.pid = os.fork()[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815500)[0m /scratch/hackathon-venv/lib/python3.12/site-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.pin_memory() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:46.)[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815500)[0m   return data.pin_memory(device)[32m [repeated 6x across cluster][0m
+[36m(ClientAppActor pid=2815500)[0m /scratch/hackathon-venv/lib/python3.12/site-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.is_pinned() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:31.)[32m [repeated 3x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 3 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'partition-id': 0.7453931785883467, 'train_loss': 0.36832901959627207}
+[92mINFO [0m:      configure_evaluate: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      METRICS BY HOSPITAL
+[92mINFO [0m:        HospitalC (n=2730):
+[92mINFO [0m:          auroc       : 0.7237
+[92mINFO [0m:          eval_loss   : 0.6960
+[92mINFO [0m:          sensitivity : 0.6898
+[92mINFO [0m:          specificity : 0.6593
+[92mINFO [0m:          precision   : 0.6854
+[92mINFO [0m:          f1          : 0.6876
+[92mINFO [0m:        HospitalB (n=2860):
+[92mINFO [0m:          auroc       : 0.7705
+[92mINFO [0m:          eval_loss   : 0.7462
+[92mINFO [0m:          sensitivity : 0.7248
+[92mINFO [0m:          specificity : 0.6956
+[92mINFO [0m:          precision   : 0.5920
+[92mINFO [0m:          f1          : 0.6517
+[92mINFO [0m:        HospitalA (n=5490):
+[92mINFO [0m:          auroc       : 0.7481
+[92mINFO [0m:          eval_loss   : 0.7273
+[92mINFO [0m:          sensitivity : 0.7021
+[92mINFO [0m:          specificity : 0.6885
+[92mINFO [0m:          precision   : 0.6673
+[92mINFO [0m:          f1          : 0.6843
+[92mINFO [0m:      AGGREGATED METRICS:
+[92mINFO [0m:        auroc       : 0.7514
+[92mINFO [0m:        sensitivity : 0.7035
+[92mINFO [0m:        specificity : 0.6842
+[92mINFO [0m:        precision   : 0.6537
+[92mINFO [0m:        f1          : 0.6777
+[92mINFO [0m:        Model not saved (AUROC 0.7514 ≤ best 0.7519)
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'auroc': 0.7513893513088763, 'sensitivity': 0.7035215423962227, 'specificity': 0.6841754210438553, 'precision': 0.6537477148080438, 'f1': 0.6777219747938975}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 10/100]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+[36m(ClientAppActor pid=2815501)[0m /scratch/team04/740/repo/cold_start_hackathon/task.py:357: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815501)[0m   scheduler.step()[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815500)[0m /usr/lib/python3.12/multiprocessing/popen_fork.py:66: DeprecationWarning: This process (pid=2815500) is multi-threaded, use of fork() may lead to deadlocks in the child.[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815500)[0m   self.pid = os.fork()[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815502)[0m /scratch/hackathon-venv/lib/python3.12/site-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.pin_memory() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:46.)[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=2815502)[0m   return data.pin_memory(device)[32m [repeated 6x across cluster][0m
+[36m(ClientAppActor pid=2815502)[0m /scratch/hackathon-venv/lib/python3.12/site-packages/torch/utils/data/_utils/pin_memory.py:57: DeprecationWarning: The argument 'device' of Tensor.is_pinned() is deprecated. Please do not pass this argument. (Triggered internally at /pytorch/aten/src/ATen/native/Memory.cpp:31.)[32m [repeated 3x across cluster][0m
+[2025-11-14T23:39:09] error: *** JOB 740 ON gpu-workers-0 CANCELLED AT 2025-11-14T23:39:09 DUE TO TIME LIMIT ***
+=== Copying best model ===
+  job740_e-archv9-oop_round8_auroc7518.pt
+=== Job 740 finished with exit code 0 ===

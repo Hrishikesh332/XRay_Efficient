@@ -1,0 +1,1186 @@
+=== Job 387 started at Fri Nov 14 19:51:10 UTC 2025 on gpu-workers-1 ===
+=== Running: flwr run . cluster-gpu ===
+Loading project configuration... 
+Success
+[92mINFO [0m:      Device: AMD Instinct MI300X VF
+[92mINFO [0m:      W&B disabled (credentials not provided). Set WANDB_API_KEY, WANDB_ENTITY, and WANDB_PROJECT to enable.
+Downloading: "https://download.pytorch.org/models/efficientnet_b0_rwightman-7f5810bc.pth" to /tmp/job-387/xdg-cache/torch/hub/checkpoints/efficientnet_b0_rwightman-7f5810bc.pth
+  0%|          | 0.00/20.5M [00:00<?, ?B/s] 38%|███▊      | 7.75M/20.5M [00:00<00:00, 80.9MB/s] 76%|███████▌  | 15.5M/20.5M [00:00<00:00, 77.3MB/s]100%|██████████| 20.5M/20.5M [00:00<00:00, 97.5MB/s]
+[92mINFO [0m:      Starting HackathonFedAvg strategy:
+[92mINFO [0m:      	├── Number of rounds: 100
+[92mINFO [0m:      	├── ArrayRecord (15.49 MB)
+[92mINFO [0m:      	├── ConfigRecord (train): {'lr': 0.1}
+[92mINFO [0m:      	├── ConfigRecord (evaluate): (empty!)
+[92mINFO [0m:      	├──> Sampling:
+[92mINFO [0m:      	│	├──Fraction: train (1.00) | evaluate ( 1.00)
+[92mINFO [0m:      	│	├──Minimum nodes: train (2) | evaluate (2)
+[92mINFO [0m:      	│	└──Minimum available nodes: 2
+[92mINFO [0m:      	└──> Keys in records:
+[92mINFO [0m:      		├── Weighted by: 'num-examples'
+[92mINFO [0m:      		├── ArrayRecord key: 'arrays'
+[92mINFO [0m:      		└── ConfigRecord key: 'config'
+[92mINFO [0m:      
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 1/100]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+[36m(ClientAppActor pid=403040)[0m /usr/lib/python3.12/multiprocessing/popen_fork.py:66: DeprecationWarning: This process (pid=403040) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[36m(ClientAppActor pid=403040)[0m   self.pid = os.fork()
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:   0%|          | 0/1288 [00:00<?, ?it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:   0%|          | 1/1360 [00:22<8:25:26, 22.32s/it]Epoch 1/1:   0%|          | 2/1360 [00:22<3:29:41,  9.26s/it]
+[36m(ClientAppActor pid=403039)[0m /usr/lib/python3.12/multiprocessing/popen_fork.py:66: DeprecationWarning: This process (pid=403039) is multi-threaded, use of fork() may lead to deadlocks in the child.[32m [repeated 2x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(ClientAppActor pid=403039)[0m   self.pid = os.fork()[32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:   0%|          | 0/2631 [00:00<?, ?it/s][32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:   0%|          | 1/1288 [00:22<7:59:28, 22.35s/it]Epoch 1/1:   0%|          | 2/1288 [00:22<3:18:38,  9.27s/it]Epoch 1/1:   0%|          | 4/1288 [00:22<1:14:50,  3.50s/it]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:   0%|          | 3/1360 [00:22<1:55:55,  5.13s/it]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:   2%|▏         | 48/2631 [00:27<04:05, 10.51it/s][32m [repeated 90x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:   9%|▊         | 116/1360 [00:32<01:38, 12.58it/s][32m [repeated 82x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  13%|█▎        | 174/1360 [00:37<01:53, 10.47it/s][32m [repeated 83x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  18%|█▊        | 228/1288 [00:42<01:41, 10.41it/s][32m [repeated 80x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  22%|██▏       | 282/1288 [00:47<01:12, 13.85it/s][32m [repeated 84x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  26%|██▌       | 352/1360 [00:52<01:28, 11.36it/s][32m [repeated 81x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  30%|███       | 409/1360 [00:57<01:39,  9.55it/s][32m [repeated 80x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  34%|███▍      | 442/1288 [01:03<01:18, 10.75it/s][32m [repeated 79x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  38%|███▊      | 520/1360 [01:07<01:01, 13.64it/s][32m [repeated 79x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  20%|█▉        | 526/2631 [01:12<07:38,  4.60it/s][32m [repeated 77x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  48%|████▊     | 650/1360 [01:17<01:00, 11.77it/s][32m [repeated 83x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  51%|█████     | 653/1288 [01:23<01:03,  9.95it/s][32m [repeated 77x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  56%|█████▋    | 768/1360 [01:28<00:51, 11.51it/s][32m [repeated 79x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  59%|█████▉    | 765/1288 [01:33<00:37, 13.98it/s][32m [repeated 80x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  64%|██████▍   | 875/1360 [01:38<00:51,  9.41it/s][32m [repeated 86x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  68%|██████▊   | 929/1360 [01:43<00:44,  9.63it/s][32m [repeated 84x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  73%|███████▎  | 987/1360 [01:48<00:28, 13.04it/s][32m [repeated 83x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  77%|███████▋  | 1042/1360 [01:53<00:27, 11.73it/s][32m [repeated 87x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  85%|████████▍ | 1089/1288 [01:58<00:12, 16.06it/s][32m [repeated 86x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  41%|████▏     | 1086/2631 [02:03<01:53, 13.57it/s][32m [repeated 82x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  91%|█████████▏| 1177/1288 [02:07<00:10, 11.01it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  92%|█████████▏| 1180/1288 [02:07<00:09, 11.34it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  92%|█████████▏| 1182/1288 [02:07<00:08, 12.40it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  92%|█████████▏| 1184/1288 [02:07<00:09, 10.41it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  92%|█████████▏| 1186/1288 [02:08<00:11,  8.96it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  92%|█████████▏| 1188/1288 [02:08<00:09, 10.33it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  92%|█████████▏| 1191/1288 [02:08<00:08, 11.09it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  93%|█████████▎| 1193/1288 [02:08<00:08, 11.19it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  93%|█████████▎| 1195/1288 [02:08<00:08, 11.55it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  89%|████████▉ | 1209/1360 [02:08<00:10, 14.63it/s][32m [repeated 73x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  93%|█████████▎| 1197/1288 [02:09<00:09,  9.38it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  93%|█████████▎| 1199/1288 [02:09<00:08, 10.27it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  93%|█████████▎| 1201/1288 [02:09<00:07, 11.41it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  93%|█████████▎| 1203/1288 [02:09<00:07, 10.90it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  94%|█████████▎| 1205/1288 [02:09<00:06, 12.23it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  94%|█████████▎| 1207/1288 [02:10<00:11,  7.09it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  94%|█████████▍| 1209/1288 [02:10<00:09,  8.23it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  94%|█████████▍| 1211/1288 [02:10<00:08,  9.12it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  94%|█████████▍| 1213/1288 [02:10<00:07, 10.48it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  94%|█████████▍| 1215/1288 [02:10<00:06, 10.83it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  94%|█████████▍| 1217/1288 [02:10<00:05, 12.22it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  95%|█████████▍| 1219/1288 [02:11<00:05, 12.30it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  95%|█████████▍| 1221/1288 [02:11<00:05, 11.79it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  95%|█████████▍| 1223/1288 [02:11<00:05, 11.94it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  95%|█████████▌| 1225/1288 [02:11<00:05, 12.00it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  95%|█████████▌| 1227/1288 [02:11<00:05, 11.16it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  91%|█████████▏| 1244/1360 [02:12<00:09, 11.79it/s][32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  46%|████▌     | 1205/2631 [02:13<01:51, 12.84it/s][32m [repeated 43x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  96%|█████████▌| 1299/1360 [02:17<00:04, 13.25it/s][32m [repeated 54x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  48%|████▊     | 1270/2631 [02:18<01:42, 13.26it/s][32m [repeated 30x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1: 100%|█████████▉| 1357/1360 [02:21<00:00, 17.20it/s][32m [repeated 27x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  52%|█████▏    | 1360/2631 [02:23<00:57, 22.08it/s][32m [repeated 35x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1: 100%|██████████| 1288/1288 [02:23<00:00,  8.98it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1: 100%|██████████| 1360/1360 [02:29<00:00,  1.06it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1: 100%|██████████| 1360/1360 [02:29<00:00,  9.12it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  57%|█████▋    | 1502/2631 [02:28<00:42, 26.51it/s][32m [repeated 40x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  62%|██████▏   | 1641/2631 [02:34<00:37, 26.21it/s][32m [repeated 46x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  67%|██████▋   | 1773/2631 [02:39<00:32, 26.45it/s][32m [repeated 44x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  72%|███████▏  | 1902/2631 [02:44<00:29, 24.87it/s][32m [repeated 43x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  77%|███████▋  | 2028/2631 [02:49<00:24, 24.92it/s][32m [repeated 42x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  82%|████████▏ | 2157/2631 [02:54<00:18, 25.71it/s][32m [repeated 43x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  87%|████████▋ | 2280/2631 [02:59<00:13, 25.37it/s][32m [repeated 41x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  91%|█████████▏| 2403/2631 [03:04<00:08, 25.62it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  91%|█████████▏| 2406/2631 [03:04<00:08, 25.25it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  91%|█████████ | 2400/2631 [03:04<00:09, 25.21it/s][32m [repeated 40x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2409/2631 [03:04<00:08, 25.16it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2412/2631 [03:04<00:08, 25.04it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2415/2631 [03:04<00:08, 24.66it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2418/2631 [03:04<00:08, 24.49it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2421/2631 [03:04<00:08, 24.54it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2424/2631 [03:05<00:08, 25.02it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2427/2631 [03:05<00:08, 25.41it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2430/2631 [03:05<00:07, 25.21it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2433/2631 [03:05<00:07, 25.48it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2436/2631 [03:05<00:07, 25.58it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2439/2631 [03:05<00:07, 25.10it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2442/2631 [03:05<00:07, 25.01it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2445/2631 [03:05<00:07, 24.54it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2448/2631 [03:06<00:07, 24.72it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2451/2631 [03:06<00:07, 24.94it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2454/2631 [03:06<00:07, 25.06it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2457/2631 [03:06<00:06, 24.98it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▎| 2460/2631 [03:06<00:06, 24.70it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▎| 2463/2631 [03:06<00:06, 24.23it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▎| 2466/2631 [03:06<00:06, 24.03it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2469/2631 [03:06<00:06, 24.02it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2472/2631 [03:06<00:06, 24.21it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2475/2631 [03:07<00:06, 24.49it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2478/2631 [03:07<00:06, 24.74it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2481/2631 [03:07<00:06, 24.96it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2484/2631 [03:07<00:05, 25.24it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▍| 2487/2631 [03:07<00:05, 25.43it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▍| 2490/2631 [03:07<00:05, 24.72it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▍| 2493/2631 [03:07<00:05, 25.43it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▍| 2496/2631 [03:07<00:05, 25.71it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▍| 2499/2631 [03:08<00:05, 26.18it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▌| 2502/2631 [03:08<00:04, 26.70it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▌| 2506/2631 [03:08<00:04, 27.68it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▌| 2509/2631 [03:08<00:04, 26.97it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▌| 2512/2631 [03:08<00:04, 26.49it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2515/2631 [03:08<00:04, 26.10it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2518/2631 [03:08<00:04, 26.15it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2521/2631 [03:08<00:04, 25.29it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2524/2631 [03:08<00:04, 25.86it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2527/2631 [03:09<00:04, 25.54it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2530/2631 [03:09<00:03, 25.77it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▋| 2533/2631 [03:09<00:03, 25.30it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▋| 2536/2631 [03:09<00:03, 25.19it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2539/2631 [03:09<00:03, 25.44it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2542/2631 [03:09<00:03, 25.25it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2545/2631 [03:09<00:03, 25.15it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2548/2631 [03:09<00:03, 24.49it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2551/2631 [03:10<00:03, 23.95it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2554/2631 [03:10<00:03, 24.73it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2557/2631 [03:10<00:02, 24.91it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2560/2631 [03:10<00:02, 24.62it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2563/2631 [03:10<00:02, 24.51it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2566/2631 [03:10<00:02, 24.62it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2569/2631 [03:10<00:02, 25.13it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2572/2631 [03:10<00:02, 25.14it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2575/2631 [03:11<00:02, 25.59it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2578/2631 [03:11<00:02, 25.94it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2581/2631 [03:11<00:01, 26.18it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2584/2631 [03:11<00:01, 25.83it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2587/2631 [03:11<00:01, 26.07it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2590/2631 [03:11<00:01, 26.10it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▊| 2593/2631 [03:11<00:01, 25.78it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▊| 2596/2631 [03:11<00:01, 25.76it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2599/2631 [03:11<00:01, 25.58it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2602/2631 [03:12<00:01, 25.54it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2605/2631 [03:12<00:01, 25.59it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2608/2631 [03:12<00:00, 25.58it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2611/2631 [03:12<00:00, 25.38it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2614/2631 [03:12<00:00, 25.44it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2617/2631 [03:12<00:00, 25.01it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1: 100%|█████████▉| 2620/2631 [03:12<00:00, 25.03it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1: 100%|█████████▉| 2623/2631 [03:12<00:00, 24.79it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1: 100%|█████████▉| 2626/2631 [03:13<00:00, 25.41it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1: 100%|█████████▉| 2629/2631 [03:13<00:00, 25.79it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1: 100%|██████████| 2631/2631 [03:19<00:00, 13.16it/s]
+[92mINFO [0m:      aggregate_train: Received 3 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'partition-id': 0.7453931785883467, 'train_loss': 4.890656868487503}
+[92mINFO [0m:      configure_evaluate: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      METRICS BY HOSPITAL
+[92mINFO [0m:        HospitalC (n=2730):
+[92mINFO [0m:          auroc       : 0.4506
+[92mINFO [0m:          eval_loss   : 11.6483
+[92mINFO [0m:          sensitivity : 0.0000
+[92mINFO [0m:          specificity : 1.0000
+[92mINFO [0m:          precision   : 0.0000
+[92mINFO [0m:          f1          : 0.0000
+[92mINFO [0m:        HospitalB (n=2860):
+[92mINFO [0m:          auroc       : 0.4495
+[92mINFO [0m:          eval_loss   : 8.5093
+[92mINFO [0m:          sensitivity : 0.0000
+[92mINFO [0m:          specificity : 1.0000
+[92mINFO [0m:          precision   : 0.0000
+[92mINFO [0m:          f1          : 0.0000
+[92mINFO [0m:        HospitalA (n=5490):
+[92mINFO [0m:          auroc       : 0.4645
+[92mINFO [0m:          eval_loss   : 10.5843
+[92mINFO [0m:          sensitivity : 0.0000
+[92mINFO [0m:          specificity : 1.0000
+[92mINFO [0m:          precision   : 0.0000
+[92mINFO [0m:          f1          : 0.0000
+[92mINFO [0m:      AGGREGATED METRICS:
+[92mINFO [0m:        auroc       : 0.4551
+[92mINFO [0m:        sensitivity : 0.0000
+[92mINFO [0m:        specificity : 1.0000
+[92mINFO [0m:        precision   : 0.0000
+[92mINFO [0m:        f1          : 0.0000
+[92mINFO [0m:      ✓ New best model! Round 1, AUROC: 0.4551
+[92mINFO [0m:        Model saved to models/job387_sarthi_round1_auroc4551.pt
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'auroc': 0.45513536491506296, 'sensitivity': 0.0, 'specificity': 1.0, 'precision': 0.0, 'f1': 0.0}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 2/100]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:   0%|          | 0/1360 [00:00<?, ?it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:   0%|          | 1/1360 [00:00<19:18,  1.17it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:   0%|          | 2/1360 [00:00<09:32,  2.37it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:   0%|          | 0/2631 [00:00<?, ?it/s][32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:   4%|▍         | 53/1360 [00:05<02:03, 10.56it/s][32m [repeated 80x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:   8%|▊         | 113/1360 [00:10<02:00, 10.36it/s][32m [repeated 84x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  13%|█▎        | 165/1288 [00:15<01:38, 11.43it/s][32m [repeated 85x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:   8%|▊         | 209/2631 [00:20<03:55, 10.29it/s][32m [repeated 68x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  21%|██        | 271/1288 [00:25<01:24, 12.03it/s][32m [repeated 87x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  26%|██▌       | 338/1288 [00:30<01:12, 13.08it/s][32m [repeated 86x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  14%|█▎        | 358/2631 [00:35<03:36, 10.51it/s][32m [repeated 87x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  33%|███▎      | 447/1360 [00:41<01:28, 10.31it/s][32m [repeated 81x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  37%|███▋      | 499/1360 [00:46<01:18, 10.95it/s][32m [repeated 86x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  47%|████▋     | 599/1288 [00:51<01:01, 11.15it/s][32m [repeated 81x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  52%|█████▏    | 665/1288 [00:56<00:43, 14.41it/s][32m [repeated 80x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  48%|████▊     | 658/1360 [01:01<01:02, 11.27it/s][32m [repeated 79x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  60%|██████    | 776/1288 [01:06<00:53,  9.65it/s][32m [repeated 80x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  56%|█████▌    | 760/1360 [01:11<01:05,  9.10it/s][32m [repeated 72x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  60%|█████▉    | 811/1360 [01:16<01:00,  9.09it/s][32m [repeated 83x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  73%|███████▎  | 937/1288 [01:20<00:40,  8.61it/s]Epoch 1/1:  73%|███████▎  | 939/1288 [01:21<00:33, 10.27it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  73%|███████▎  | 944/1288 [01:21<00:34,  9.86it/s][32m [repeated 73x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  34%|███▍      | 894/2631 [01:26<02:05, 13.81it/s][32m [repeated 84x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  71%|███████   | 963/1360 [01:31<00:35, 11.17it/s][32m [repeated 79x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  38%|███▊      | 1005/2631 [01:36<02:53,  9.39it/s][32m [repeated 83x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  79%|███████▉  | 1072/1360 [01:42<00:28,  9.95it/s][32m [repeated 80x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  91%|█████████▏| 1176/1288 [01:42<00:11, 10.00it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  92%|█████████▏| 1179/1288 [01:43<00:11,  9.38it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  92%|█████████▏| 1181/1288 [01:43<00:10, 10.02it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  92%|█████████▏| 1183/1288 [01:43<00:09, 11.03it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  92%|█████████▏| 1185/1288 [01:43<00:08, 11.53it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  92%|█████████▏| 1188/1288 [01:43<00:08, 11.76it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  92%|█████████▏| 1190/1288 [01:44<00:07, 13.17it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  93%|█████████▎| 1192/1288 [01:44<00:07, 12.32it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  93%|█████████▎| 1194/1288 [01:44<00:07, 12.59it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  93%|█████████▎| 1196/1288 [01:44<00:06, 13.49it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  93%|█████████▎| 1199/1288 [01:44<00:08, 10.58it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  93%|█████████▎| 1201/1288 [01:45<00:08, 10.59it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  93%|█████████▎| 1203/1288 [01:45<00:08, 10.60it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  94%|█████████▎| 1205/1288 [01:45<00:09,  8.72it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  94%|█████████▍| 1208/1288 [01:45<00:06, 11.81it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  94%|█████████▍| 1210/1288 [01:46<00:08,  9.46it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  94%|█████████▍| 1212/1288 [01:46<00:07, 10.39it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  94%|█████████▍| 1214/1288 [01:46<00:08,  8.48it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  94%|█████████▍| 1216/1288 [01:46<00:07,  9.10it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  95%|█████████▍| 1218/1288 [01:46<00:07,  8.82it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  83%|████████▎ | 1131/1360 [01:47<00:17, 13.06it/s][32m [repeated 56x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  95%|█████████▍| 1220/1288 [01:47<00:07,  9.57it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  95%|█████████▍| 1222/1288 [01:47<00:06, 10.23it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  95%|█████████▌| 1224/1288 [01:47<00:05, 11.48it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  95%|█████████▌| 1226/1288 [01:47<00:05, 10.76it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  95%|█████████▌| 1228/1288 [01:47<00:05, 11.62it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  95%|█████████▌| 1230/1288 [01:48<00:06,  8.47it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  96%|█████████▌| 1232/1288 [01:48<00:05,  9.86it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  96%|█████████▌| 1234/1288 [01:48<00:05, 10.29it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  96%|█████████▌| 1236/1288 [01:48<00:04, 10.54it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  96%|█████████▌| 1238/1288 [01:48<00:05,  9.01it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  96%|█████████▋| 1240/1288 [01:49<00:04, 10.41it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  96%|█████████▋| 1242/1288 [01:49<00:05,  9.11it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  97%|█████████▋| 1244/1288 [01:49<00:04,  9.49it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  97%|█████████▋| 1246/1288 [01:49<00:05,  8.01it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  97%|█████████▋| 1248/1288 [01:49<00:04,  9.68it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  97%|█████████▋| 1250/1288 [01:50<00:03,  9.91it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  97%|█████████▋| 1252/1288 [01:50<00:03, 10.73it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  97%|█████████▋| 1254/1288 [01:50<00:03,  9.89it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  98%|█████████▊| 1256/1288 [01:50<00:02, 10.79it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  98%|█████████▊| 1258/1288 [01:50<00:03,  8.96it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  98%|█████████▊| 1261/1288 [01:51<00:02, 12.11it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  98%|█████████▊| 1263/1288 [01:51<00:01, 13.37it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  98%|█████████▊| 1265/1288 [01:51<00:01, 12.10it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  98%|█████████▊| 1267/1288 [01:51<00:02,  9.17it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  87%|████████▋ | 1189/1360 [01:52<00:12, 13.59it/s][32m [repeated 55x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  99%|█████████▊| 1269/1288 [01:52<00:02,  8.90it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  99%|█████████▊| 1271/1288 [01:52<00:01,  9.58it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  99%|█████████▉| 1273/1288 [01:52<00:01,  9.70it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  99%|█████████▉| 1276/1288 [01:52<00:00, 12.24it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  99%|█████████▉| 1278/1288 [01:52<00:00, 11.56it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  99%|█████████▉| 1280/1288 [01:52<00:00, 11.21it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1: 100%|█████████▉| 1282/1288 [01:53<00:00,  9.53it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1: 100%|█████████▉| 1284/1288 [01:53<00:00, 10.15it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1: 100%|█████████▉| 1286/1288 [01:53<00:00, 10.89it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1: 100%|██████████| 1288/1288 [01:53<00:00, 12.52it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1: 100%|██████████| 1288/1288 [01:53<00:00, 11.33it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  47%|████▋     | 1237/2631 [01:56<01:38, 14.16it/s][32m [repeated 57x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  94%|█████████▍| 1279/1360 [01:58<00:04, 18.33it/s][32m [repeated 17x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  50%|████▉     | 1313/2631 [02:02<01:24, 15.56it/s][32m [repeated 34x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1: 100%|██████████| 1360/1360 [02:03<00:00, 11.04it/s][32m [repeated 33x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  54%|█████▍    | 1430/2631 [02:07<00:49, 24.25it/s][32m [repeated 39x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  59%|█████▉    | 1556/2631 [02:12<00:43, 24.46it/s][32m [repeated 42x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  64%|██████▍   | 1682/2631 [02:17<00:37, 25.08it/s][32m [repeated 42x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  69%|██████▊   | 1808/2631 [02:22<00:32, 24.96it/s][32m [repeated 42x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  73%|███████▎  | 1931/2631 [02:27<00:26, 26.19it/s][32m [repeated 41x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  78%|███████▊  | 2057/2631 [02:32<00:22, 25.09it/s][32m [repeated 42x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  83%|████████▎ | 2180/2631 [02:37<00:18, 23.88it/s][32m [repeated 41x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  88%|████████▊ | 2303/2631 [02:42<00:13, 24.77it/s][32m [repeated 41x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  91%|█████████▏| 2402/2631 [02:46<00:09, 23.21it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  91%|█████████▏| 2405/2631 [02:46<00:09, 23.41it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2408/2631 [02:46<00:10, 22.19it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2411/2631 [02:46<00:10, 21.97it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2414/2631 [02:46<00:09, 22.82it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2417/2631 [02:46<00:09, 23.66it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2420/2631 [02:47<00:08, 24.38it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2423/2631 [02:47<00:08, 25.10it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2426/2631 [02:47<00:08, 25.24it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  91%|█████████ | 2399/2631 [02:46<00:09, 23.78it/s][32m [repeated 32x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2429/2631 [02:47<00:07, 25.47it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2432/2631 [02:47<00:07, 25.78it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2435/2631 [02:47<00:07, 26.06it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2438/2631 [02:47<00:07, 26.30it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2441/2631 [02:47<00:07, 26.07it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2444/2631 [02:47<00:07, 25.72it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2447/2631 [02:48<00:07, 26.09it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2450/2631 [02:48<00:06, 25.89it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2453/2631 [02:48<00:06, 25.48it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2456/2631 [02:48<00:06, 25.01it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2459/2631 [02:48<00:06, 24.90it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▎| 2462/2631 [02:48<00:06, 24.96it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▎| 2465/2631 [02:48<00:06, 25.17it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2468/2631 [02:48<00:06, 25.26it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2471/2631 [02:49<00:06, 25.56it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2474/2631 [02:49<00:06, 25.60it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2477/2631 [02:49<00:06, 25.36it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2480/2631 [02:49<00:05, 25.33it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2483/2631 [02:49<00:05, 25.14it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2486/2631 [02:49<00:05, 25.01it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▍| 2489/2631 [02:49<00:05, 25.18it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▍| 2492/2631 [02:49<00:05, 25.54it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▍| 2495/2631 [02:50<00:05, 25.00it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▍| 2498/2631 [02:50<00:05, 25.38it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▌| 2501/2631 [02:50<00:05, 25.04it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▌| 2504/2631 [02:50<00:05, 24.89it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▌| 2507/2631 [02:50<00:04, 25.02it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▌| 2510/2631 [02:50<00:04, 24.88it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2513/2631 [02:50<00:04, 24.93it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2516/2631 [02:50<00:04, 25.34it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2519/2631 [02:50<00:04, 25.46it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2522/2631 [02:51<00:04, 25.42it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2525/2631 [02:51<00:04, 25.50it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2528/2631 [02:51<00:04, 25.34it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2531/2631 [02:51<00:03, 25.07it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▋| 2534/2631 [02:51<00:03, 24.52it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▋| 2537/2631 [02:51<00:03, 24.56it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2540/2631 [02:51<00:03, 24.82it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2543/2631 [02:51<00:03, 25.17it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2546/2631 [02:52<00:03, 24.86it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2549/2631 [02:52<00:03, 25.01it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2552/2631 [02:52<00:03, 25.07it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2555/2631 [02:52<00:03, 24.62it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2558/2631 [02:52<00:02, 24.35it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2561/2631 [02:52<00:02, 24.63it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2564/2631 [02:52<00:02, 24.77it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2567/2631 [02:52<00:02, 24.98it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2570/2631 [02:53<00:02, 24.74it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2573/2631 [02:53<00:02, 24.90it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2576/2631 [02:53<00:02, 24.20it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2579/2631 [02:53<00:02, 24.07it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2582/2631 [02:53<00:02, 23.95it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2585/2631 [02:53<00:01, 24.16it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2588/2631 [02:53<00:01, 24.46it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2591/2631 [02:53<00:01, 24.85it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▊| 2594/2631 [02:53<00:01, 25.00it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▊| 2597/2631 [02:54<00:01, 25.17it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2600/2631 [02:54<00:01, 25.33it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2603/2631 [02:54<00:01, 25.29it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2606/2631 [02:54<00:00, 25.36it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2609/2631 [02:54<00:00, 25.25it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2612/2631 [02:54<00:00, 25.65it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2615/2631 [02:54<00:00, 25.86it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1: 100%|█████████▉| 2618/2631 [02:54<00:00, 25.83it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1: 100%|█████████▉| 2621/2631 [02:55<00:00, 25.36it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1: 100%|█████████▉| 2624/2631 [02:55<00:00, 25.33it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1: 100%|█████████▉| 2627/2631 [02:55<00:00, 26.09it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1: 100%|██████████| 2631/2631 [02:55<00:00, 27.31it/s]Epoch 1/1: 100%|██████████| 2631/2631 [02:55<00:00, 14.99it/s]
+[92mINFO [0m:      aggregate_train: Received 3 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'partition-id': 0.7453931785883467, 'train_loss': 1.4057622669522973}
+[92mINFO [0m:      configure_evaluate: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      METRICS BY HOSPITAL
+[92mINFO [0m:        HospitalC (n=2730):
+[92mINFO [0m:          auroc       : 0.4517
+[92mINFO [0m:          eval_loss   : 0.7405
+[92mINFO [0m:          sensitivity : 0.0000
+[92mINFO [0m:          specificity : 1.0000
+[92mINFO [0m:          precision   : 0.0000
+[92mINFO [0m:          f1          : 0.0000
+[92mINFO [0m:        HospitalB (n=2860):
+[92mINFO [0m:          auroc       : 0.4884
+[92mINFO [0m:          eval_loss   : 0.6637
+[92mINFO [0m:          sensitivity : 0.0000
+[92mINFO [0m:          specificity : 1.0000
+[92mINFO [0m:          precision   : 0.0000
+[92mINFO [0m:          f1          : 0.0000
+[92mINFO [0m:        HospitalA (n=5490):
+[92mINFO [0m:          auroc       : 0.4644
+[92mINFO [0m:          eval_loss   : 0.7145
+[92mINFO [0m:          sensitivity : 0.0000
+[92mINFO [0m:          specificity : 1.0000
+[92mINFO [0m:          precision   : 0.0000
+[92mINFO [0m:          f1          : 0.0000
+[92mINFO [0m:      AGGREGATED METRICS:
+[92mINFO [0m:        auroc       : 0.4627
+[92mINFO [0m:        sensitivity : 0.0000
+[92mINFO [0m:        specificity : 1.0000
+[92mINFO [0m:        precision   : 0.0000
+[92mINFO [0m:        f1          : 0.0000
+[92mINFO [0m:      ✓ New best model! Round 2, AUROC: 0.4627
+[92mINFO [0m:        Model saved to models/job387_sarthi_round2_auroc4627.pt
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'auroc': 0.4627475715692458, 'sensitivity': 0.0, 'specificity': 1.0, 'precision': 0.0, 'f1': 0.0}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 3/100]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:   0%|          | 0/1288 [00:00<?, ?it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:   0%|          | 1/1288 [00:00<20:41,  1.04it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:   0%|          | 0/2631 [00:00<?, ?it/s][32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:   4%|▍         | 55/1360 [00:05<02:21,  9.25it/s][32m [repeated 83x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:   8%|▊         | 108/1288 [00:10<02:02,  9.60it/s][32m [repeated 79x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  12%|█▏        | 165/1360 [00:15<01:51, 10.69it/s][32m [repeated 79x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  16%|█▌        | 217/1360 [00:21<01:52, 10.12it/s][32m [repeated 82x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  20%|██        | 272/1360 [00:26<01:34, 11.45it/s][32m [repeated 79x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  26%|██▌       | 335/1288 [00:31<01:28, 10.81it/s][32m [repeated 78x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  25%|██▌       | 341/1360 [00:32<01:38, 10.39it/s]Epoch 1/1:  25%|██▌       | 343/1360 [00:32<01:24, 12.00it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  28%|██▊       | 382/1360 [00:36<01:19, 12.24it/s][32m [repeated 70x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  32%|███▏      | 436/1360 [00:41<01:20, 11.52it/s][32m [repeated 77x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  18%|█▊        | 480/2631 [00:46<02:30, 14.28it/s][32m [repeated 76x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  41%|████      | 553/1360 [00:51<00:52, 15.49it/s][32m [repeated 82x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  45%|████▍     | 607/1360 [00:56<01:18,  9.57it/s][32m [repeated 82x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  25%|██▍       | 656/2631 [01:01<03:08, 10.45it/s][32m [repeated 82x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  52%|█████▎    | 714/1360 [01:06<01:00, 10.73it/s][32m [repeated 80x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  57%|█████▋    | 734/1288 [01:11<01:14,  7.45it/s][32m [repeated 78x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  32%|███▏      | 853/2631 [01:16<02:36, 11.36it/s][32m [repeated 80x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  66%|██████▌   | 846/1288 [01:22<00:36, 12.15it/s][32m [repeated 85x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  70%|██████▉   | 901/1288 [01:27<00:35, 10.80it/s][32m [repeated 81x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  71%|███████   | 966/1360 [01:32<00:38, 10.19it/s][32m [repeated 81x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  75%|███████▌  | 1026/1360 [01:37<00:22, 14.87it/s][32m [repeated 79x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  79%|███████▉  | 1081/1360 [01:42<00:30,  9.17it/s][32m [repeated 83x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  45%|████▍     | 1179/2631 [01:47<02:24, 10.06it/s][32m [repeated 82x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  87%|████████▋ | 1187/1360 [01:52<00:16, 10.41it/s][32m [repeated 84x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  91%|█████████▏| 1177/1288 [01:53<00:09, 11.60it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  92%|█████████▏| 1179/1288 [01:53<00:09, 11.13it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  92%|█████████▏| 1181/1288 [01:53<00:08, 11.99it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  92%|█████████▏| 1183/1288 [01:53<00:08, 11.91it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  92%|█████████▏| 1185/1288 [01:54<00:09, 10.75it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  92%|█████████▏| 1187/1288 [01:54<00:09, 11.04it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  92%|█████████▏| 1189/1288 [01:54<00:08, 11.47it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  92%|█████████▏| 1191/1288 [01:54<00:08, 11.80it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  93%|█████████▎| 1193/1288 [01:54<00:07, 12.76it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  93%|█████████▎| 1195/1288 [01:54<00:07, 12.17it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  93%|█████████▎| 1197/1288 [01:55<00:07, 12.39it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  93%|█████████▎| 1199/1288 [01:55<00:07, 12.57it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  93%|█████████▎| 1201/1288 [01:55<00:06, 13.54it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  93%|█████████▎| 1203/1288 [01:55<00:06, 12.87it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  94%|█████████▎| 1205/1288 [01:55<00:06, 13.75it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  94%|█████████▎| 1207/1288 [01:55<00:06, 12.63it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  94%|█████████▍| 1209/1288 [01:55<00:05, 13.74it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  94%|█████████▍| 1211/1288 [01:56<00:06, 11.18it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  94%|█████████▍| 1213/1288 [01:56<00:06, 12.07it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  94%|█████████▍| 1215/1288 [01:56<00:07, 10.00it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  94%|█████████▍| 1217/1288 [01:56<00:07,  9.73it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  95%|█████████▍| 1219/1288 [01:56<00:06, 10.17it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  95%|█████████▍| 1221/1288 [01:57<00:06, 11.09it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  95%|█████████▍| 1223/1288 [01:57<00:05, 12.08it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  49%|████▉     | 1298/2631 [01:57<01:37, 13.69it/s][32m [repeated 61x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  92%|█████████▏| 1251/1360 [01:58<00:10, 10.06it/s][32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  51%|█████▏    | 1353/2631 [02:02<02:04, 10.29it/s][32m [repeated 25x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1: 100%|██████████| 1288/1288 [02:03<00:00, 12.23it/s]Epoch 1/1: 100%|██████████| 1288/1288 [02:03<00:00, 10.46it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  96%|█████████▌| 1302/1360 [02:03<00:04, 12.80it/s][32m [repeated 48x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  54%|█████▍    | 1426/2631 [02:07<01:09, 17.43it/s][32m [repeated 32x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1: 100%|██████████| 1360/1360 [02:07<00:00, 10.68it/s][32m [repeated 25x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  59%|█████▉    | 1546/2631 [02:12<00:44, 24.61it/s][32m [repeated 40x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  63%|██████▎   | 1669/2631 [02:17<00:38, 24.79it/s][32m [repeated 41x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  68%|██████▊   | 1789/2631 [02:22<00:34, 24.61it/s][32m [repeated 40x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  73%|███████▎  | 1909/2631 [02:27<00:29, 24.68it/s][32m [repeated 40x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  77%|███████▋  | 2032/2631 [02:32<00:24, 24.29it/s][32m [repeated 41x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  82%|████████▏ | 2152/2631 [02:37<00:19, 25.03it/s][32m [repeated 40x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  87%|████████▋ | 2278/2631 [02:43<00:14, 24.70it/s][32m [repeated 42x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  91%|█████████ | 2398/2631 [02:48<00:09, 24.96it/s][32m [repeated 40x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  91%|█████████▏| 2401/2631 [02:48<00:09, 24.93it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  91%|█████████▏| 2404/2631 [02:48<00:09, 25.03it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  91%|█████████▏| 2407/2631 [02:48<00:08, 24.95it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2410/2631 [02:48<00:08, 25.12it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2413/2631 [02:48<00:08, 24.68it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2416/2631 [02:48<00:08, 24.89it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2419/2631 [02:48<00:08, 24.56it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2422/2631 [02:49<00:08, 24.85it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2425/2631 [02:49<00:08, 24.66it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2428/2631 [02:49<00:08, 24.92it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2431/2631 [02:49<00:08, 24.97it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2434/2631 [02:49<00:07, 25.05it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2437/2631 [02:49<00:07, 24.98it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2440/2631 [02:49<00:07, 25.18it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2443/2631 [02:49<00:07, 25.25it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2446/2631 [02:50<00:07, 25.27it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2449/2631 [02:50<00:07, 24.89it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2452/2631 [02:50<00:07, 24.28it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2455/2631 [02:50<00:07, 24.15it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2458/2631 [02:50<00:07, 23.08it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▎| 2461/2631 [02:50<00:07, 23.02it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▎| 2464/2631 [02:50<00:06, 23.89it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2467/2631 [02:50<00:06, 24.24it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2470/2631 [02:51<00:06, 24.67it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2473/2631 [02:51<00:06, 24.55it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2476/2631 [02:51<00:06, 24.74it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2479/2631 [02:51<00:06, 24.87it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2482/2631 [02:51<00:06, 24.82it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2485/2631 [02:51<00:05, 24.68it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▍| 2488/2631 [02:51<00:05, 25.00it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▍| 2491/2631 [02:51<00:05, 24.75it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▍| 2494/2631 [02:52<00:05, 24.20it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▍| 2497/2631 [02:52<00:05, 24.35it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▌| 2500/2631 [02:52<00:05, 24.48it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▌| 2503/2631 [02:52<00:05, 24.58it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▌| 2506/2631 [02:52<00:05, 24.25it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▌| 2509/2631 [02:52<00:04, 24.59it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▌| 2512/2631 [02:52<00:04, 24.88it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2515/2631 [02:52<00:04, 24.86it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2518/2631 [02:52<00:04, 24.98it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2521/2631 [02:53<00:04, 25.04it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2524/2631 [02:53<00:04, 25.08it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2527/2631 [02:53<00:04, 25.45it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2530/2631 [02:53<00:04, 24.95it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▋| 2533/2631 [02:53<00:03, 25.14it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▋| 2536/2631 [02:53<00:03, 25.19it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2539/2631 [02:53<00:03, 25.55it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2542/2631 [02:53<00:03, 25.53it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2545/2631 [02:54<00:03, 25.13it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2548/2631 [02:54<00:03, 25.17it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2551/2631 [02:54<00:03, 25.02it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2554/2631 [02:54<00:03, 24.98it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2557/2631 [02:54<00:03, 24.63it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2560/2631 [02:54<00:02, 24.72it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2563/2631 [02:54<00:02, 24.79it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2566/2631 [02:54<00:02, 24.87it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2569/2631 [02:55<00:02, 24.72it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2572/2631 [02:55<00:02, 24.85it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2575/2631 [02:55<00:02, 24.86it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2578/2631 [02:55<00:02, 24.87it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2581/2631 [02:55<00:02, 24.86it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2584/2631 [02:55<00:01, 25.24it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2587/2631 [02:55<00:01, 25.45it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2590/2631 [02:55<00:01, 25.70it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▊| 2593/2631 [02:55<00:01, 25.43it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▊| 2596/2631 [02:56<00:01, 25.34it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2599/2631 [02:56<00:01, 24.69it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2602/2631 [02:56<00:01, 24.74it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2605/2631 [02:56<00:01, 25.11it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2608/2631 [02:56<00:00, 24.65it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2611/2631 [02:56<00:00, 24.58it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2614/2631 [02:56<00:00, 24.78it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2617/2631 [02:56<00:00, 24.98it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1: 100%|█████████▉| 2620/2631 [02:57<00:00, 24.73it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1: 100%|█████████▉| 2623/2631 [02:57<00:00, 24.60it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1: 100%|█████████▉| 2626/2631 [02:57<00:00, 24.77it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1: 100%|█████████▉| 2629/2631 [02:57<00:00, 25.82it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1: 100%|██████████| 2631/2631 [02:57<00:00, 14.82it/s]
+[92mINFO [0m:      aggregate_train: Received 3 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'partition-id': 0.7453931785883467, 'train_loss': 1.2974627713354274}
+[92mINFO [0m:      configure_evaluate: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      METRICS BY HOSPITAL
+[92mINFO [0m:        HospitalB (n=2860):
+[92mINFO [0m:          auroc       : 0.5000
+[92mINFO [0m:          eval_loss   : 4.3028
+[92mINFO [0m:          sensitivity : 1.0000
+[92mINFO [0m:          specificity : 0.0000
+[92mINFO [0m:          precision   : 0.3787
+[92mINFO [0m:          f1          : 0.5493
+[92mINFO [0m:        HospitalC (n=2730):
+[92mINFO [0m:          auroc       : 0.5000
+[92mINFO [0m:          eval_loss   : 3.3359
+[92mINFO [0m:          sensitivity : 1.0000
+[92mINFO [0m:          specificity : 0.0000
+[92mINFO [0m:          precision   : 0.5183
+[92mINFO [0m:          f1          : 0.6828
+[92mINFO [0m:        HospitalA (n=5490):
+[92mINFO [0m:          auroc       : 0.5000
+[92mINFO [0m:          eval_loss   : 3.6637
+[92mINFO [0m:          sensitivity : 1.0000
+[92mINFO [0m:          specificity : 0.0000
+[92mINFO [0m:          precision   : 0.4709
+[92mINFO [0m:          f1          : 0.6402
+[92mINFO [0m:      AGGREGATED METRICS:
+[92mINFO [0m:        auroc       : 0.5000
+[92mINFO [0m:        sensitivity : 1.0000
+[92mINFO [0m:        specificity : 0.0000
+[92mINFO [0m:        precision   : 0.4588
+[92mINFO [0m:        f1          : 0.6290
+[92mINFO [0m:      ✓ New best model! Round 3, AUROC: 0.5000
+[92mINFO [0m:        Model saved to models/job387_sarthi_round3_auroc5000.pt
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'auroc': 0.5, 'sensitivity': 1.0, 'specificity': 0.0, 'precision': 0.4587545126353791, 'f1': 0.6289673946668316}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 4/100]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:   0%|          | 0/1360 [00:00<?, ?it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:   0%|          | 1/2631 [00:00<39:11,  1.12it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:   0%|          | 0/2631 [00:00<?, ?it/s][32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:   4%|▍         | 54/1360 [00:05<02:26,  8.94it/s][32m [repeated 80x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:   9%|▉         | 115/1288 [00:10<01:49, 10.75it/s][32m [repeated 82x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  12%|█▏        | 163/1360 [00:15<01:58, 10.13it/s][32m [repeated 72x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  16%|█▋        | 221/1360 [00:20<01:10, 16.09it/s][32m [repeated 77x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  21%|██▏       | 274/1288 [00:25<01:14, 13.59it/s][32m [repeated 75x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  12%|█▏        | 317/2631 [00:30<02:55, 13.16it/s][32m [repeated 84x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  28%|██▊       | 381/1360 [00:36<01:35, 10.29it/s][32m [repeated 76x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  34%|███▍      | 438/1288 [00:41<01:17, 10.97it/s][32m [repeated 78x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  39%|███▊      | 497/1288 [00:46<00:54, 14.39it/s][32m [repeated 80x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  43%|████▎     | 551/1288 [00:51<01:16,  9.59it/s][32m [repeated 76x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  47%|████▋     | 606/1288 [00:56<01:01, 11.08it/s][32m [repeated 78x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  24%|██▍       | 639/2631 [01:01<03:00, 11.05it/s][32m [repeated 80x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  56%|█████▌    | 717/1288 [01:06<01:02,  9.13it/s][32m [repeated 77x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  60%|██████    | 777/1288 [01:11<00:41, 12.44it/s][32m [repeated 74x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  66%|██████▌   | 845/1288 [01:16<00:36, 12.19it/s][32m [repeated 81x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  32%|███▏      | 847/2631 [01:21<03:11,  9.31it/s][32m [repeated 81x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  66%|██████▋   | 904/1360 [01:26<00:58,  7.76it/s][32m [repeated 75x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  79%|███████▊  | 1014/1288 [01:31<00:24, 11.09it/s][32m [repeated 75x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  83%|████████▎ | 1067/1288 [01:36<00:21, 10.38it/s][32m [repeated 80x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  87%|████████▋ | 1118/1288 [01:41<00:14, 11.74it/s][32m [repeated 82x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  91%|█████████ | 1173/1288 [01:46<00:11, 10.45it/s][32m [repeated 77x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  91%|█████████▏| 1177/1288 [01:47<00:11,  9.62it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  92%|█████████▏| 1179/1288 [01:47<00:09, 11.07it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  92%|█████████▏| 1181/1288 [01:47<00:11,  9.31it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  92%|█████████▏| 1183/1288 [01:47<00:09, 10.53it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  92%|█████████▏| 1185/1288 [01:48<00:10,  9.65it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  92%|█████████▏| 1187/1288 [01:48<00:09, 11.06it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  92%|█████████▏| 1189/1288 [01:48<00:10,  9.70it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  92%|█████████▏| 1191/1288 [01:48<00:08, 11.38it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  93%|█████████▎| 1193/1288 [01:49<00:10,  9.32it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  93%|█████████▎| 1196/1288 [01:49<00:09,  9.26it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  93%|█████████▎| 1199/1288 [01:49<00:07, 11.19it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  93%|█████████▎| 1201/1288 [01:49<00:08, 10.79it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  93%|█████████▎| 1203/1288 [01:49<00:06, 12.16it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  94%|█████████▎| 1205/1288 [01:50<00:10,  8.17it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  94%|█████████▎| 1207/1288 [01:50<00:08,  9.44it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  94%|█████████▍| 1209/1288 [01:50<00:07, 10.38it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  94%|█████████▍| 1211/1288 [01:50<00:06, 11.41it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  94%|█████████▍| 1213/1288 [01:50<00:06, 11.54it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  94%|█████████▍| 1215/1288 [01:51<00:07,  9.21it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  94%|█████████▍| 1217/1288 [01:51<00:06, 10.41it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  95%|█████████▍| 1219/1288 [01:51<00:06, 10.39it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  95%|█████████▍| 1221/1288 [01:51<00:05, 11.37it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  95%|█████████▍| 1223/1288 [01:51<00:07,  8.85it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  95%|█████████▌| 1225/1288 [01:52<00:06,  9.89it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  45%|████▌     | 1195/2631 [01:51<01:46, 13.44it/s][32m [repeated 50x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  95%|█████████▌| 1227/1288 [01:52<00:06,  9.24it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  95%|█████████▌| 1229/1288 [01:52<00:06,  9.12it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  95%|█████████▌| 1230/1288 [01:52<00:06,  8.66it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  96%|█████████▌| 1231/1288 [01:52<00:06,  8.61it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  96%|█████████▌| 1232/1288 [01:52<00:06,  8.72it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  96%|█████████▌| 1234/1288 [01:53<00:05,  9.83it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  96%|█████████▌| 1236/1288 [01:53<00:04, 10.58it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  96%|█████████▌| 1238/1288 [01:53<00:04, 10.46it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  96%|█████████▋| 1240/1288 [01:53<00:04, 11.40it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  96%|█████████▋| 1242/1288 [01:53<00:05,  9.06it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  97%|█████████▋| 1244/1288 [01:54<00:04,  9.88it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  97%|█████████▋| 1247/1288 [01:54<00:03, 10.46it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  97%|█████████▋| 1249/1288 [01:54<00:03, 10.75it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  97%|█████████▋| 1251/1288 [01:54<00:03,  9.72it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  97%|█████████▋| 1253/1288 [01:54<00:03, 10.11it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  97%|█████████▋| 1255/1288 [01:55<00:03,  9.49it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  98%|█████████▊| 1257/1288 [01:55<00:03, 10.22it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  98%|█████████▊| 1259/1288 [01:55<00:02, 10.57it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  98%|█████████▊| 1261/1288 [01:55<00:02, 11.15it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  98%|█████████▊| 1263/1288 [01:55<00:02, 11.18it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  98%|█████████▊| 1265/1288 [01:56<00:01, 11.73it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  98%|█████████▊| 1267/1288 [01:56<00:01, 11.68it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  99%|█████████▊| 1269/1288 [01:56<00:01, 10.27it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  99%|█████████▊| 1271/1288 [01:56<00:01, 10.74it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  99%|█████████▉| 1273/1288 [01:56<00:01,  8.68it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  99%|█████████▉| 1275/1288 [01:57<00:01, 10.27it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  48%|████▊     | 1250/2631 [01:57<02:23,  9.65it/s][32m [repeated 57x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  99%|█████████▉| 1277/1288 [01:57<00:01,  9.05it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  99%|█████████▉| 1279/1288 [01:57<00:00,  9.77it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  91%|█████████▏| 1242/1360 [01:57<00:09, 13.00it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  99%|█████████▉| 1281/1288 [01:57<00:00,  9.48it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  50%|█████     | 1321/2631 [02:02<01:24, 15.56it/s][32m [repeated 38x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  97%|█████████▋| 1319/1360 [02:02<00:02, 13.89it/s][32m [repeated 40x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  54%|█████▍    | 1423/2631 [02:07<00:47, 25.52it/s][32m [repeated 39x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1: 100%|██████████| 1360/1360 [02:05<00:00, 10.83it/s][32m [repeated 17x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  59%|█████▉    | 1549/2631 [02:12<00:43, 24.71it/s][32m [repeated 42x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  64%|██████▍   | 1681/2631 [02:17<00:35, 26.92it/s][32m [repeated 44x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  69%|██████▉   | 1819/2631 [02:22<00:29, 27.26it/s][32m [repeated 46x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  74%|███████▍  | 1957/2631 [02:27<00:23, 28.25it/s][32m [repeated 46x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  79%|███████▉  | 2086/2631 [02:32<00:21, 25.04it/s][32m [repeated 43x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  84%|████████▍ | 2215/2631 [02:37<00:16, 25.62it/s][32m [repeated 43x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  89%|████████▉ | 2338/2631 [02:42<00:15, 18.85it/s][32m [repeated 41x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  91%|█████████▏| 2401/2631 [02:45<00:09, 24.64it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  91%|█████████▏| 2404/2631 [02:45<00:09, 23.99it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  91%|█████████▏| 2407/2631 [02:45<00:09, 24.34it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2410/2631 [02:45<00:09, 24.03it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2413/2631 [02:45<00:10, 19.99it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2416/2631 [02:45<00:10, 21.14it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2419/2631 [02:45<00:09, 22.25it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2422/2631 [02:46<00:08, 23.24it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2425/2631 [02:46<00:08, 23.74it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2428/2631 [02:46<00:08, 24.23it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2431/2631 [02:46<00:08, 24.15it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2434/2631 [02:46<00:08, 24.41it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2437/2631 [02:46<00:07, 24.40it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2440/2631 [02:46<00:07, 24.69it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2443/2631 [02:46<00:07, 24.89it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2446/2631 [02:47<00:07, 23.33it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2449/2631 [02:47<00:08, 20.50it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2452/2631 [02:47<00:08, 21.54it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2455/2631 [02:47<00:07, 22.30it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2458/2631 [02:47<00:07, 22.48it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  91%|█████████ | 2398/2631 [02:45<00:09, 24.61it/s][32m [repeated 20x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▎| 2461/2631 [02:47<00:07, 23.36it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▎| 2464/2631 [02:47<00:06, 23.96it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2467/2631 [02:47<00:06, 24.89it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2470/2631 [02:48<00:06, 24.94it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2473/2631 [02:48<00:06, 24.86it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2476/2631 [02:48<00:06, 24.77it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2479/2631 [02:48<00:06, 24.99it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2482/2631 [02:48<00:05, 25.12it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2485/2631 [02:48<00:05, 25.10it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▍| 2488/2631 [02:48<00:05, 24.62it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▍| 2491/2631 [02:48<00:05, 25.06it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▍| 2494/2631 [02:49<00:05, 25.45it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▍| 2497/2631 [02:49<00:05, 25.42it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▌| 2500/2631 [02:49<00:05, 25.10it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▌| 2503/2631 [02:49<00:05, 24.68it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▌| 2506/2631 [02:49<00:05, 24.88it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▌| 2509/2631 [02:49<00:05, 24.38it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▌| 2512/2631 [02:49<00:04, 24.92it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2515/2631 [02:49<00:04, 25.02it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2518/2631 [02:50<00:04, 25.65it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2521/2631 [02:50<00:04, 25.41it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2524/2631 [02:50<00:04, 25.23it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2527/2631 [02:50<00:04, 25.09it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2530/2631 [02:50<00:04, 24.94it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▋| 2533/2631 [02:50<00:03, 24.74it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▋| 2536/2631 [02:50<00:03, 24.51it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2539/2631 [02:50<00:03, 24.80it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2542/2631 [02:50<00:03, 25.16it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2545/2631 [02:51<00:03, 24.66it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2548/2631 [02:51<00:03, 24.78it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2551/2631 [02:51<00:03, 25.15it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2554/2631 [02:51<00:03, 24.77it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2557/2631 [02:51<00:02, 24.93it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2560/2631 [02:51<00:02, 24.82it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2563/2631 [02:51<00:02, 24.87it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2566/2631 [02:51<00:02, 24.99it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2569/2631 [02:52<00:02, 24.85it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2572/2631 [02:52<00:02, 24.82it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2575/2631 [02:52<00:02, 24.58it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2578/2631 [02:52<00:02, 24.40it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2581/2631 [02:52<00:02, 23.95it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2584/2631 [02:52<00:01, 23.86it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2587/2631 [02:52<00:01, 23.95it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2590/2631 [02:52<00:01, 24.79it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▊| 2593/2631 [02:53<00:01, 25.29it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▊| 2596/2631 [02:53<00:01, 24.90it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2599/2631 [02:53<00:01, 25.15it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2602/2631 [02:53<00:01, 25.08it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2605/2631 [02:53<00:01, 25.54it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2608/2631 [02:53<00:00, 24.94it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2611/2631 [02:53<00:00, 25.08it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2614/2631 [02:53<00:00, 25.22it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2617/2631 [02:54<00:00, 25.29it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1: 100%|█████████▉| 2620/2631 [02:54<00:00, 25.35it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1: 100%|█████████▉| 2623/2631 [02:54<00:00, 25.19it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1: 100%|█████████▉| 2626/2631 [02:54<00:00, 26.06it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1: 100%|█████████▉| 2629/2631 [02:54<00:00, 26.45it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1: 100%|██████████| 2631/2631 [02:54<00:00, 15.07it/s]
+[92mINFO [0m:      aggregate_train: Received 3 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'partition-id': 0.7453931785883467, 'train_loss': 1.4467459944254066}
+[92mINFO [0m:      configure_evaluate: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      METRICS BY HOSPITAL
+[92mINFO [0m:        HospitalC (n=2730):
+[92mINFO [0m:          auroc       : 0.6246
+[92mINFO [0m:          eval_loss   : 2.9224
+[92mINFO [0m:          sensitivity : 1.0000
+[92mINFO [0m:          specificity : 0.0000
+[92mINFO [0m:          precision   : 0.5183
+[92mINFO [0m:          f1          : 0.6828
+[92mINFO [0m:        HospitalB (n=2860):
+[92mINFO [0m:          auroc       : 0.6418
+[92mINFO [0m:          eval_loss   : 3.7679
+[92mINFO [0m:          sensitivity : 1.0000
+[92mINFO [0m:          specificity : 0.0000
+[92mINFO [0m:          precision   : 0.3787
+[92mINFO [0m:          f1          : 0.5493
+[92mINFO [0m:        HospitalA (n=5490):
+[92mINFO [0m:          auroc       : 0.6486
+[92mINFO [0m:          eval_loss   : 3.2096
+[92mINFO [0m:          sensitivity : 1.0000
+[92mINFO [0m:          specificity : 0.0000
+[92mINFO [0m:          precision   : 0.4709
+[92mINFO [0m:          f1          : 0.6402
+[92mINFO [0m:      AGGREGATED METRICS:
+[92mINFO [0m:        auroc       : 0.6453
+[92mINFO [0m:        sensitivity : 1.0000
+[92mINFO [0m:        specificity : 0.0000
+[92mINFO [0m:        precision   : 0.4588
+[92mINFO [0m:        f1          : 0.6290
+[92mINFO [0m:      ✓ New best model! Round 4, AUROC: 0.6453
+[92mINFO [0m:        Model saved to models/job387_sarthi_round4_auroc6452.pt
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'auroc': 0.6452926935629925, 'sensitivity': 1.0, 'specificity': 0.0, 'precision': 0.4587545126353791, 'f1': 0.6289673946668316}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 5/100]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:   0%|          | 0/2631 [00:00<?, ?it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:   0%|          | 1/1288 [00:00<18:45,  1.14it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:   0%|          | 0/1360 [00:00<?, ?it/s][32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:   5%|▍         | 60/1288 [00:05<01:35, 12.81it/s][32m [repeated 82x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:   4%|▍         | 109/2631 [00:11<03:33, 11.82it/s][32m [repeated 78x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:   6%|▌         | 163/2631 [00:16<03:54, 10.51it/s][32m [repeated 78x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  14%|█▍        | 185/1288 [00:17<01:25, 12.86it/s]Epoch 1/1:  15%|█▍        | 187/1288 [00:17<01:17, 14.21it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  16%|█▌        | 218/1360 [00:21<01:40, 11.40it/s][32m [repeated 79x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  22%|██▏       | 279/1288 [00:26<01:42,  9.88it/s][32m [repeated 75x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  26%|██▌       | 335/1288 [00:31<01:23, 11.41it/s][32m [repeated 77x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  26%|██▋       | 341/1288 [00:31<01:10, 13.51it/s]Epoch 1/1:  27%|██▋       | 343/1288 [00:31<01:03, 14.92it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  28%|██▊       | 375/1360 [00:36<01:46,  9.25it/s][32m [repeated 78x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  38%|███▊      | 491/1288 [00:41<00:52, 15.19it/s][32m [repeated 74x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  35%|███▍      | 472/1360 [00:46<01:14, 11.85it/s][32m [repeated 84x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  48%|████▊     | 624/1288 [00:51<00:52, 12.54it/s][32m [repeated 84x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  53%|█████▎    | 680/1288 [00:56<01:07,  9.05it/s][32m [repeated 83x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  50%|████▉     | 674/1360 [01:01<00:37, 18.40it/s][32m [repeated 77x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  26%|██▌       | 675/2631 [01:06<02:35, 12.58it/s][32m [repeated 85x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  65%|██████▌   | 843/1288 [01:12<00:39, 11.24it/s][32m [repeated 86x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  30%|███       | 796/2631 [01:17<02:10, 14.08it/s][32m [repeated 82x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  67%|██████▋   | 917/1360 [01:22<00:33, 13.08it/s][32m [repeated 81x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  78%|███████▊  | 1009/1288 [01:27<00:28,  9.89it/s][32m [repeated 81x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  76%|███████▌  | 1028/1360 [01:32<00:25, 12.95it/s][32m [repeated 84x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  87%|████████▋ | 1125/1288 [01:37<00:16,  9.83it/s][32m [repeated 82x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  91%|█████████▏| 1177/1288 [01:41<00:08, 13.08it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  92%|█████████▏| 1179/1288 [01:42<00:08, 13.29it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  92%|█████████▏| 1181/1288 [01:42<00:08, 13.03it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  92%|█████████▏| 1184/1288 [01:42<00:07, 14.76it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  84%|████████▍ | 1140/1360 [01:42<00:19, 11.52it/s][32m [repeated 79x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  92%|█████████▏| 1186/1288 [01:42<00:07, 13.89it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  92%|█████████▏| 1188/1288 [01:42<00:07, 12.91it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  92%|█████████▏| 1190/1288 [01:43<00:09, 10.76it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  93%|█████████▎| 1193/1288 [01:43<00:07, 12.50it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  93%|█████████▎| 1195/1288 [01:43<00:07, 12.21it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  93%|█████████▎| 1197/1288 [01:43<00:07, 12.13it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  93%|█████████▎| 1200/1288 [01:43<00:08, 10.72it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  93%|█████████▎| 1202/1288 [01:44<00:07, 11.61it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  93%|█████████▎| 1204/1288 [01:44<00:08, 10.43it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  94%|█████████▎| 1206/1288 [01:44<00:06, 11.75it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  94%|█████████▍| 1208/1288 [01:44<00:07, 10.37it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  94%|█████████▍| 1211/1288 [01:44<00:05, 13.38it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  94%|█████████▍| 1213/1288 [01:44<00:05, 12.84it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  94%|█████████▍| 1215/1288 [01:45<00:05, 13.59it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  94%|█████████▍| 1217/1288 [01:45<00:04, 14.27it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  95%|█████████▍| 1219/1288 [01:45<00:05, 13.27it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  95%|█████████▍| 1221/1288 [01:45<00:05, 12.52it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  95%|█████████▍| 1223/1288 [01:45<00:04, 13.21it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  95%|█████████▌| 1225/1288 [01:45<00:04, 13.76it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  95%|█████████▌| 1227/1288 [01:45<00:04, 14.46it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  95%|█████████▌| 1229/1288 [01:46<00:03, 15.02it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  96%|█████████▌| 1231/1288 [01:46<00:03, 15.80it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  96%|█████████▌| 1233/1288 [01:46<00:04, 13.53it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  96%|█████████▌| 1235/1288 [01:46<00:04, 12.71it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  96%|█████████▌| 1237/1288 [01:46<00:04, 11.73it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  96%|█████████▌| 1239/1288 [01:46<00:03, 12.98it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  96%|█████████▋| 1241/1288 [01:47<00:03, 12.95it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  97%|█████████▋| 1243/1288 [01:47<00:03, 12.33it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  97%|█████████▋| 1245/1288 [01:47<00:03, 11.96it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  97%|█████████▋| 1247/1288 [01:47<00:03, 11.21it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  44%|████▍     | 1156/2631 [01:47<02:24, 10.21it/s][32m [repeated 54x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  97%|█████████▋| 1249/1288 [01:47<00:03, 10.82it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  97%|█████████▋| 1251/1288 [01:47<00:03, 10.77it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  97%|█████████▋| 1253/1288 [01:48<00:02, 12.48it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  97%|█████████▋| 1255/1288 [01:48<00:02, 12.72it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  98%|█████████▊| 1257/1288 [01:48<00:02, 12.96it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  98%|█████████▊| 1259/1288 [01:48<00:02, 12.51it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  98%|█████████▊| 1262/1288 [01:48<00:01, 15.47it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  98%|█████████▊| 1265/1288 [01:48<00:01, 17.59it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  98%|█████████▊| 1267/1288 [01:48<00:01, 15.31it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  99%|█████████▊| 1269/1288 [01:49<00:01, 14.79it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  99%|█████████▉| 1272/1288 [01:49<00:01, 14.17it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  99%|█████████▉| 1275/1288 [01:49<00:00, 16.60it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  99%|█████████▉| 1277/1288 [01:49<00:00, 13.73it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  99%|█████████▉| 1279/1288 [01:49<00:00, 14.48it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  99%|█████████▉| 1281/1288 [01:49<00:00, 13.33it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1: 100%|█████████▉| 1283/1288 [01:50<00:00, 14.44it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1: 100%|█████████▉| 1286/1288 [01:50<00:00, 16.34it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1: 100%|██████████| 1288/1288 [01:50<00:00, 11.66it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  93%|█████████▎| 1259/1360 [01:52<00:06, 16.51it/s][32m [repeated 7x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  46%|████▋     | 1218/2631 [01:52<01:20, 17.51it/s][32m [repeated 50x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  99%|█████████▉| 1352/1360 [01:57<00:00, 19.21it/s][32m [repeated 35x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  49%|████▉     | 1293/2631 [01:57<01:32, 14.52it/s][32m [repeated 34x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1: 100%|██████████| 1360/1360 [01:57<00:00, 11.57it/s][32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  54%|█████▍    | 1424/2631 [02:02<00:44, 26.84it/s][32m [repeated 44x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  59%|█████▉    | 1553/2631 [02:07<00:42, 25.31it/s][32m [repeated 43x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  64%|██████▎   | 1676/2631 [02:13<00:37, 25.34it/s][32m [repeated 41x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  68%|██████▊   | 1799/2631 [02:17<00:33, 25.03it/s][32m [repeated 41x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  73%|███████▎  | 1928/2631 [02:22<00:27, 25.53it/s][32m [repeated 43x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  78%|███████▊  | 2054/2631 [02:28<00:22, 25.78it/s][32m [repeated 42x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  81%|████████  | 2120/2631 [02:30<00:18, 28.08it/s]Epoch 1/1:  81%|████████  | 2123/2631 [02:30<00:17, 28.47it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  83%|████████▎ | 2194/2631 [02:33<00:14, 29.44it/s][32m [repeated 44x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  89%|████████▉ | 2336/2631 [02:38<00:10, 27.42it/s][32m [repeated 47x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  91%|█████████▏| 2401/2631 [02:40<00:07, 28.89it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  91%|█████████▏| 2404/2631 [02:40<00:07, 29.06it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2408/2631 [02:40<00:07, 29.60it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2412/2631 [02:40<00:07, 29.48it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2415/2631 [02:41<00:07, 29.47it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2418/2631 [02:41<00:07, 29.30it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2421/2631 [02:41<00:07, 28.84it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2424/2631 [02:41<00:07, 28.59it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2427/2631 [02:41<00:07, 28.32it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2430/2631 [02:41<00:07, 28.30it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2433/2631 [02:41<00:06, 28.62it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2436/2631 [02:41<00:06, 28.77it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2439/2631 [02:41<00:06, 28.87it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2442/2631 [02:41<00:06, 29.00it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2445/2631 [02:42<00:06, 29.13it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2448/2631 [02:42<00:06, 28.87it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2451/2631 [02:42<00:06, 28.96it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2454/2631 [02:42<00:06, 28.28it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2457/2631 [02:42<00:06, 28.33it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▎| 2460/2631 [02:42<00:05, 28.58it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▎| 2464/2631 [02:42<00:05, 29.15it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2468/2631 [02:42<00:05, 29.41it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2471/2631 [02:42<00:05, 28.91it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2474/2631 [02:43<00:05, 28.47it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2477/2631 [02:43<00:05, 28.07it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2480/2631 [02:43<00:05, 27.97it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  91%|█████████ | 2397/2631 [02:40<00:08, 28.25it/s][32m [repeated 20x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2483/2631 [02:43<00:05, 27.85it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2486/2631 [02:43<00:05, 28.05it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▍| 2489/2631 [02:43<00:05, 28.08it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▍| 2492/2631 [02:43<00:04, 28.31it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▍| 2495/2631 [02:43<00:04, 28.61it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▍| 2498/2631 [02:43<00:04, 27.96it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▌| 2501/2631 [02:44<00:04, 27.59it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▌| 2504/2631 [02:44<00:04, 27.76it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▌| 2507/2631 [02:44<00:04, 27.70it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▌| 2510/2631 [02:44<00:04, 27.91it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2513/2631 [02:44<00:04, 27.76it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2516/2631 [02:44<00:04, 27.36it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2519/2631 [02:44<00:04, 27.56it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2522/2631 [02:44<00:04, 27.00it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2525/2631 [02:44<00:03, 27.19it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2528/2631 [02:45<00:03, 27.61it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2531/2631 [02:45<00:03, 27.88it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▋| 2534/2631 [02:45<00:03, 27.77it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▋| 2537/2631 [02:45<00:03, 28.01it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2540/2631 [02:45<00:03, 27.90it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2543/2631 [02:45<00:03, 28.04it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2546/2631 [02:45<00:03, 28.14it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2549/2631 [02:45<00:02, 27.99it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2552/2631 [02:45<00:02, 28.11it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2555/2631 [02:45<00:02, 28.22it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2558/2631 [02:46<00:02, 28.39it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2561/2631 [02:46<00:02, 28.27it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2564/2631 [02:46<00:02, 28.45it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2567/2631 [02:46<00:02, 28.03it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2570/2631 [02:46<00:02, 28.23it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2573/2631 [02:46<00:02, 27.79it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2576/2631 [02:46<00:01, 27.55it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2579/2631 [02:46<00:01, 27.48it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2582/2631 [02:46<00:01, 27.49it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2585/2631 [02:47<00:01, 27.24it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2588/2631 [02:47<00:01, 26.49it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2591/2631 [02:47<00:01, 24.18it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▊| 2594/2631 [02:47<00:01, 24.51it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▊| 2597/2631 [02:47<00:01, 25.47it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2600/2631 [02:47<00:01, 26.42it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2603/2631 [02:47<00:01, 26.87it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2606/2631 [02:47<00:00, 27.14it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2609/2631 [02:47<00:00, 27.71it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2612/2631 [02:48<00:00, 27.91it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2615/2631 [02:48<00:00, 27.38it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1: 100%|█████████▉| 2618/2631 [02:48<00:00, 27.44it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1: 100%|█████████▉| 2621/2631 [02:48<00:00, 27.80it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1: 100%|█████████▉| 2625/2631 [02:48<00:00, 28.92it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1: 100%|█████████▉| 2629/2631 [02:48<00:00, 29.86it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1: 100%|██████████| 2631/2631 [02:48<00:00, 15.58it/s]
+[92mINFO [0m:      aggregate_train: Received 3 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'partition-id': 0.7453931785883467, 'train_loss': 1.1126942125239963}
+[92mINFO [0m:      configure_evaluate: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      METRICS BY HOSPITAL
+[92mINFO [0m:        HospitalC (n=2730):
+[92mINFO [0m:          auroc       : 0.6483
+[92mINFO [0m:          eval_loss   : 0.9928
+[92mINFO [0m:          sensitivity : 1.0000
+[92mINFO [0m:          specificity : 0.0000
+[92mINFO [0m:          precision   : 0.5183
+[92mINFO [0m:          f1          : 0.6828
+[92mINFO [0m:        HospitalB (n=2860):
+[92mINFO [0m:          auroc       : 0.6629
+[92mINFO [0m:          eval_loss   : 1.2211
+[92mINFO [0m:          sensitivity : 1.0000
+[92mINFO [0m:          specificity : 0.0000
+[92mINFO [0m:          precision   : 0.3787
+[92mINFO [0m:          f1          : 0.5493
+[92mINFO [0m:        HospitalA (n=5490):
+[92mINFO [0m:          auroc       : 0.6714
+[92mINFO [0m:          eval_loss   : 1.0762
+[92mINFO [0m:          sensitivity : 1.0000
+[92mINFO [0m:          specificity : 0.0000
+[92mINFO [0m:          precision   : 0.4709
+[92mINFO [0m:          f1          : 0.6402
+[92mINFO [0m:      AGGREGATED METRICS:
+[92mINFO [0m:        auroc       : 0.6683
+[92mINFO [0m:        sensitivity : 1.0000
+[92mINFO [0m:        specificity : 0.0000
+[92mINFO [0m:        precision   : 0.4588
+[92mINFO [0m:        f1          : 0.6290
+[92mINFO [0m:      ✓ New best model! Round 5, AUROC: 0.6683
+[92mINFO [0m:        Model saved to models/job387_sarthi_round5_auroc6683.pt
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'auroc': 0.6683163373279531, 'sensitivity': 1.0, 'specificity': 0.0, 'precision': 0.4587545126353791, 'f1': 0.6289673946668316}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 6/100]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:   0%|          | 0/1288 [00:00<?, ?it/s]
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:   0%|          | 1/1360 [00:00<19:06,  1.19it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:   0%|          | 0/2631 [00:00<?, ?it/s][32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:   5%|▌         | 66/1288 [00:05<01:20, 15.24it/s][32m [repeated 95x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  10%|█         | 129/1288 [00:11<01:24, 13.72it/s][32m [repeated 90x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  14%|█▍        | 188/1360 [00:16<01:38, 11.94it/s][32m [repeated 86x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  19%|█▊        | 240/1288 [00:21<01:40, 10.47it/s][32m [repeated 91x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  24%|██▍       | 310/1288 [00:26<01:14, 13.14it/s][32m [repeated 90x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  29%|██▉       | 371/1288 [00:31<01:08, 13.37it/s][32m [repeated 88x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  34%|███▎      | 433/1288 [00:36<01:01, 13.80it/s][32m [repeated 85x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  20%|█▉        | 519/2631 [00:40<02:50, 12.35it/s]Epoch 1/1:  20%|█▉        | 521/2631 [00:40<02:34, 13.70it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  38%|███▊      | 487/1288 [00:41<01:17, 10.29it/s][32m [repeated 85x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  40%|████      | 549/1360 [00:46<01:03, 12.69it/s][32m [repeated 88x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  47%|████▋     | 607/1288 [00:51<01:01, 11.00it/s][32m [repeated 80x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  52%|█████▏    | 668/1288 [00:56<00:47, 13.13it/s][32m [repeated 84x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  53%|█████▎    | 723/1360 [01:01<01:05,  9.68it/s][32m [repeated 84x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  63%|██████▎   | 810/1288 [01:06<00:24, 19.14it/s][32m [repeated 88x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  68%|██████▊   | 880/1288 [01:11<00:31, 13.09it/s][32m [repeated 82x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  73%|███████▎  | 939/1288 [01:16<00:35,  9.87it/s][32m [repeated 80x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  77%|███████▋  | 994/1288 [01:21<00:32,  8.94it/s][32m [repeated 89x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  74%|███████▍  | 1008/1360 [01:26<00:23, 15.08it/s][32m [repeated 85x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  79%|███████▉  | 1071/1360 [01:31<00:24, 11.78it/s][32m [repeated 89x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  91%|█████████ | 1175/1288 [01:36<00:08, 12.62it/s][32m [repeated 90x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  91%|█████████▏| 1178/1288 [01:37<00:07, 15.39it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  92%|█████████▏| 1180/1288 [01:37<00:09, 11.95it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  92%|█████████▏| 1183/1288 [01:37<00:07, 14.27it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  92%|█████████▏| 1185/1288 [01:37<00:07, 13.25it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  92%|█████████▏| 1187/1288 [01:37<00:07, 14.10it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  92%|█████████▏| 1189/1288 [01:37<00:07, 12.80it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  92%|█████████▏| 1191/1288 [01:38<00:07, 13.85it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  93%|█████████▎| 1193/1288 [01:38<00:06, 14.31it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  93%|█████████▎| 1195/1288 [01:38<00:07, 13.27it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  93%|█████████▎| 1197/1288 [01:38<00:06, 14.02it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  93%|█████████▎| 1199/1288 [01:38<00:07, 11.78it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  93%|█████████▎| 1202/1288 [01:38<00:06, 13.55it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  93%|█████████▎| 1204/1288 [01:39<00:05, 14.26it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  94%|█████████▎| 1206/1288 [01:39<00:06, 12.01it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  94%|█████████▍| 1208/1288 [01:39<00:06, 12.12it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  94%|█████████▍| 1210/1288 [01:39<00:06, 11.58it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  94%|█████████▍| 1212/1288 [01:39<00:06, 12.20it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  94%|█████████▍| 1214/1288 [01:39<00:05, 12.89it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  94%|█████████▍| 1216/1288 [01:40<00:06, 11.34it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  95%|█████████▍| 1218/1288 [01:40<00:06, 11.15it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  95%|█████████▍| 1220/1288 [01:40<00:06,  9.89it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  95%|█████████▍| 1222/1288 [01:40<00:05, 11.52it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  95%|█████████▌| 1224/1288 [01:40<00:05, 10.96it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  95%|█████████▌| 1226/1288 [01:41<00:05, 11.68it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  95%|█████████▌| 1228/1288 [01:41<00:05, 10.73it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  95%|█████████▌| 1230/1288 [01:41<00:05, 11.24it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  96%|█████████▌| 1232/1288 [01:41<00:04, 12.53it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  96%|█████████▌| 1234/1288 [01:41<00:04, 13.37it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  96%|█████████▌| 1236/1288 [01:41<00:04, 11.27it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  47%|████▋     | 1241/2631 [01:41<02:18, 10.02it/s][32m [repeated 49x across cluster][0m
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  96%|█████████▌| 1238/1288 [01:42<00:03, 12.52it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  96%|█████████▋| 1240/1288 [01:42<00:04, 10.94it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  96%|█████████▋| 1242/1288 [01:42<00:03, 12.39it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  97%|█████████▋| 1244/1288 [01:42<00:03, 11.09it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  97%|█████████▋| 1246/1288 [01:42<00:03, 12.30it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  97%|█████████▋| 1248/1288 [01:42<00:03, 11.23it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  97%|█████████▋| 1250/1288 [01:43<00:03, 12.52it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  97%|█████████▋| 1252/1288 [01:43<00:03, 11.22it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  97%|█████████▋| 1255/1288 [01:43<00:03, 10.52it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  98%|█████████▊| 1257/1288 [01:43<00:02, 11.69it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  98%|█████████▊| 1259/1288 [01:44<00:03,  7.61it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  98%|█████████▊| 1261/1288 [01:44<00:02,  9.06it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  98%|█████████▊| 1263/1288 [01:45<00:05,  4.70it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  98%|█████████▊| 1266/1288 [01:45<00:03,  6.84it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  98%|█████████▊| 1268/1288 [01:45<00:02,  7.52it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  99%|█████████▊| 1271/1288 [01:45<00:02,  8.39it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  99%|█████████▉| 1274/1288 [01:45<00:01, 10.73it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  99%|█████████▉| 1277/1288 [01:46<00:00, 11.64it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1:  99%|█████████▉| 1280/1288 [01:46<00:00, 13.84it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1: 100%|█████████▉| 1282/1288 [01:46<00:00, 10.16it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1: 100%|█████████▉| 1284/1288 [01:46<00:00, 11.07it/s]
+[36m(ClientAppActor pid=403040)[0m Epoch 1/1: 100%|█████████▉| 1287/1288 [01:46<00:00, 12.90it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  50%|████▉     | 1304/2631 [01:46<01:53, 11.70it/s][32m [repeated 49x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  92%|█████████▏| 1245/1360 [01:47<00:09, 12.13it/s][32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  53%|█████▎    | 1398/2631 [01:51<01:10, 17.55it/s][32m [repeated 33x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1:  98%|█████████▊| 1332/1360 [01:52<00:01, 18.00it/s][32m [repeated 38x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  58%|█████▊    | 1526/2631 [01:57<00:39, 28.27it/s][32m [repeated 44x across cluster][0m
+[36m(ClientAppActor pid=403038)[0m Epoch 1/1: 100%|██████████| 1360/1360 [01:53<00:00, 11.93it/s][32m [repeated 13x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  63%|██████▎   | 1662/2631 [02:02<00:36, 26.79it/s][32m [repeated 45x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  69%|██████▊   | 1804/2631 [02:07<00:29, 27.59it/s][32m [repeated 47x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  74%|███████▎  | 1939/2631 [02:12<00:25, 27.05it/s][32m [repeated 45x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  79%|███████▉  | 2077/2631 [02:17<00:22, 25.03it/s][32m [repeated 46x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  84%|████████▍ | 2209/2631 [02:22<00:16, 25.81it/s][32m [repeated 44x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  89%|████████▉ | 2344/2631 [02:27<00:11, 25.78it/s][32m [repeated 45x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  91%|█████████▏| 2401/2631 [02:29<00:08, 25.83it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  91%|█████████▏| 2404/2631 [02:29<00:08, 26.26it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  91%|█████████▏| 2407/2631 [02:30<00:08, 26.40it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2410/2631 [02:30<00:08, 26.13it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2413/2631 [02:30<00:08, 25.20it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2416/2631 [02:30<00:08, 25.08it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2419/2631 [02:30<00:08, 24.56it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2422/2631 [02:30<00:08, 24.99it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2425/2631 [02:30<00:08, 25.42it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2428/2631 [02:30<00:08, 25.22it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  92%|█████████▏| 2431/2631 [02:31<00:07, 25.46it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2434/2631 [02:31<00:07, 25.56it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2437/2631 [02:31<00:07, 25.53it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2440/2631 [02:31<00:07, 24.95it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2443/2631 [02:31<00:07, 24.77it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2446/2631 [02:31<00:07, 25.18it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2449/2631 [02:31<00:07, 25.23it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2452/2631 [02:31<00:07, 25.19it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2455/2631 [02:32<00:07, 25.01it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  93%|█████████▎| 2458/2631 [02:32<00:06, 25.53it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▎| 2461/2631 [02:32<00:06, 25.48it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▎| 2464/2631 [02:32<00:06, 25.02it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2467/2631 [02:32<00:06, 25.12it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2470/2631 [02:32<00:06, 25.17it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  91%|█████████ | 2398/2631 [02:29<00:09, 25.42it/s][32m [repeated 18x across cluster][0m
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2473/2631 [02:32<00:06, 25.50it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2476/2631 [02:32<00:05, 25.88it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2479/2631 [02:32<00:05, 25.63it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2482/2631 [02:33<00:05, 25.69it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  94%|█████████▍| 2485/2631 [02:33<00:05, 25.74it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▍| 2488/2631 [02:33<00:05, 25.84it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▍| 2491/2631 [02:33<00:05, 25.52it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▍| 2494/2631 [02:33<00:05, 25.19it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▍| 2497/2631 [02:33<00:05, 25.63it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▌| 2500/2631 [02:33<00:05, 25.91it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▌| 2503/2631 [02:33<00:04, 26.30it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▌| 2506/2631 [02:33<00:04, 26.69it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▌| 2509/2631 [02:34<00:04, 26.63it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  95%|█████████▌| 2512/2631 [02:34<00:04, 26.73it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2515/2631 [02:34<00:04, 26.50it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2518/2631 [02:34<00:04, 26.52it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2521/2631 [02:34<00:04, 26.25it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2524/2631 [02:34<00:04, 26.57it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2527/2631 [02:34<00:03, 26.20it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▌| 2530/2631 [02:34<00:03, 26.17it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▋| 2533/2631 [02:34<00:03, 26.37it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  96%|█████████▋| 2536/2631 [02:35<00:03, 26.04it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2539/2631 [02:35<00:03, 26.20it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2542/2631 [02:35<00:03, 26.25it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2545/2631 [02:35<00:03, 25.72it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2548/2631 [02:35<00:03, 25.47it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2551/2631 [02:35<00:03, 25.80it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2554/2631 [02:35<00:02, 26.17it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2557/2631 [02:35<00:02, 26.38it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2560/2631 [02:36<00:02, 26.73it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  97%|█████████▋| 2563/2631 [02:36<00:02, 25.67it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2566/2631 [02:36<00:02, 25.95it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2569/2631 [02:36<00:02, 26.13it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2572/2631 [02:36<00:02, 25.81it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2575/2631 [02:36<00:02, 26.09it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2578/2631 [02:36<00:02, 26.38it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2581/2631 [02:36<00:01, 26.38it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2584/2631 [02:36<00:01, 26.41it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2587/2631 [02:37<00:01, 25.95it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  98%|█████████▊| 2590/2631 [02:37<00:01, 25.52it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▊| 2593/2631 [02:37<00:01, 25.48it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▊| 2596/2631 [02:37<00:01, 25.86it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2599/2631 [02:37<00:01, 25.86it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2602/2631 [02:37<00:01, 25.74it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2605/2631 [02:37<00:00, 26.23it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2608/2631 [02:37<00:00, 26.69it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2611/2631 [02:37<00:00, 26.98it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2614/2631 [02:38<00:00, 27.08it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1:  99%|█████████▉| 2617/2631 [02:38<00:00, 26.48it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1: 100%|█████████▉| 2620/2631 [02:38<00:00, 26.24it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1: 100%|█████████▉| 2623/2631 [02:38<00:00, 25.49it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1: 100%|█████████▉| 2626/2631 [02:38<00:00, 25.93it/s]
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1: 100%|█████████▉| 2630/2631 [02:38<00:00, 28.01it/s]
+[92mINFO [0m:      aggregate_train: Received 3 results and 0 failures
+[36m(ClientAppActor pid=403039)[0m Epoch 1/1: 100%|██████████| 2631/2631 [02:38<00:00, 16.57it/s]
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'partition-id': 0.7453931785883467, 'train_loss': 1.0235809905293258}
+[92mINFO [0m:      configure_evaluate: Sampled 3 nodes (out of 3)
+[2025-11-14T20:11:09] error: *** JOB 387 ON gpu-workers-1 CANCELLED AT 2025-11-14T20:11:09 DUE TO TIME LIMIT ***
+=== Copying best model ===
+  job387_sarthi_round5_auroc6683.pt
+=== Job 387 finished with exit code 0 ===

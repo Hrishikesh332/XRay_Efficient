@@ -1,0 +1,402 @@
+=== Job 337 started at Fri Nov 14 19:06:54 UTC 2025 on gpu-workers-0 ===
+=== Running: flwr run . cluster-gpu ===
+Loading project configuration... 
+Success
+[92mINFO [0m:      Device: AMD Instinct MI300X VF
+[92mINFO [0m:      W&B disabled (credentials not provided). Set WANDB_API_KEY, WANDB_ENTITY, and WANDB_PROJECT to enable.
+Downloading: "https://download.pytorch.org/models/efficientnet_b0_rwightman-7f5810bc.pth" to /tmp/job-337/xdg-cache/torch/hub/checkpoints/efficientnet_b0_rwightman-7f5810bc.pth
+  0%|          | 0.00/20.5M [00:00<?, ?B/s]100%|██████████| 20.5M/20.5M [00:00<00:00, 648MB/s]
+[92mINFO [0m:      Starting HackathonFedAvg strategy:
+[92mINFO [0m:      	├── Number of rounds: 100
+[92mINFO [0m:      	├── ArrayRecord (15.49 MB)
+[92mINFO [0m:      	├── ConfigRecord (train): {'lr': 0.1}
+[92mINFO [0m:      	├── ConfigRecord (evaluate): (empty!)
+[92mINFO [0m:      	├──> Sampling:
+[92mINFO [0m:      	│	├──Fraction: train (1.00) | evaluate ( 1.00)
+[92mINFO [0m:      	│	├──Minimum nodes: train (2) | evaluate (2)
+[92mINFO [0m:      	│	└──Minimum available nodes: 2
+[92mINFO [0m:      	└──> Keys in records:
+[92mINFO [0m:      		├── Weighted by: 'num-examples'
+[92mINFO [0m:      		├── ArrayRecord key: 'arrays'
+[92mINFO [0m:      		└── ConfigRecord key: 'config'
+[92mINFO [0m:      
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 1/100]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+[36m(ClientAppActor pid=1609717)[0m /usr/lib/python3.12/multiprocessing/popen_fork.py:66: DeprecationWarning: This process (pid=1609717) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[36m(ClientAppActor pid=1609717)[0m   self.pid = os.fork()
+[91mERROR [0m:     An exception was raised when processing a message by RayBackend
+[91mERROR [0m:     [36mray::ClientAppActor.run()[39m (pid=1609718, ip=10.244.0.128, actor_id=72bc7d5e93bf75c0f7037f2a01000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x77e9466fc0e0>)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/clientapp/client_app.py", line 161, in __call__
+    return self._registered_funcs[full_name](message, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/337/repo/cold_start_hackathon/client_app.py", line 31, in train
+    train_loss = train_fn(
+                 ^^^^^^^^^
+  File "/scratch/team04/337/repo/cold_start_hackathon/task.py", line 207, in train
+    for epoch in range(epochs):
+                 ^^^^^^^^^^^^^
+TypeError: 'float' object cannot be interpreted as an integer
+
+The above exception was the direct cause of the following exception:
+
+[36mray::ClientAppActor.run()[39m (pid=1609718, ip=10.244.0.128, actor_id=72bc7d5e93bf75c0f7037f2a01000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x77e9466fc0e0>)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 64, in run
+    raise ClientAppException(str(ex)) from ex
+flwr.clientapp.client_app.ClientAppException: 
+Exception ClientAppException occurred. Message: 'float' object cannot be interpreted as an integer
+[91mERROR [0m:     Traceback (most recent call last):
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/vce_api.py", line 124, in worker
+    out_mssg, updated_context = backend.process_message(message, context)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 189, in process_message
+    raise ex
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 176, in process_message
+    ) = self.pool.fetch_result_and_return_actor_to_pool(future)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 480, in fetch_result_and_return_actor_to_pool
+    _, out_mssg, updated_context = ray.get(future)
+                                   ^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/worker.py", line 2639, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/worker.py", line 864, in get_objects
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(ClientAppException): [36mray::ClientAppActor.run()[39m (pid=1609718, ip=10.244.0.128, actor_id=72bc7d5e93bf75c0f7037f2a01000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x77e9466fc0e0>)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/clientapp/client_app.py", line 161, in __call__
+    return self._registered_funcs[full_name](message, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/337/repo/cold_start_hackathon/client_app.py", line 31, in train
+    train_loss = train_fn(
+                 ^^^^^^^^^
+  File "/scratch/team04/337/repo/cold_start_hackathon/task.py", line 207, in train
+    for epoch in range(epochs):
+                 ^^^^^^^^^^^^^
+TypeError: 'float' object cannot be interpreted as an integer
+
+The above exception was the direct cause of the following exception:
+
+[36mray::ClientAppActor.run()[39m (pid=1609718, ip=10.244.0.128, actor_id=72bc7d5e93bf75c0f7037f2a01000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x77e9466fc0e0>)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 64, in run
+    raise ClientAppException(str(ex)) from ex
+flwr.clientapp.client_app.ClientAppException: 
+Exception ClientAppException occurred. Message: 'float' object cannot be interpreted as an integer
+
+[91mERROR [0m:     An exception was raised when processing a message by RayBackend
+[91mERROR [0m:     [36mray::ClientAppActor.run()[39m (pid=1609717, ip=10.244.0.128, actor_id=6aa9a63406f3a2145716351401000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x7dcec197c290>)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/clientapp/client_app.py", line 161, in __call__
+    return self._registered_funcs[full_name](message, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/337/repo/cold_start_hackathon/client_app.py", line 31, in train
+    train_loss = train_fn(
+                 ^^^^^^^^^
+  File "/scratch/team04/337/repo/cold_start_hackathon/task.py", line 207, in train
+    for epoch in range(epochs):
+                 ^^^^^^^^^^^^^
+TypeError: 'float' object cannot be interpreted as an integer
+
+The above exception was the direct cause of the following exception:
+
+[36mray::ClientAppActor.run()[39m (pid=1609717, ip=10.244.0.128, actor_id=6aa9a63406f3a2145716351401000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x7dcec197c290>)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 64, in run
+    raise ClientAppException(str(ex)) from ex
+flwr.clientapp.client_app.ClientAppException: 
+Exception ClientAppException occurred. Message: 'float' object cannot be interpreted as an integer
+[91mERROR [0m:     Traceback (most recent call last):
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/vce_api.py", line 124, in worker
+    out_mssg, updated_context = backend.process_message(message, context)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 189, in process_message
+    raise ex
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 176, in process_message
+    ) = self.pool.fetch_result_and_return_actor_to_pool(future)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 480, in fetch_result_and_return_actor_to_pool
+    _, out_mssg, updated_context = ray.get(future)
+                                   ^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/worker.py", line 2639, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/worker.py", line 864, in get_objects
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(ClientAppException): [36mray::ClientAppActor.run()[39m (pid=1609717, ip=10.244.0.128, actor_id=6aa9a63406f3a2145716351401000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x7dcec197c290>)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/clientapp/client_app.py", line 161, in __call__
+    return self._registered_funcs[full_name](message, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/337/repo/cold_start_hackathon/client_app.py", line 31, in train
+    train_loss = train_fn(
+                 ^^^^^^^^^
+  File "/scratch/team04/337/repo/cold_start_hackathon/task.py", line 207, in train
+    for epoch in range(epochs):
+                 ^^^^^^^^^^^^^
+TypeError: 'float' object cannot be interpreted as an integer
+
+The above exception was the direct cause of the following exception:
+
+[36mray::ClientAppActor.run()[39m (pid=1609717, ip=10.244.0.128, actor_id=6aa9a63406f3a2145716351401000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x7dcec197c290>)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 64, in run
+    raise ClientAppException(str(ex)) from ex
+flwr.clientapp.client_app.ClientAppException: 
+Exception ClientAppException occurred. Message: 'float' object cannot be interpreted as an integer
+
+[91mERROR [0m:     An exception was raised when processing a message by RayBackend
+[91mERROR [0m:     [36mray::ClientAppActor.run()[39m (pid=1609719, ip=10.244.0.128, actor_id=93f63ae767e086bcf91e3ce601000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x7734b01e7440>)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/clientapp/client_app.py", line 161, in __call__
+    return self._registered_funcs[full_name](message, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/337/repo/cold_start_hackathon/client_app.py", line 31, in train
+    train_loss = train_fn(
+                 ^^^^^^^^^
+  File "/scratch/team04/337/repo/cold_start_hackathon/task.py", line 207, in train
+    for epoch in range(epochs):
+                 ^^^^^^^^^^^^^
+TypeError: 'float' object cannot be interpreted as an integer
+
+The above exception was the direct cause of the following exception:
+
+[36mray::ClientAppActor.run()[39m (pid=1609719, ip=10.244.0.128, actor_id=93f63ae767e086bcf91e3ce601000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x7734b01e7440>)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 64, in run
+    raise ClientAppException(str(ex)) from ex
+flwr.clientapp.client_app.ClientAppException: 
+Exception ClientAppException occurred. Message: 'float' object cannot be interpreted as an integer
+[91mERROR [0m:     Traceback (most recent call last):
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/vce_api.py", line 124, in worker
+    out_mssg, updated_context = backend.process_message(message, context)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 189, in process_message
+    raise ex
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 176, in process_message
+    ) = self.pool.fetch_result_and_return_actor_to_pool(future)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 480, in fetch_result_and_return_actor_to_pool
+    _, out_mssg, updated_context = ray.get(future)
+                                   ^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/worker.py", line 2639, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/ray/_private/worker.py", line 864, in get_objects
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(ClientAppException): [36mray::ClientAppActor.run()[39m (pid=1609719, ip=10.244.0.128, actor_id=93f63ae767e086bcf91e3ce601000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x7734b01e7440>)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/clientapp/client_app.py", line 161, in __call__
+    return self._registered_funcs[full_name](message, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/337/repo/cold_start_hackathon/client_app.py", line 31, in train
+    train_loss = train_fn(
+                 ^^^^^^^^^
+  File "/scratch/team04/337/repo/cold_start_hackathon/task.py", line 207, in train
+    for epoch in range(epochs):
+                 ^^^^^^^^^^^^^
+TypeError: 'float' object cannot be interpreted as an integer
+
+The above exception was the direct cause of the following exception:
+
+[36mray::ClientAppActor.run()[39m (pid=1609719, ip=10.244.0.128, actor_id=93f63ae767e086bcf91e3ce601000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x7734b01e7440>)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 64, in run
+    raise ClientAppException(str(ex)) from ex
+flwr.clientapp.client_app.ClientAppException: 
+Exception ClientAppException occurred. Message: 'float' object cannot be interpreted as an integer
+
+[92mINFO [0m:      aggregate_train: Received 0 results and 3 failures
+[92mINFO [0m:      	> Received error in reply from node 6453921065370285340: <class 'ray.exceptions.RayTaskError(ClientAppException)'>:<'[36mray::ClientAppActor.run()[39m (pid=1609718, ip=10.244.0.128, actor_id=72bc7d5e93bf75c0f7037f2a01000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x77e9466fc0e0>)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/clientapp/client_app.py", line 161, in __call__
+    return self._registered_funcs[full_name](message, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/337/repo/cold_start_hackathon/client_app.py", line 31, in train
+    train_loss = train_fn(
+                 ^^^^^^^^^
+  File "/scratch/team04/337/repo/cold_start_hackathon/task.py", line 207, in train
+    for epoch in range(epochs):
+                 ^^^^^^^^^^^^^
+TypeError: 'float' object cannot be interpreted as an integer
+
+The above exception was the direct cause of the following exception:
+
+[36mray::ClientAppActor.run()[39m (pid=1609718, ip=10.244.0.128, actor_id=72bc7d5e93bf75c0f7037f2a01000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x77e9466fc0e0>)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 64, in run
+    raise ClientAppException(str(ex)) from ex
+flwr.clientapp.client_app.ClientAppException: 
+Exception ClientAppException occurred. Message: 'float' object cannot be interpreted as an integer'>
+[92mINFO [0m:      	> Received error in reply from node 8564530836959021296: <class 'ray.exceptions.RayTaskError(ClientAppException)'>:<'[36mray::ClientAppActor.run()[39m (pid=1609717, ip=10.244.0.128, actor_id=6aa9a63406f3a2145716351401000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x7dcec197c290>)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/clientapp/client_app.py", line 161, in __call__
+    return self._registered_funcs[full_name](message, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/337/repo/cold_start_hackathon/client_app.py", line 31, in train
+    train_loss = train_fn(
+                 ^^^^^^^^^
+  File "/scratch/team04/337/repo/cold_start_hackathon/task.py", line 207, in train
+    for epoch in range(epochs):
+                 ^^^^^^^^^^^^^
+TypeError: 'float' object cannot be interpreted as an integer
+
+The above exception was the direct cause of the following exception:
+
+[36mray::ClientAppActor.run()[39m (pid=1609717, ip=10.244.0.128, actor_id=6aa9a63406f3a2145716351401000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x7dcec197c290>)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 64, in run
+    raise ClientAppException(str(ex)) from ex
+flwr.clientapp.client_app.ClientAppException: 
+Exception ClientAppException occurred. Message: 'float' object cannot be interpreted as an integer'>
+[92mINFO [0m:      	> Received error in reply from node 3379478685443694279: <class 'ray.exceptions.RayTaskError(ClientAppException)'>:<'[36mray::ClientAppActor.run()[39m (pid=1609719, ip=10.244.0.128, actor_id=93f63ae767e086bcf91e3ce601000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x7734b01e7440>)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/clientapp/client_app.py", line 161, in __call__
+    return self._registered_funcs[full_name](message, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/337/repo/cold_start_hackathon/client_app.py", line 31, in train
+    train_loss = train_fn(
+                 ^^^^^^^^^
+  File "/scratch/team04/337/repo/cold_start_hackathon/task.py", line 207, in train
+    for epoch in range(epochs):
+                 ^^^^^^^^^^^^^
+TypeError: 'float' object cannot be interpreted as an integer
+
+The above exception was the direct cause of the following exception:
+
+[36mray::ClientAppActor.run()[39m (pid=1609719, ip=10.244.0.128, actor_id=93f63ae767e086bcf91e3ce601000000, repr=<flwr.simulation.ray_transport.ray_actor.ClientAppActor object at 0x7734b01e7440>)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 64, in run
+    raise ClientAppException(str(ex)) from ex
+flwr.clientapp.client_app.ClientAppException: 
+Exception ClientAppException occurred. Message: 'float' object cannot be interpreted as an integer'>
+[92mINFO [0m:      configure_evaluate: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      METRICS BY HOSPITAL
+[92mINFO [0m:        HospitalC (n=2730):
+[92mINFO [0m:          auroc       : 0.5817
+[92mINFO [0m:          eval_loss   : 0.8027
+[92mINFO [0m:          sensitivity : 0.0276
+[92mINFO [0m:          specificity : 0.9848
+[92mINFO [0m:          precision   : 0.6610
+[92mINFO [0m:          f1          : 0.0529
+[92mINFO [0m:        HospitalB (n=2860):
+[92mINFO [0m:          auroc       : 0.5584
+[92mINFO [0m:          eval_loss   : 0.6987
+[92mINFO [0m:          sensitivity : 0.0065
+[92mINFO [0m:          specificity : 0.9938
+[92mINFO [0m:          precision   : 0.3889
+[92mINFO [0m:          f1          : 0.0127
+[92mINFO [0m:        HospitalA (n=5490):
+[92mINFO [0m:          auroc       : 0.5653
+[92mINFO [0m:          eval_loss   : 0.7630
+[92mINFO [0m:          sensitivity : 0.0286
+[92mINFO [0m:          specificity : 0.9769
+[92mINFO [0m:          precision   : 0.5248
+[92mINFO [0m:          f1          : 0.0543
+[92mINFO [0m:      AGGREGATED METRICS:
+[92mINFO [0m:        auroc       : 0.5762
+[92mINFO [0m:        sensitivity : 0.0236
+[92mINFO [0m:        specificity : 0.9837
+[92mINFO [0m:        precision   : 0.5505
+[92mINFO [0m:        f1          : 0.0453
+[92mINFO [0m:      ✓ New best model! Round 1, AUROC: 0.5762
+[91mERROR [0m:     ServerApp thread raised an exception: 'NoneType' object has no attribute 'to_torch_state_dict'
+[91mERROR [0m:     Traceback (most recent call last):
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/run_simulation.py", line 284, in server_th_with_start_checks
+    updated_context = _run(
+                      ^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/server/run_serverapp.py", line 62, in run
+    server_app(grid=grid, context=context)
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/server/server_app.py", line 176, in __call__
+    self._main(grid, context)
+  File "/scratch/team04/337/repo/cold_start_hackathon/server_app.py", line 67, in main
+    result = strategy.start(
+             ^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/serverapp/strategy/strategy.py", line 254, in start
+    agg_evaluate_metrics = self.aggregate_evaluate(
+                           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/337/repo/cold_start_hackathon/server_app.py", line 97, in aggregate_evaluate
+    self._best_auroc = save_best_model(self._arrays, agg_metrics, server_round, self._run_name, self._best_auroc)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/337/repo/cold_start_hackathon/util.py", line 127, in save_best_model
+    torch.save(arrays.to_torch_state_dict(), model_path)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'to_torch_state_dict'
+
+Exception in thread Thread-1 (server_th_with_start_checks):
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/threading.py", line 1073, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.12/threading.py", line 1010, in run
+    self._target(*self._args, **self._kwargs)
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/run_simulation.py", line 284, in server_th_with_start_checks
+    updated_context = _run(
+                      ^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/server/run_serverapp.py", line 62, in run
+    server_app(grid=grid, context=context)
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/server/server_app.py", line 176, in __call__
+    self._main(grid, context)
+  File "/scratch/team04/337/repo/cold_start_hackathon/server_app.py", line 67, in main
+    result = strategy.start(
+             ^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/serverapp/strategy/strategy.py", line 254, in start
+    agg_evaluate_metrics = self.aggregate_evaluate(
+                           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/337/repo/cold_start_hackathon/server_app.py", line 97, in aggregate_evaluate
+    self._best_auroc = save_best_model(self._arrays, agg_metrics, server_round, self._run_name, self._best_auroc)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/team04/337/repo/cold_start_hackathon/util.py", line 127, in save_best_model
+    torch.save(arrays.to_torch_state_dict(), model_path)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'to_torch_state_dict'
+[36m(ClientAppActor pid=1609719)[0m /usr/lib/python3.12/multiprocessing/popen_fork.py:66: DeprecationWarning: This process (pid=1609719) is multi-threaded, use of fork() may lead to deadlocks in the child.[32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=1609719)[0m   self.pid = os.fork()[32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=1609717)[0m Training on device: cuda:0
+[36m(ClientAppActor pid=1609717)[0m Loaded /home/team04/xray-data/xray_fl_datasets_preprocessed_128/HospitalC/train
+[36m(ClientAppActor pid=1609718)[0m Training on device: cuda:0[32m [repeated 2x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(ClientAppActor pid=1609718)[0m Loaded /home/team04/xray-data/xray_fl_datasets_preprocessed_128/HospitalC/eval[32m [repeated 5x across cluster][0m
+Traceback (most recent call last):
+  File "/scratch/hackathon-venv/bin/flower-simulation", line 8, in <module>
+    sys.exit(run_simulation_from_cli())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/run_simulation.py", line 156, in run_simulation_from_cli
+    _ = _run_simulation(
+        ^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/run_simulation.py", line 523, in _run_simulation
+    updated_context = _main_loop(*args)
+                      ^^^^^^^^^^^^^^^^^
+  File "/scratch/hackathon-venv/lib/python3.12/site-packages/flwr/simulation/run_simulation.py", line 421, in _main_loop
+    raise RuntimeError("Exception in ServerApp thread")
+RuntimeError: Exception in ServerApp thread
+Command '['flower-simulation', '--app', '.', '--num-supernodes', '3', '--backend-config', '{"client-resources": {"num-cpus": 2, "num-gpus": 0.33}}']' returned non-zero exit status 1.
+=== Copying best model ===
+=== Job 337 finished with exit code 0 ===

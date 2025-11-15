@@ -1,0 +1,458 @@
+=== Job 377 started at Fri Nov 14 19:41:50 UTC 2025 on gpu-workers-0 ===
+=== Running: flwr run . cluster-gpu ===
+Loading project configuration... 
+Success
+[92mINFO [0m:      Device: AMD Instinct MI300X VF
+[92mINFO [0m:      W&B disabled (credentials not provided). Set WANDB_API_KEY, WANDB_ENTITY, and WANDB_PROJECT to enable.
+Downloading: "https://download.pytorch.org/models/efficientnet_b0_rwightman-7f5810bc.pth" to /tmp/job-377/xdg-cache/torch/hub/checkpoints/efficientnet_b0_rwightman-7f5810bc.pth
+  0%|          | 0.00/20.5M [00:00<?, ?B/s]100%|██████████| 20.5M/20.5M [00:00<00:00, 228MB/s]
+[92mINFO [0m:      Starting HackathonFedAvg strategy:
+[92mINFO [0m:      	├── Number of rounds: 100
+[92mINFO [0m:      	├── ArrayRecord (15.49 MB)
+[92mINFO [0m:      	├── ConfigRecord (train): {'lr': 0.1}
+[92mINFO [0m:      	├── ConfigRecord (evaluate): (empty!)
+[92mINFO [0m:      	├──> Sampling:
+[92mINFO [0m:      	│	├──Fraction: train (1.00) | evaluate ( 1.00)
+[92mINFO [0m:      	│	├──Minimum nodes: train (2) | evaluate (2)
+[92mINFO [0m:      	│	└──Minimum available nodes: 2
+[92mINFO [0m:      	└──> Keys in records:
+[92mINFO [0m:      		├── Weighted by: 'num-examples'
+[92mINFO [0m:      		├── ArrayRecord key: 'arrays'
+[92mINFO [0m:      		└── ConfigRecord key: 'config'
+[92mINFO [0m:      
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 1/100]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+[36m(ClientAppActor pid=1823203)[0m /usr/lib/python3.12/multiprocessing/popen_fork.py:66: DeprecationWarning: This process (pid=1823203) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[36m(ClientAppActor pid=1823203)[0m   self.pid = os.fork()
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):   0%|          | 0/2631 [00:00<?, ?it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):   0%|          | 1/2631 [00:21<16:02:14, 21.95s/it]
+[36m(ClientAppActor pid=1823202)[0m /usr/lib/python3.12/multiprocessing/popen_fork.py:66: DeprecationWarning: This process (pid=1823202) is multi-threaded, use of fork() may lead to deadlocks in the child.[32m [repeated 2x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(ClientAppActor pid=1823202)[0m   self.pid = os.fork()[32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):   0%|          | 0/1360 [00:00<?, ?it/s][32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):   5%|▌         | 71/1360 [00:26<01:39, 13.01it/s][32m [repeated 86x across cluster][0m
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  10%|▉         | 127/1288 [00:32<01:38, 11.77it/s][32m [repeated 82x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):   8%|▊         | 201/2631 [00:37<03:09, 12.84it/s][32m [repeated 84x across cluster][0m
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  17%|█▋        | 231/1360 [00:40<01:48, 10.40it/s]Partial Epoch (0.50 - seeing all data, training on 50.0%):  17%|█▋        | 233/1360 [00:40<01:32, 12.12it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  21%|██        | 271/1288 [00:42<01:19, 12.76it/s][32m [repeated 80x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  13%|█▎        | 332/2631 [00:47<02:54, 13.19it/s][32m [repeated 76x across cluster][0m
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  32%|███▏      | 407/1288 [00:52<01:11, 12.25it/s][32m [repeated 78x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  18%|█▊        | 467/2631 [00:57<02:26, 14.73it/s][32m [repeated 80x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  20%|██        | 534/2631 [01:02<02:44, 12.72it/s][32m [repeated 70x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  23%|██▎       | 605/2631 [01:07<02:23, 14.16it/s][32m [repeated 82x across cluster][0m
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  51%|█████     | 651/1288 [01:12<00:55, 11.44it/s][32m [repeated 71x across cluster][0m
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  48%|████▊     | 647/1360 [01:14<00:56, 12.54it/s]Partial Epoch (0.50 - seeing all data, training on 50.0%):  48%|████▊     | 649/1360 [01:14<01:02, 11.40it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  55%|█████▌    | 714/1288 [01:17<00:53, 10.73it/s][32m [repeated 67x across cluster][0m
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  53%|█████▎    | 677/1288 [01:14<00:43, 14.05it/s]Partial Epoch (0.50 - seeing all data, training on 50.0%):  53%|█████▎    | 679/1288 [01:14<00:46, 13.02it/s][32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  30%|███       | 797/2631 [01:22<02:27, 12.44it/s][32m [repeated 72x across cluster][0m
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  57%|█████▋    | 769/1360 [01:24<00:54, 10.94it/s]Partial Epoch (0.50 - seeing all data, training on 50.0%):  57%|█████▋    | 771/1360 [01:24<00:47, 12.37it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  32%|███▏      | 853/2631 [01:27<02:34, 11.49it/s][32m [repeated 74x across cluster][0m
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  73%|███████▎  | 943/1288 [01:32<00:24, 14.11it/s][32m [repeated 72x across cluster][0m
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  80%|███████▉  | 1029/1288 [01:37<00:13, 18.63it/s][32m [repeated 63x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  39%|███▊      | 1014/2631 [01:42<03:13,  8.35it/s][32m [repeated 65x across cluster][0m
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  91%|█████████▏| 1177/1288 [01:46<00:07, 14.29it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  92%|█████████▏| 1181/1288 [01:46<00:07, 14.03it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  92%|█████████▏| 1185/1288 [01:46<00:07, 14.58it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  92%|█████████▏| 1189/1288 [01:47<00:07, 13.74it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  93%|█████████▎| 1193/1288 [01:47<00:06, 14.12it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  93%|█████████▎| 1197/1288 [01:47<00:06, 14.41it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  93%|█████████▎| 1201/1288 [01:47<00:05, 15.92it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  41%|████      | 1067/2631 [01:48<02:43,  9.57it/s][32m [repeated 63x across cluster][0m
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  94%|█████████▎| 1205/1288 [01:48<00:04, 17.09it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  94%|█████████▎| 1207/1288 [01:48<00:05, 13.96it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  94%|█████████▍| 1211/1288 [01:48<00:04, 17.69it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  94%|█████████▍| 1214/1288 [01:48<00:04, 16.82it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  94%|█████████▍| 1216/1288 [01:48<00:04, 15.59it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  95%|█████████▍| 1218/1288 [01:49<00:05, 13.13it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  95%|█████████▍| 1221/1288 [01:49<00:05, 13.37it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  95%|█████████▍| 1223/1288 [01:49<00:04, 14.24it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  95%|█████████▌| 1225/1288 [01:49<00:04, 12.67it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  95%|█████████▌| 1227/1288 [01:49<00:04, 12.96it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  96%|█████████▌| 1231/1288 [01:49<00:03, 15.90it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  96%|█████████▌| 1233/1288 [01:50<00:03, 16.08it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  96%|█████████▌| 1237/1288 [01:50<00:03, 15.85it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  96%|█████████▋| 1240/1288 [01:50<00:02, 18.10it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  97%|█████████▋| 1243/1288 [01:50<00:02, 18.49it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  97%|█████████▋| 1245/1288 [01:50<00:02, 18.31it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  97%|█████████▋| 1248/1288 [01:50<00:02, 17.61it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  97%|█████████▋| 1251/1288 [01:51<00:01, 19.50it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  97%|█████████▋| 1254/1288 [01:51<00:01, 19.26it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  42%|████▏     | 1103/2631 [01:51<02:28, 10.26it/s]Partial Epoch (0.50 - seeing all data, training on 50.0%):  42%|████▏     | 1105/2631 [01:51<02:11, 11.56it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  98%|█████████▊| 1256/1288 [01:51<00:01, 16.08it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  98%|█████████▊| 1259/1288 [01:51<00:01, 17.37it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  98%|█████████▊| 1263/1288 [01:51<00:01, 18.30it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  98%|█████████▊| 1265/1288 [01:51<00:01, 18.60it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  98%|█████████▊| 1267/1288 [01:51<00:01, 18.85it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  99%|█████████▊| 1269/1288 [01:52<00:01, 17.64it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  99%|█████████▉| 1272/1288 [01:52<00:00, 20.40it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  99%|█████████▉| 1275/1288 [01:52<00:00, 19.90it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  99%|█████████▉| 1278/1288 [01:52<00:00, 14.84it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%): 100%|█████████▉| 1282/1288 [01:52<00:00, 16.97it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%): 100%|█████████▉| 1287/1288 [01:52<00:00, 21.98it/s]Partial Epoch (0.50 - seeing all data, training on 50.0%): 100%|██████████| 1288/1288 [01:52<00:00, 11.40it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  80%|████████  | 1093/1360 [01:53<00:20, 13.22it/s][32m [repeated 42x across cluster][0m
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  87%|████████▋ | 1183/1360 [01:58<00:09, 18.26it/s][32m [repeated 60x across cluster][0m
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  91%|█████████▏| 1241/1360 [02:01<00:06, 17.25it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  91%|█████████▏| 1243/1360 [02:01<00:07, 16.51it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  92%|█████████▏| 1247/1360 [02:01<00:06, 18.56it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  92%|█████████▏| 1249/1360 [02:01<00:06, 17.99it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  92%|█████████▏| 1253/1360 [02:02<00:05, 19.66it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  92%|█████████▏| 1257/1360 [02:02<00:05, 18.46it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  93%|█████████▎| 1261/1360 [02:02<00:05, 19.73it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  93%|█████████▎| 1265/1360 [02:02<00:05, 17.15it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  93%|█████████▎| 1269/1360 [02:02<00:05, 18.03it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  94%|█████████▎| 1273/1360 [02:03<00:05, 17.03it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  50%|████▉     | 1315/2631 [02:03<01:07, 19.51it/s][32m [repeated 46x across cluster][0m
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  94%|█████████▍| 1277/1360 [02:03<00:04, 17.11it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  94%|█████████▍| 1281/1360 [02:03<00:04, 18.37it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  94%|█████████▍| 1283/1360 [02:03<00:04, 18.01it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  94%|█████████▍| 1285/1360 [02:03<00:04, 15.76it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  95%|█████████▍| 1287/1360 [02:04<00:04, 15.69it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  95%|█████████▍| 1289/1360 [02:04<00:04, 16.51it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  95%|█████████▍| 1291/1360 [02:04<00:04, 16.26it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  95%|█████████▌| 1293/1360 [02:04<00:04, 16.37it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  95%|█████████▌| 1297/1360 [02:04<00:03, 18.50it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  96%|█████████▌| 1301/1360 [02:04<00:02, 20.82it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  96%|█████████▌| 1304/1360 [02:04<00:02, 22.44it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  96%|█████████▌| 1307/1360 [02:05<00:02, 19.78it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  96%|█████████▋| 1311/1360 [02:05<00:02, 21.01it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  97%|█████████▋| 1314/1360 [02:05<00:02, 19.85it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  97%|█████████▋| 1317/1360 [02:05<00:02, 19.78it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  97%|█████████▋| 1320/1360 [02:05<00:01, 21.77it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  97%|█████████▋| 1323/1360 [02:05<00:01, 20.10it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  98%|█████████▊| 1327/1360 [02:06<00:01, 20.52it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  98%|█████████▊| 1331/1360 [02:06<00:01, 21.55it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  98%|█████████▊| 1334/1360 [02:06<00:01, 22.68it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  98%|█████████▊| 1337/1360 [02:06<00:01, 21.36it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  99%|█████████▊| 1340/1360 [02:06<00:00, 21.75it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  99%|█████████▉| 1343/1360 [02:06<00:00, 21.98it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  99%|█████████▉| 1347/1360 [02:06<00:00, 25.39it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  99%|█████████▉| 1350/1360 [02:07<00:00, 22.08it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  99%|█████████▉| 1353/1360 [02:07<00:00, 18.76it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%): 100%|█████████▉| 1359/1360 [02:07<00:00, 25.90it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%): 100%|██████████| 1360/1360 [02:07<00:00, 10.67it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  53%|█████▎    | 1404/2631 [02:07<00:43, 28.51it/s]Partial Epoch (0.50 - seeing all data, training on 50.0%):  53%|█████▎    | 1407/2631 [02:08<00:42, 28.84it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  54%|█████▍    | 1420/2631 [02:08<00:36, 33.31it/s][32m [repeated 31x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  60%|██████    | 1589/2631 [02:13<00:32, 32.33it/s][32m [repeated 42x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  66%|██████▋   | 1748/2631 [02:18<00:31, 28.26it/s][32m [repeated 39x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  73%|███████▎  | 1918/2631 [02:23<00:20, 35.38it/s][32m [repeated 42x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  79%|███████▉  | 2077/2631 [02:28<00:20, 27.37it/s][32m [repeated 40x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  85%|████████▍ | 2235/2631 [02:33<00:13, 29.38it/s][32m [repeated 39x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  91%|█████████▏| 2402/2631 [02:38<00:06, 37.01it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  91%|█████████▏| 2406/2631 [02:38<00:06, 36.87it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  92%|█████████▏| 2410/2631 [02:38<00:06, 33.34it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  91%|█████████ | 2398/2631 [02:38<00:06, 36.84it/s][32m [repeated 40x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  92%|█████████▏| 2414/2631 [02:39<00:06, 34.75it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  92%|█████████▏| 2418/2631 [02:39<00:06, 31.51it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  92%|█████████▏| 2422/2631 [02:39<00:06, 33.29it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  92%|█████████▏| 2426/2631 [02:39<00:06, 32.88it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  92%|█████████▏| 2430/2631 [02:39<00:05, 34.12it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  93%|█████████▎| 2434/2631 [02:39<00:05, 35.31it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  93%|█████████▎| 2438/2631 [02:39<00:06, 29.80it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  93%|█████████▎| 2442/2631 [02:39<00:06, 30.91it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  93%|█████████▎| 2446/2631 [02:40<00:05, 32.56it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  93%|█████████▎| 2450/2631 [02:40<00:05, 33.89it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  93%|█████████▎| 2454/2631 [02:40<00:05, 30.49it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  93%|█████████▎| 2458/2631 [02:40<00:05, 31.61it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  94%|█████████▎| 2462/2631 [02:40<00:05, 30.99it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  94%|█████████▎| 2466/2631 [02:40<00:05, 31.60it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  94%|█████████▍| 2470/2631 [02:40<00:05, 30.36it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  94%|█████████▍| 2474/2631 [02:40<00:04, 31.85it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  94%|█████████▍| 2478/2631 [02:41<00:04, 32.99it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  94%|█████████▍| 2482/2631 [02:41<00:04, 34.49it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  94%|█████████▍| 2486/2631 [02:41<00:04, 35.77it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  95%|█████████▍| 2490/2631 [02:41<00:03, 36.43it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  95%|█████████▍| 2494/2631 [02:41<00:03, 34.53it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  95%|█████████▍| 2498/2631 [02:41<00:03, 34.02it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  95%|█████████▌| 2502/2631 [02:41<00:03, 34.47it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  95%|█████████▌| 2506/2631 [02:41<00:03, 35.07it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  95%|█████████▌| 2510/2631 [02:41<00:03, 35.94it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  96%|█████████▌| 2514/2631 [02:42<00:03, 36.53it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  96%|█████████▌| 2518/2631 [02:42<00:03, 36.57it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  96%|█████████▌| 2522/2631 [02:42<00:02, 36.97it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  96%|█████████▌| 2526/2631 [02:42<00:02, 37.28it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  96%|█████████▌| 2530/2631 [02:42<00:02, 37.55it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  96%|█████████▋| 2534/2631 [02:42<00:02, 37.09it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  96%|█████████▋| 2538/2631 [02:42<00:02, 32.49it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  97%|█████████▋| 2542/2631 [02:42<00:02, 34.12it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  97%|█████████▋| 2547/2631 [02:42<00:02, 35.29it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  97%|█████████▋| 2551/2631 [02:43<00:02, 31.76it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  97%|█████████▋| 2555/2631 [02:43<00:02, 32.92it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  97%|█████████▋| 2559/2631 [02:43<00:02, 31.43it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  97%|█████████▋| 2563/2631 [02:43<00:02, 33.45it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  98%|█████████▊| 2567/2631 [02:43<00:01, 34.77it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  98%|█████████▊| 2571/2631 [02:43<00:01, 30.30it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  98%|█████████▊| 2575/2631 [02:43<00:01, 32.27it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  98%|█████████▊| 2579/2631 [02:43<00:01, 33.24it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  98%|█████████▊| 2583/2631 [02:44<00:01, 31.19it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  98%|█████████▊| 2587/2631 [02:44<00:01, 32.68it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  98%|█████████▊| 2591/2631 [02:44<00:01, 34.27it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  99%|█████████▊| 2595/2631 [02:44<00:01, 35.33it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  99%|█████████▉| 2599/2631 [02:44<00:00, 32.47it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  99%|█████████▉| 2603/2631 [02:44<00:00, 32.63it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  99%|█████████▉| 2607/2631 [02:44<00:00, 32.78it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  99%|█████████▉| 2611/2631 [02:45<00:00, 27.95it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  99%|█████████▉| 2615/2631 [02:45<00:00, 29.96it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%): 100%|█████████▉| 2619/2631 [02:45<00:00, 32.31it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%): 100%|█████████▉| 2623/2631 [02:45<00:00, 30.07it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%): 100%|█████████▉| 2627/2631 [02:45<00:00, 30.46it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%): 100%|██████████| 2631/2631 [02:52<00:00,  1.92it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%): 100%|██████████| 2631/2631 [02:52<00:00, 15.28it/s]
+[92mINFO [0m:      aggregate_train: Received 3 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'partition-id': 0.7453931785883467, 'train_loss': 12.063844051241484}
+[92mINFO [0m:      configure_evaluate: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      METRICS BY HOSPITAL
+[92mINFO [0m:        HospitalC (n=2730):
+[92mINFO [0m:          auroc       : 0.5000
+[92mINFO [0m:          eval_loss   : 5.5035
+[92mINFO [0m:          sensitivity : 1.0000
+[92mINFO [0m:          specificity : 0.0000
+[92mINFO [0m:          precision   : 0.5183
+[92mINFO [0m:          f1          : 0.6828
+[92mINFO [0m:        HospitalB (n=2860):
+[92mINFO [0m:          auroc       : 0.5000
+[92mINFO [0m:          eval_loss   : 7.0992
+[92mINFO [0m:          sensitivity : 1.0000
+[92mINFO [0m:          specificity : 0.0000
+[92mINFO [0m:          precision   : 0.3787
+[92mINFO [0m:          f1          : 0.5493
+[92mINFO [0m:        HospitalA (n=5490):
+[92mINFO [0m:          auroc       : 0.5000
+[92mINFO [0m:          eval_loss   : 6.0444
+[92mINFO [0m:          sensitivity : 1.0000
+[92mINFO [0m:          specificity : 0.0000
+[92mINFO [0m:          precision   : 0.4709
+[92mINFO [0m:          f1          : 0.6402
+[92mINFO [0m:      AGGREGATED METRICS:
+[92mINFO [0m:        auroc       : 0.5000
+[92mINFO [0m:        sensitivity : 1.0000
+[92mINFO [0m:        specificity : 0.0000
+[92mINFO [0m:        precision   : 0.4588
+[92mINFO [0m:        f1          : 0.6290
+[92mINFO [0m:      ✓ New best model! Round 1, AUROC: 0.5000
+[92mINFO [0m:        Model saved to models/job377_sarthi_round1_auroc5000.pt
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'auroc': 0.5, 'sensitivity': 1.0, 'specificity': 0.0, 'precision': 0.4587545126353791, 'f1': 0.6289673946668316}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 2/100]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):   0%|          | 0/2631 [00:00<?, ?it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):   0%|          | 1/2631 [00:00<31:03,  1.41it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):   0%|          | 2/2631 [00:00<16:20,  2.68it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):   0%|          | 0/1360 [00:00<?, ?it/s][32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):   5%|▌         | 73/1360 [00:05<01:16, 16.92it/s][32m [repeated 78x across cluster][0m
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  10%|▉         | 124/1288 [00:10<01:35, 12.25it/s][32m [repeated 74x across cluster][0m
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  14%|█▍        | 185/1288 [00:15<01:58,  9.33it/s][32m [repeated 69x across cluster][0m
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  20%|██        | 261/1288 [00:20<01:03, 16.16it/s][32m [repeated 69x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  11%|█         | 289/2631 [00:25<03:40, 10.63it/s][32m [repeated 73x across cluster][0m
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  32%|███▏      | 412/1288 [00:30<01:07, 12.97it/s][32m [repeated 68x across cluster][0m
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  37%|███▋      | 480/1288 [00:36<01:00, 13.29it/s][32m [repeated 72x across cluster][0m
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  42%|████▏     | 545/1288 [00:41<00:52, 14.09it/s][32m [repeated 77x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  21%|██        | 552/2631 [00:46<02:25, 14.30it/s][32m [repeated 83x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  23%|██▎       | 611/2631 [00:51<02:56, 11.45it/s][32m [repeated 69x across cluster][0m
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  51%|█████     | 694/1360 [00:56<00:44, 15.00it/s][32m [repeated 76x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  28%|██▊       | 742/2631 [01:01<02:24, 13.03it/s][32m [repeated 78x across cluster][0m
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  69%|██████▊   | 883/1288 [01:06<00:31, 12.87it/s][32m [repeated 83x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  33%|███▎      | 868/2631 [01:11<02:38, 11.10it/s][32m [repeated 78x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  35%|███▌      | 934/2631 [01:16<02:02, 13.89it/s][32m [repeated 76x across cluster][0m
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  84%|████████▍ | 1079/1288 [01:21<00:13, 15.09it/s][32m [repeated 82x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  40%|████      | 1064/2631 [01:26<02:39,  9.82it/s][32m [repeated 68x across cluster][0m
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  91%|█████████▏| 1177/1288 [01:28<00:07, 15.15it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  92%|█████████▏| 1179/1288 [01:29<00:08, 12.95it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  92%|█████████▏| 1181/1288 [01:29<00:08, 13.12it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  92%|█████████▏| 1183/1288 [01:29<00:09, 10.83it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  92%|█████████▏| 1187/1288 [01:29<00:09, 10.67it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  92%|█████████▏| 1191/1288 [01:30<00:10,  9.58it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  93%|█████████▎| 1195/1288 [01:30<00:08, 10.65it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  93%|█████████▎| 1197/1288 [01:30<00:07, 11.50it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  93%|█████████▎| 1199/1288 [01:31<00:09,  9.15it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  93%|█████████▎| 1201/1288 [01:31<00:09,  9.33it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  93%|█████████▎| 1203/1288 [01:31<00:08, 10.49it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  94%|█████████▎| 1205/1288 [01:31<00:07, 11.60it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  43%|████▎     | 1127/2631 [01:31<02:08, 11.72it/s][32m [repeated 56x across cluster][0m
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  94%|█████████▍| 1208/1288 [01:31<00:06, 12.73it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  94%|█████████▍| 1210/1288 [01:32<00:05, 13.43it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  94%|█████████▍| 1212/1288 [01:32<00:06, 11.08it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  94%|█████████▍| 1214/1288 [01:32<00:07, 10.54it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  94%|█████████▍| 1217/1288 [01:32<00:05, 12.12it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  95%|█████████▍| 1219/1288 [01:32<00:05, 12.73it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  95%|█████████▍| 1222/1288 [01:32<00:04, 14.86it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  95%|█████████▌| 1224/1288 [01:33<00:05, 11.63it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  95%|█████████▌| 1226/1288 [01:33<00:04, 13.04it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  95%|█████████▌| 1228/1288 [01:33<00:04, 14.02it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  96%|█████████▌| 1231/1288 [01:33<00:05, 11.31it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  96%|█████████▌| 1233/1288 [01:33<00:04, 12.64it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  96%|█████████▌| 1235/1288 [01:34<00:04, 12.23it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  96%|█████████▌| 1237/1288 [01:34<00:03, 13.29it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  96%|█████████▌| 1239/1288 [01:34<00:03, 13.88it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  96%|█████████▋| 1241/1288 [01:34<00:03, 13.35it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  97%|█████████▋| 1243/1288 [01:34<00:03, 13.55it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  97%|█████████▋| 1245/1288 [01:34<00:03, 10.80it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  97%|█████████▋| 1249/1288 [01:35<00:02, 13.23it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  97%|█████████▋| 1252/1288 [01:35<00:02, 16.19it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  97%|█████████▋| 1254/1288 [01:35<00:02, 15.35it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  98%|█████████▊| 1256/1288 [01:35<00:02, 14.24it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  98%|█████████▊| 1258/1288 [01:35<00:02, 13.83it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  98%|█████████▊| 1260/1288 [01:35<00:02, 12.02it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  98%|█████████▊| 1262/1288 [01:36<00:01, 13.45it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  98%|█████████▊| 1264/1288 [01:36<00:02, 10.67it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  98%|█████████▊| 1267/1288 [01:36<00:02,  8.59it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  46%|████▌     | 1198/2631 [01:36<01:39, 14.45it/s][32m [repeated 53x across cluster][0m
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  99%|█████████▊| 1271/1288 [01:37<00:01, 10.47it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  99%|█████████▉| 1273/1288 [01:37<00:01, 11.21it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  99%|█████████▉| 1275/1288 [01:37<00:01, 10.31it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  99%|█████████▉| 1279/1288 [01:37<00:00, 13.81it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%): 100%|█████████▉| 1282/1288 [01:37<00:00, 15.38it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%): 100%|█████████▉| 1285/1288 [01:37<00:00, 17.15it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%): 100%|██████████| 1288/1288 [01:38<00:00, 13.13it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  91%|█████████▏| 1243/1360 [01:39<00:06, 18.87it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  92%|█████████▏| 1245/1360 [01:39<00:07, 16.41it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  92%|█████████▏| 1249/1360 [01:39<00:05, 18.55it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  92%|█████████▏| 1253/1360 [01:39<00:05, 18.33it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  92%|█████████▏| 1257/1360 [01:39<00:04, 21.12it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  93%|█████████▎| 1261/1360 [01:39<00:04, 21.63it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  93%|█████████▎| 1265/1360 [01:40<00:04, 19.27it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  93%|█████████▎| 1269/1360 [01:40<00:04, 19.09it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  94%|█████████▎| 1273/1360 [01:40<00:04, 18.65it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  94%|█████████▍| 1277/1360 [01:40<00:04, 19.81it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  94%|█████████▍| 1281/1360 [01:41<00:04, 16.87it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  94%|█████████▍| 1285/1360 [01:41<00:04, 18.67it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  95%|█████████▍| 1289/1360 [01:41<00:04, 16.99it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  95%|█████████▌| 1293/1360 [01:41<00:03, 19.52it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  95%|█████████▌| 1296/1360 [01:41<00:03, 20.02it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  49%|████▊     | 1279/2631 [01:41<01:41, 13.32it/s][32m [repeated 43x across cluster][0m
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  96%|█████████▌| 1299/1360 [01:42<00:03, 16.66it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  96%|█████████▌| 1301/1360 [01:42<00:03, 15.95it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  96%|█████████▌| 1304/1360 [01:42<00:03, 16.97it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  96%|█████████▌| 1307/1360 [01:42<00:03, 17.52it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  96%|█████████▋| 1309/1360 [01:42<00:03, 16.54it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  96%|█████████▋| 1312/1360 [01:42<00:02, 16.93it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  97%|█████████▋| 1315/1360 [01:42<00:02, 18.46it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  97%|█████████▋| 1317/1360 [01:43<00:02, 17.67it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  97%|█████████▋| 1320/1360 [01:43<00:02, 19.40it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  97%|█████████▋| 1323/1360 [01:43<00:01, 18.57it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  97%|█████████▋| 1325/1360 [01:43<00:02, 16.22it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  98%|█████████▊| 1329/1360 [01:43<00:01, 17.73it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  98%|█████████▊| 1333/1360 [01:44<00:01, 16.53it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  98%|█████████▊| 1335/1360 [01:44<00:01, 16.80it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  98%|█████████▊| 1339/1360 [01:44<00:01, 20.06it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  99%|█████████▊| 1342/1360 [01:44<00:00, 19.74it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  99%|█████████▉| 1345/1360 [01:44<00:00, 18.39it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  99%|█████████▉| 1349/1360 [01:44<00:00, 17.20it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  99%|█████████▉| 1353/1360 [01:45<00:00, 20.24it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%): 100%|█████████▉| 1359/1360 [01:45<00:00, 26.27it/s]
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%): 100%|██████████| 1360/1360 [01:45<00:00, 12.91it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  53%|█████▎    | 1396/2631 [01:46<00:37, 32.54it/s][32m [repeated 34x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  59%|█████▉    | 1549/2631 [01:52<00:37, 28.65it/s][32m [repeated 39x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  65%|██████▍   | 1705/2631 [01:56<00:34, 26.83it/s][32m [repeated 39x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  71%|███████   | 1870/2631 [02:02<00:22, 34.21it/s][32m [repeated 41x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  77%|███████▋  | 2026/2631 [02:07<00:21, 28.36it/s][32m [repeated 38x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  83%|████████▎ | 2190/2631 [02:12<00:13, 33.13it/s][32m [repeated 40x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  90%|████████▉ | 2355/2631 [02:17<00:08, 32.58it/s][32m [repeated 39x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  91%|█████████▏| 2401/2631 [02:18<00:08, 25.74it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  91%|█████████▏| 2405/2631 [02:18<00:07, 28.54it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  92%|█████████▏| 2409/2631 [02:19<00:07, 30.96it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  92%|█████████▏| 2413/2631 [02:19<00:07, 28.22it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  92%|█████████▏| 2417/2631 [02:19<00:07, 29.91it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  92%|█████████▏| 2421/2631 [02:19<00:06, 31.22it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  92%|█████████▏| 2425/2631 [02:19<00:07, 27.80it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  92%|█████████▏| 2429/2631 [02:19<00:06, 29.88it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  92%|█████████▏| 2433/2631 [02:19<00:07, 27.71it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  93%|█████████▎| 2438/2631 [02:19<00:05, 32.76it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  93%|█████████▎| 2443/2631 [02:20<00:05, 32.37it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  93%|█████████▎| 2447/2631 [02:20<00:05, 31.41it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  93%|█████████▎| 2451/2631 [02:20<00:05, 33.05it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  93%|█████████▎| 2455/2631 [02:20<00:05, 33.51it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  93%|█████████▎| 2459/2631 [02:20<00:05, 31.29it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  94%|█████████▎| 2463/2631 [02:20<00:05, 30.50it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  94%|█████████▍| 2467/2631 [02:20<00:05, 32.00it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  94%|█████████▍| 2471/2631 [02:21<00:05, 31.03it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  94%|█████████▍| 2475/2631 [02:21<00:04, 32.67it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  94%|█████████▍| 2480/2631 [02:21<00:04, 36.88it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  94%|█████████▍| 2484/2631 [02:21<00:04, 29.71it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  95%|█████████▍| 2489/2631 [02:21<00:04, 31.84it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  95%|█████████▍| 2493/2631 [02:21<00:04, 31.16it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  95%|█████████▍| 2498/2631 [02:21<00:03, 35.60it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  95%|█████████▌| 2502/2631 [02:22<00:04, 27.06it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  95%|█████████▌| 2506/2631 [02:22<00:04, 25.50it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  91%|█████████ | 2397/2631 [02:18<00:07, 32.38it/s][32m [repeated 10x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  95%|█████████▌| 2509/2631 [02:22<00:04, 25.42it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  96%|█████████▌| 2514/2631 [02:22<00:03, 30.73it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  96%|█████████▌| 2519/2631 [02:22<00:04, 26.89it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  96%|█████████▌| 2523/2631 [02:22<00:03, 28.01it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  96%|█████████▌| 2527/2631 [02:22<00:03, 29.69it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  96%|█████████▌| 2531/2631 [02:23<00:03, 29.92it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  96%|█████████▋| 2535/2631 [02:23<00:03, 29.56it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  97%|█████████▋| 2539/2631 [02:23<00:02, 31.49it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  97%|█████████▋| 2543/2631 [02:23<00:02, 30.10it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  97%|█████████▋| 2547/2631 [02:23<00:02, 31.09it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  97%|█████████▋| 2551/2631 [02:23<00:02, 29.97it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  97%|█████████▋| 2555/2631 [02:23<00:02, 31.92it/s]Partial Epoch (0.50 - seeing all data, training on 50.0%):  97%|█████████▋| 2560/2631 [02:23<00:01, 36.44it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  97%|█████████▋| 2564/2631 [02:24<00:01, 34.68it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  98%|█████████▊| 2569/2631 [02:24<00:01, 35.40it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  98%|█████████▊| 2573/2631 [02:24<00:01, 36.23it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  98%|█████████▊| 2577/2631 [02:24<00:01, 36.37it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  98%|█████████▊| 2583/2631 [02:24<00:01, 37.27it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  98%|█████████▊| 2588/2631 [02:24<00:01, 40.41it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  99%|█████████▊| 2593/2631 [02:24<00:00, 39.69it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  99%|█████████▉| 2599/2631 [02:24<00:00, 35.96it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  99%|█████████▉| 2603/2631 [02:25<00:00, 35.93it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  99%|█████████▉| 2607/2631 [02:25<00:00, 32.90it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  99%|█████████▉| 2611/2631 [02:25<00:00, 34.09it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  99%|█████████▉| 2615/2631 [02:25<00:00, 35.22it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%): 100%|█████████▉| 2619/2631 [02:25<00:00, 29.40it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%): 100%|█████████▉| 2623/2631 [02:25<00:00, 31.80it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%): 100%|█████████▉| 2629/2631 [02:25<00:00, 37.73it/s]
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%): 100%|██████████| 2631/2631 [02:25<00:00, 18.02it/s]
+[92mINFO [0m:      aggregate_train: Received 3 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'partition-id': 0.7453931785883467, 'train_loss': 3.0767621321162815}
+[92mINFO [0m:      configure_evaluate: Sampled 3 nodes (out of 3)
+[92mINFO [0m:      METRICS BY HOSPITAL
+[92mINFO [0m:        HospitalC (n=2730):
+[92mINFO [0m:          auroc       : 0.4943
+[92mINFO [0m:          eval_loss   : 0.9900
+[92mINFO [0m:          sensitivity : 1.0000
+[92mINFO [0m:          specificity : 0.0000
+[92mINFO [0m:          precision   : 0.5183
+[92mINFO [0m:          f1          : 0.6828
+[92mINFO [0m:        HospitalB (n=2860):
+[92mINFO [0m:          auroc       : 0.4532
+[92mINFO [0m:          eval_loss   : 1.2289
+[92mINFO [0m:          sensitivity : 1.0000
+[92mINFO [0m:          specificity : 0.0000
+[92mINFO [0m:          precision   : 0.3787
+[92mINFO [0m:          f1          : 0.5493
+[92mINFO [0m:        HospitalA (n=5490):
+[92mINFO [0m:          auroc       : 0.4635
+[92mINFO [0m:          eval_loss   : 1.0710
+[92mINFO [0m:          sensitivity : 1.0000
+[92mINFO [0m:          specificity : 0.0000
+[92mINFO [0m:          precision   : 0.4709
+[92mINFO [0m:          f1          : 0.6402
+[92mINFO [0m:      AGGREGATED METRICS:
+[92mINFO [0m:        auroc       : 0.4710
+[92mINFO [0m:        sensitivity : 1.0000
+[92mINFO [0m:        specificity : 0.0000
+[92mINFO [0m:        precision   : 0.4588
+[92mINFO [0m:        f1          : 0.6290
+[92mINFO [0m:        Model not saved (AUROC 0.4710 ≤ best 0.5000)
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'auroc': 0.4709822450080047, 'sensitivity': 1.0, 'specificity': 0.0, 'precision': 0.4587545126353791, 'f1': 0.6289673946668316}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 3/100]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+[36m(ClientAppActor pid=1823202)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):   0%|          | 0/1360 [00:00<?, ?it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):   0%|          | 1/1288 [00:00<18:58,  1.13it/s]
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):   0%|          | 0/1288 [00:00<?, ?it/s][32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):   5%|▌         | 67/1288 [00:05<01:44, 11.72it/s][32m [repeated 81x across cluster][0m
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  10%|█         | 132/1288 [00:10<01:32, 12.54it/s][32m [repeated 77x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):   8%|▊         | 211/2631 [00:16<02:58, 13.53it/s][32m [repeated 72x across cluster][0m
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  21%|██        | 269/1288 [00:21<01:24, 12.03it/s][32m [repeated 80x across cluster][0m
+[36m(ClientAppActor pid=1823201)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  27%|██▋       | 342/1288 [00:26<01:13, 12.94it/s][32m [repeated 83x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  16%|█▌        | 416/2631 [00:31<02:40, 13.83it/s][32m [repeated 87x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  18%|█▊        | 485/2631 [00:36<02:44, 13.02it/s][32m [repeated 77x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  21%|██        | 545/2631 [00:41<02:58, 11.71it/s][32m [repeated 75x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  23%|██▎       | 604/2631 [00:46<03:05, 10.92it/s][32m [repeated 79x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  25%|██▌       | 669/2631 [00:51<02:29, 13.14it/s][32m [repeated 79x across cluster][0m
+[36m(ClientAppActor pid=1823203)[0m Partial Epoch (0.50 - seeing all data, training on 50.0%):  26%|██▌       | 689/2631 [00:53<02:43, 11.90it/s]Partial Epoch (0.50 - seeing all data, training on 50.0%):  26%|██▋       | 691/2631 [00:53<02:25, 13.33it/s]
+[2025-11-14T19:49:15] error: *** JOB 377 ON gpu-workers-0 CANCELLED AT 2025-11-14T19:49:15 DUE to SIGNAL Terminated ***
+=== Copying best model ===
+  job377_sarthi_round1_auroc5000.pt
+=== Job 377 finished with exit code 0 ===
