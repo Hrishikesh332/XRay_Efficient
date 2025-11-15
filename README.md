@@ -4,10 +4,10 @@ This project implements federated learning for binary chest x-ray classification
 
 ## Challenge Details
 
-- **Task**: Binary classification (No Finding vs Any Finding)
-- **Metric**: AUROC
-- **Dataset**: NIH Chest X-Ray (non-IID split across 3 hospitals)
-- **Model**: EfficientNetB0 with custom head
+- **Task** - Binary classification (No Finding vs Any Finding)
+- **Metric** - AUROC
+- **Dataset** - NIH Chest X-Ray (non-IID split across 3 hospitals)
+- **Model** - EfficientNetB0 with custom Layer
 
 ## Project Structure
 
@@ -24,6 +24,33 @@ coldstart/
 │   └── utils.py            # Utility functions (metrics, etc.)
 └── requirements.txt        # Python dependencies
 ```
+
+## Major Improvement over the EfficientNet B0 model
+
+Applied Differential learning rates - classifier (12x), first conv (2.5x), backbone (0.12x)
+
+Learning rate scheduler - 15% linear warmup + cosine decay (min_lr=0.05)
+
+Optimizer - AdamW with weight_decay=1e-4, amsgrad=True
+
+Focal Loss (gamma=2.0, alpha=1.0) with class weighting
+
+Adaptive gradient clipping - 3.0 (warmup) → 1.5 (after)
+
+Mixed precision training (FP16) with GradScaler
+
+Batch size increased from 16 to 32
+
+## Metrics
+
+### AUROC
+
+![My Image](https://drive.google.com/uc?export=view&id=1XgMgaekVTz5hwmmzDErkm7YLhDVBe8tL)
+
+
+### Training and Loss
+
+![My Image](https://drive.google.com/uc?export=view&id=182TDslYJOcmSjPWH40nMYYKvFFVYgboD)
 
 ## Local Development
 
@@ -63,17 +90,16 @@ tail -f ~/logs/job*_xray-fed.out
 ## Model Architecture
 
 - **Backbone**: EfficientNetB0 (pretrained on ImageNet)
-- **Input**: 224x224 grayscale images
+- **Input**: 128x128 grayscale images
 - **Output**: Binary classification (sigmoid activation)
 - **Loss**: Binary Cross-Entropy
 - **Optimizer**: Adam with learning rate scheduling
 
 ## Federated Strategy
 
-- **Algorithm**: FedAvg with weighted averaging
-- **Aggregation**: Based on number of samples per client
-- **Rounds**: 50 (configurable in pyproject.toml)
-- **Client sampling**: All 3 hospitals per round
+- **Algorithm** - FedAvg with weighted averaging
+- **Aggregation** - Based on number of samples per client
+- **Client sampling** - All 3 hospitals per round
 
 ## Data Augmentation
 
